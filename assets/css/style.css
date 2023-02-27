@@ -6,7 +6,7 @@ CSS Variable
 ****************************
 */
 
-:root{
+:root {
   /* Text Color */
   --primary-dark-text-color: #333;
   --primary-light-text-color: #fff;
@@ -18,16 +18,13 @@ CSS Variable
   --primary-light-background-color: #fff;
   --primary-dark-background-color: #eee;
   --secondary-background-color: #ff6a00;
-  --tertiory-background-color : #2658f8;
+  --tertiory-background-color: #2658f8;
   --primary-gray-strip-color: #e2e1e1;
 
   /* Border */
   --primary-border-color: #e2e1e1;
   --secondary-border-color: #ccc;
-
-
 }
-
 
 /* 
 ****************************
@@ -67,7 +64,7 @@ Common Styles
   margin: 0 auto;
 }
 
-.p-b-70px{
+.p-b-70px {
   padding-bottom: 70px;
 }
 
@@ -81,7 +78,7 @@ Common Styles
   padding-bottom: 30px;
 }
 
-.p-tb-70px{
+.p-tb-70px {
   padding-top: 70px;
   padding-bottom: 70px;
 }
@@ -101,31 +98,31 @@ Common Styles
   margin-bottom: 30px;
 }
 
-.m-b-20px{
+.m-b-20px {
   margin-bottom: 20px;
 }
 
-.m-t-20px{
+.m-t-20px {
   margin-top: 20px;
 }
 
-.m-b-50px{
+.m-b-50px {
   margin-bottom: 50px;
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.flex-between-center{
+.flex-between-center {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.flex-col-center{
+.flex-col-center {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,7 +205,8 @@ Common Styles
   top: 120%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-color: var(--secondary-dark-text-color) transparent transparent transparent;
+  border-color: var(--secondary-dark-text-color) transparent transparent
+    transparent;
   border-width: 10px;
   border-style: solid;
 }
@@ -286,7 +284,7 @@ Header Styles
   color: var(--primary-dark-text-color);
   font-size: 18px;
   font-weight: 400;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .navbar .left .menu-items .menu-item a i {
@@ -336,7 +334,7 @@ Header Styles
 .navbar .mid > div {
   font-size: 18px;
   color: var(--primary-text-color);
-  opacity: .7;
+  opacity: 0.7;
   cursor: pointer;
 }
 
@@ -347,11 +345,11 @@ Header Styles
 .navbar .right > div {
   font-size: 18px;
   color: var(--primary-text-color);
-  opacity: .7;
+  opacity: 0.7;
   cursor: pointer;
 }
 
-.navbar .right > div a{
+.navbar .right > div a {
   color: var(--primary-text-color);
   text-decoration: none;
 }
@@ -361,7 +359,7 @@ Header Styles
 .header-top {
   border-top: 1px solid var(--secondary-border-color);
   background-color: var(--primary-dark-background-color);
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .header-top .content {
@@ -2090,7 +2088,7 @@ Reciew Section
 
 .review .categories-carousal-container .item .icon {
   font-size: 100px;
-  color:var(--secondary-background-color);
+  color: var(--secondary-background-color);
   margin-bottom: 10px;
 }
 
@@ -2465,14 +2463,6 @@ Footer Bottom Section
   .footer-bottom-container
   .right
   .payment-methods
-  .payment-method:last-child {
-  margin-right: 0;
-}
-
-.footer-bottom
-  .footer-bottom-container
-  .right
-  .payment-methods
   .payment-method
   a {
   text-decoration: none;
@@ -2514,8 +2504,11 @@ Footer Bottom Section
     grid-gap: 20px;
   }
 
-  .footer-bottom .footer-bottom-container .right .payment-methods .payment-method {
-    margin-right: 0;
+  .footer-bottom
+    .footer-bottom-container
+    .right
+    .payment-methods
+    .payment-method {
     align-self: center;
     justify-self: center;
   }
