@@ -33,8 +33,11 @@
 </head>
 
 <body>
+  <a class="go-to-top" id="top" href="#go-to-top">
+      <i class="fa-regular fa-arrow-up"></i>
+    </a>
   <!-- Header Section code Start -->
-  <header>
+  <header id="go-to-top">
     <div class="navbar-container">
       <div class="container">
         <div class="navbar flex-between-center">
@@ -1690,6 +1693,20 @@
         },
       });
     });
+
+    let goToTop = document.getElementById('top');
+    window.addEventListener("scroll", ()=>{
+      if (window.scrollY > 200){
+        goToTop.style.display = "flex";
+        goToTop.style.transition = "all .6s ease-in-out";
+        console.log("if")
+      }
+      else{
+        goToTop.style.display = "none";
+        goToTop.style.transition = "all .6s ease-in-out";
+        console.log("else")
+      }
+    })
   </script>
 </body>
 

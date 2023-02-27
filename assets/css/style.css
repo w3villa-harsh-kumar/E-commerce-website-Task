@@ -36,6 +36,7 @@ Universal Styles
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -108,6 +109,24 @@ Common Styles
 
 .m-b-50px {
   margin-bottom: 50px;
+}
+
+.go-to-top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--tertiory-background-color);
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  z-index: 1000;
+  font-size: 20px;
+  color: var(--primary-light-text-color);
+  text-decoration: none;
+  display: none;
 }
 
 .flex-center {
@@ -2324,6 +2343,7 @@ Footer Section
 
 .footer .content-container .desc {
   text-align: start;
+  margin-top: 20px;
 }
 
 .footer .footer-container .about-links,
