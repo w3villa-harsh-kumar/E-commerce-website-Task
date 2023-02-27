@@ -159,6 +159,7 @@ Common Styles
 
   .content-container .heading {
     align-items: start;
+    font-size: 30px;
   }
 
   .content-container .desc {
