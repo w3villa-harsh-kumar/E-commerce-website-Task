@@ -111,7 +111,54 @@ Common Styles
   margin-bottom: 50px;
 }
 
-.go-to-top{
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.dropdown__container {
+  position: relative;
+}
+
+.dropdown {
+  list-style: none;
+  margin-top: 14px;
+  display: none;
+  position: absolute;
+  background-color: var(--tertiory-background-color);
+  color: var(--primary-light-text-color);
+  padding: 16px 30px;
+  border-radius: 3px;
+  width: 220px;
+  z-index: 1000;
+}
+
+.dropdown__item {
+  padding: 8px 16px;
+  display: inline-block;
+}
+
+.dropdown__item:hover {
+  opacity: 0.8;
+  background-color: #e2e2e2;
+  border-radius: 5px;
+  color: #000;
+}
+
+@media screen and (max-width: 1200px) {
+  .dropdown {
+    background-color: var(--secondary-border-color);
+    color: var(--primary-light-text-color);
+  }
+
+  .dropdown__item {
+    color: #333;
+  }
+}
+
+.go-to-top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -305,6 +352,15 @@ Header Styles
   font-size: 18px;
   font-weight: 400;
   opacity: 0.7;
+  cursor: pointer;
+}
+
+.navbar .left .menu-items .faq {
+  text-decoration: none;
+  color: #333333b3;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
 }
 
 .navbar .left .menu-items .menu-item a i {
@@ -353,8 +409,7 @@ Header Styles
 
 .navbar .mid > div {
   font-size: 18px;
-  color: var(--primary-text-color);
-  opacity: 0.7;
+  color: #333333b3;
   cursor: pointer;
 }
 
@@ -364,8 +419,7 @@ Header Styles
 
 .navbar .right > div {
   font-size: 18px;
-  color: var(--primary-text-color);
-  opacity: 0.7;
+  color: #333333b3;
   cursor: pointer;
 }
 
@@ -379,7 +433,6 @@ Header Styles
 .header-top {
   border-top: 1px solid var(--secondary-border-color);
   background-color: var(--primary-dark-background-color);
-  opacity: 0.9;
 }
 
 .header-top .content {
@@ -410,6 +463,11 @@ Header Styles
   padding: 12px 15px;
   user-select: none;
   cursor: pointer;
+}
+
+.header-top .content .search-container .all ul {
+  background-color: var(--tertiory-background-color);
+  color: var(--primary-light-text-color);
 }
 
 .header-top .content .search-container .search-input input {
@@ -629,6 +687,7 @@ Header Styles
     width: 550px;
     transition: all 0.3s ease;
   }
+
 }
 
 @media screen and (max-width: 1450px) {
@@ -646,8 +705,19 @@ Header Styles
 }
 
 @media screen and (max-width: 1200px) {
+  .navbar .left .menu-items .faq {
+    color: #ffffffb5;
+  }
+  .header-top .content .search-container .all ul li {
+    color: var(--primary-light-text-color);
+  }
   .header-bottom {
     display: none;
+  }
+
+
+  .currancy ul{
+    right: 0;
   }
   .header-top .content .search-container .search-input input {
     width: 150px;
@@ -667,7 +737,7 @@ Header Styles
   }
 
   .navbar .mid > div {
-    color: var(--primary-light-text-color);
+    color: #ffffffb5;
   }
 }
 
@@ -1413,6 +1483,18 @@ Featured Products Section
   .right
   > div
   li
+  a:hover {
+  color: #000000;
+  opacity: 0.8;
+}
+
+.featured-products
+  .categories-carousal-container
+  .item
+  .bottom
+  .right
+  > div
+  li
   a
   i {
   margin-right: 5px;
@@ -1819,6 +1901,18 @@ Featured Categories Section
   .bottom-right
   > div
   li
+  a:hover {
+  color: #000000;
+  opacity: 0.8;
+}
+
+.featured-categories
+  .categories-carousal-container
+  .item
+  .bottom
+  .bottom-right
+  > div
+  li
   a
   i {
   margin-right: 5px;
@@ -1925,6 +2019,11 @@ Gallary Section
   border-radius: 5px;
 }
 
+.gallary .categories-carousal-container .image-list .image:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
 .gallary .categories-carousal-container .image-list .image img {
   width: 100%;
   height: 100%;
@@ -1944,6 +2043,11 @@ Gallary Section
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+  }
+
+  .gallary .categories-carousal-container .image-list .image:hover {
+    transform: scale(1.01);
+    transition: all 0.3s ease-in-out;
   }
 
   .gallary .categories-carousal-container .image-list .image {
@@ -1995,6 +2099,11 @@ Blog Section
   box-shadow: 3px 3px 17px #1e1e1e1b;
   transition: all 0.5s ease;
   border-radius: 5px;
+}
+
+.blog .categories-carousal-container .item:hover {
+  transform: scale(1.01);
+  transition: all 0.3s ease-in-out;
 }
 
 .blog .categories-carousal-container .item .image {
@@ -2059,6 +2168,10 @@ Blog Section
 
 .blog .categories-carousal-container .item .strip > div {
   padding-left: 15px;
+}
+
+.blog .categories-carousal-container .item .strip > div i {
+  font-size: 18px;
 }
 
 .blog .categories-carousal-container .item .strip > div:first-child {
@@ -2250,6 +2363,26 @@ Most viewed Section
   color: #000000ad;
 }
 
+.most-viewed
+  .categories-carousal-container
+  .item
+  .most-viewed-container
+  .icons
+  .icon
+  a:hover {
+  color: #000000;
+}
+
+.most-viewed
+  .categories-carousal-container
+  .item
+  .most-viewed-container
+  .icons
+  .icon
+  a {
+  color: #000000ad;
+}
+
 /*
 *****************************
 Social Media handle Section
@@ -2270,7 +2403,6 @@ Social Media handle Section
 
 .social-media .social-media-container .social-media-icon {
   font-size: 30px;
-  color: #000000ad;
   margin-right: 20px;
   width: 60px;
   height: 60px;
@@ -2279,14 +2411,19 @@ Social Media handle Section
   align-items: center;
   border-radius: 50%;
   background-color: var(--tertiory-background-color);
+  color: var(--primary-light-text-color);
+  text-decoration: none;
+}
+
+.social-media .social-media-container .social-media-icon:hover {
+  background-color: var(--primary-dark-background-color);
+  color: var(--secondary-dark-text-color);
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
 }
 
 .social-media .social-media-container .social-media-icon:last-child {
   margin-right: 0;
-}
-
-.social-media .social-media-container .social-media-icon a {
-  color: var(--primary-light-text-color);
 }
 
 @media screen and (max-width: 768px) {
@@ -2391,6 +2528,10 @@ Footer Section
   color: var(--primary-text-color);
   display: flex;
   align-items: center;
+}
+
+.footer .footer-container .newsletter .input-container input:focus {
+  outline: none;
 }
 
 .footer .footer-container .newsletter .input-container button {
