@@ -1,0 +1,728 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* 
+******************
+Common Styles
+******************
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fafafa;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-none {
+  display: none !important;
+  transition: all 0.5s;
+  transform: rotateY(-180deg);
+}
+
+.display-flex {
+  display: flex !important;
+  transition: all 0.5s;
+}
+
+.flip-login {
+  transform: rotateY(180deg);
+  transition: 0.9s;
+}
+
+.flip-signup {
+  transform: rotateY(180deg);
+  transition: 0.9s;
+}
+
+/* 
+******************
+Images Section Styles
+******************
+*/
+
+.image-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #2571ec;
+  position: relative;
+}
+
+.image-container .bubble {
+  z-index: 1;
+}
+
+.image-container .bubble1 {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f4b400;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  animation: bounce1 2s infinite;
+  transition: 0.5s;
+}
+
+@keyframes bounce1 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.image-container .bubble2 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #db4437;
+  position: absolute;
+  top: 37%;
+  right: 3%;
+  animation: bounce2 2s infinite;
+  transition: 0.5s;
+}
+
+@keyframes bounce2 {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.image-container .bubble3 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0f9d58;
+  position: absolute;
+  bottom: 30%;
+  left: 5%;
+  animation: bounce3 2s infinite;
+  transition: 0.5s;
+}
+
+@keyframes bounce3 {
+  0% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+.image-container .img-container {
+  width: 70%;
+  height: 56%;
+  margin-bottom: 5rem;
+}
+
+.image-container .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.image-container .welcome-text .heading {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+
+.image-container .welcome-text .text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .image-container .bubble1 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .image-container .bubble2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .image-container .bubble3 {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-container .bubble1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .image-container .bubble2 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .image-container .bubble3 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .image-container .welcome-text .heading {
+    font-size: 1.5rem;
+  }
+
+  .image-container .welcome-text .text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .image-container {
+    display: none;
+  }
+}
+
+/*
+******************
+Login and Signup Section Styles
+******************
+*/
+
+.login-container,
+.signup-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-container {
+  display: none;
+}
+
+.login-container .upper,
+.signup-container .upper {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-container .logo .icon,
+.signup-container .logo .icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #e8e8e84c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 1rem; */
+  border: 1px solid #e8e8e8;
+}
+
+.login-container .logo .icon i,
+.signup-container .logo .icon i {
+  font-size: 2.7rem;
+  color: #2571ec;
+}
+
+.login-container .login-content,
+.signup-container .login-content {
+  width: 70%;
+  padding-bottom: 2rem;
+}
+
+.login-container .login-content .heading,
+.signup-container .login-content .heading {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.login-container .login-content .text,
+.signup-container .login-content .text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.login-container .login-form,
+.signup-container .login-form {
+  width: 70%;
+}
+
+.login-container .login-form form .input-container,
+.signup-container .login-form form .input-container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.login-container .login-form form .input-container input[type="text"],
+.login-container .login-form form .input-container input[type="password"],
+.signup-container .login-form form .input-container input[type="text"],
+.signup-container .login-form form .input-container input[type="password"] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 0 1rem;
+}
+
+.login-container .login-form form .input-container input[type="text"],
+.signup-container .login-form form .input-container input[type="text"] {
+  margin-bottom: 0.5rem;
+}
+
+.login-container
+  .login-form
+  form
+  .input-container:focus
+  input[type="text"]::placeholder,
+.login-container
+  .login-form
+  form
+  .input-container:focus
+  input[type="password"]::placeholder,
+.signup-container
+  .login-form
+  form
+  .input-container:focus
+  input[type="text"]::placeholder,
+.signup-container
+  .login-form
+  form
+  .input-container:focus
+  input[type="password"]::placeholder {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #33333383;
+}
+
+.login-container .login-form form .input-container input[type="text"]:focus,
+.login-container .login-form form .input-container input[type="password"]:focus,
+.signup-container .login-form form .input-container input[type="text"]:focus,
+.signup-container
+  .login-form
+  form
+  .input-container
+  input[type="password"]:focus {
+  outline: none;
+  border: 1px solid #4285f4;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-container .login-form form .input-container i,
+.signup-container .login-form form .input-container i {
+  position: absolute;
+  right: 5%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #33333383;
+}
+
+.login-container .login-form form .input-container input[type="text"]:focus + i,
+.login-container
+  .login-form
+  form
+  .input-container
+  input[type="password"]:focus
+  + i,
+.signup-container
+  .login-form
+  form
+  .input-container
+  input[type="text"]:focus
+  + i,
+.signup-container
+  .login-form
+  form
+  .input-container
+  input[type="password"]:focus
+  + i {
+  color: #4285f4;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-container .login-form form .login-bottom-container,
+.signup-container .login-form form .login-bottom-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2.5rem;
+}
+
+.login-container .login-form form .login-bottom-container .remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-container
+  .login-form
+  form
+  .login-bottom-container
+  .remember-me
+  input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+}
+
+.login-container .login-form form .login-bottom-container .remember-me label {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #333;
+}
+
+.login-container .login-form form .login-bottom-container .forgot-password a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.login-container
+  .login-form
+  form
+  .login-bottom-container
+  .forgot-password
+  a:hover {
+  text-decoration: underline;
+}
+
+.login-container .login-form form .button-coontainer,
+.signup-container .login-form form .button-coontainer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.login-container .login-form form .button-coontainer button,
+.signup-container .login-form form .button-coontainer button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: #2571ec;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-container .login-form form .button-coontainer button:hover,
+.signup-container .login-form form .button-coontainer button:hover {
+  background: #4285f4;
+}
+
+.login-container .login-form form .button-coontainer button:focus,
+.signup-container .login-form form .button-coontainer button:focus {
+  outline: none;
+}
+
+.login-container .other-login,
+.signup-container .other-login {
+  padding-bottom: 1rem;
+}
+
+.login-container .other-login .text,
+.signup-container .other-login .text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #333;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.login-container .other-login .icons,
+.signup-container .other-login .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-container .other-login .icons .icon,
+.signup-container .other-login .icons .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e8e8e84c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e8e8e8;
+  margin-left: 1rem;
+}
+
+.login-container .other-login .icons .icon i,
+.signup-container .other-login .icons .icon i {
+  font-size: 1.5rem;
+  color: #4285f4;
+}
+
+.login-container .other-login .icons .icon:hover,
+.signup-container .other-login .icons .icon:hover {
+  background: #4285f4;
+}
+
+.login-container .other-login .icons .icon:hover i,
+.signup-container .other-login .icons .icon:hover i {
+  color: #fff;
+}
+
+.login-container .other-login .icons .icon:first-child,
+.signup-container .other-login .icons .icon:first-child {
+  margin-left: 0;
+}
+
+.login-container .lower,
+.signup-container .lower {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container .lower .text,
+.signup-container .lower .text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #333;
+  padding-right: 0.5rem;
+}
+
+.login-container .lower .link a,
+.signup-container .lower .link a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.login-container .lower .link a:hover,
+.signup-container .lower .link a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+  .login-container .login-content,
+  .signup-container .login-content {
+    width: 80%;
+  }
+
+  .login-container .login-form,
+  .signup-container .login-form {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-container,
+  .signup-container {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    background-color: #2571ec;
+  }
+
+  .login-container .logo .icon i,
+  .signup-container .logo .icon i {
+    color: white;
+  }
+
+  .login-container .login-content .heading,
+  .signup-container .login-content .heading {
+    color: white;
+  }
+
+  .login-container .login-content .text,
+  .signup-container .login-content .text {
+    color: white;
+  }
+
+  .login-container .login-form form .login-bottom-container .remember-me label {
+    color: white;
+  }
+
+  .login-container .login-form form .login-bottom-container .forgot-password a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .login-container .login-form form .button-coontainer button,
+  .signup-container .login-form form .button-coontainer button {
+    background: white;
+    color: #2571ec;
+  }
+
+  .login-container .other-login .icons .icon i,
+  .signup-container .other-login .icons .icon i {
+    color: white;
+  }
+
+  .login-container .other-login .text,
+  .signup-container .other-login .text {
+    color: white;
+  }
+
+  .login-container .lower .text,
+  .signup-container .lower .text {
+    color: white;
+  }
+
+  .login-container .lower .link a,
+  .signup-container .lower .link a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .login-container .login-form form .input-container input[type="text"]:focus,
+  .login-container
+    .login-form
+    form
+    .input-container
+    input[type="password"]:focus,
+  .signup-container .login-form form .input-container input[type="text"]:focus,
+  .signup-container
+    .login-form
+    form
+    .input-container
+    input[type="password"]:focus {
+    outline: none;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .login-container .login-content,
+  .signup-container .login-content {
+    width: 70%;
+    padding-bottom: 1rem;
+  }
+
+  .signup-container .login-form form .button-coontainer {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .login-container .lower,
+  .signup-container .lower {
+    margin-top: 2rem;
+  }
+
+  .login-container .login-form form .button-coontainer,
+  .signup-container .login-form form .button-coontainer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .login-container,
+  .signup-container {
+    width: 90%;
+    padding: 0;
+  }
+
+  .forgot-password {
+    text-align: end;
+  }
+  .login-container .lower,
+  .signup-container .lower {
+    margin-top: 2rem;
+  }
+
+  .login-container,
+  .signup-container {
+    width: 100%;
+  }
+
+  .login-container .logo .icon,
+  .signup-container .logo .icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .signup-container .login-form form .button-coontainer {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .login-container .login-content,
+  .signup-container .login-content {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .login-container .lower,
+  .signup-container .lower {
+    flex-direction: column;
+  }
+}

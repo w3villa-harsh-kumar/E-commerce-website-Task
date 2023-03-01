@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Default"
+      disabled
+      href="/css/app-af6a05f42b013986b481566363f0186f.css?vsn=d"
+    />
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-df1bd4d47fc6bf066625b27b61ccafe7.css?vsn=d"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/sharp-solid.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/sharp-regular.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/login-signup.css" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <!-- Login Page -->
+    <div class="container">
+      <!-- Image Container -->
+      <div class="image-container">
+        <div class="bubble1 bubble"></div>
+        <div class="bubble2 bubble"></div>
+        <div class="bubble3 bubble"></div>
+        <div class="img-container">
+          <img src="./assets/images/img2.svg" alt="Login Image" />
+        </div>
+        <div class="welcome-text" id="welcome-text">
+          <div class="heading">Welcome Back!</div>
+          <div class="text">
+            To keep connected with us please login with your personal info.
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Container -->
+      <div class="login-container" id="login-container">
+        <div class="upper">
+          <div class="logo">
+            <div class="icon">
+                <i class="fa-solid fa-user gradient-text"></i>
+            </div>
+          </div>
+          <div class="login-content">
+            <div class="heading">Hello Again!</div>
+            <div class="text">
+              Enter your personal details and start your journey with us today.
+            </div>
+          </div>
+          <div class="login-form">
+            <form action="#" method="#">
+              <div class="input-container">
+                <input type="text" name="email" placeholder="Email" required />
+                <i class="fa-regular fa-at"></i>
+              </div>
+              <div class="input-container">
+                <input
+                  class="active"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+                <i class="fa-regular fa-lock-keyhole"></i>
+              </div>
+              <div class="login-bottom-container">
+                <div class="remember-me">
+                  <input type="checkbox" name="remember" id="remember" />
+                  <label for="remember">Remember Me</label>
+                </div>
+                <div class="forgot-password">
+                  <a href="#">Forgot Password?</a>
+                </div>
+              </div>
+              <div class="button-coontainer">
+                <button type="submit">Login</button>
+              </div>
+            </form>
+          </div>
+          <div class="other-login">
+            <div class="text">Or Login With</div>
+            <div class="icons">
+              <div class="icon">
+                <i class="fab fa-google"></i>
+              </div>
+              <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+              </div>
+              <div class="icon">
+                <i class="fab fa-twitter"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lower">
+          <div class="text">Don't have an account?</div>
+          <div class="link">
+            <a href="#" id="signup">Sign Up</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sign Up Container -->
+      <div class="signup-container" id="signup-container">
+        <div class="upper">
+            <div class="logo">
+                <div class="icon">
+                    <i class="fa-solid fa-user gradient-text"></i>
+                </div>
+              </div>
+          <div class="login-content">
+            <div class="heading">Welcome User!</div>
+            <div class="text">
+              Enter your personal details and start your journey with us today.
+            </div>
+          </div>
+          <div class="login-form">
+            <form action="login.php" method="POST">
+              <div class="input-container">
+                <input type="text" name="name" placeholder="Name" required />
+                <i class="fa-regular fa-user"></i>
+              </div>
+              <div class="input-container">
+                <input type="text" name="email" placeholder="Email" required />
+                <i class="fa-regular fa-at"></i>
+              </div>
+              <div class="input-container">
+                <input
+                  class="active"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+                <i class="fa-regular fa-lock-keyhole"></i>
+              </div>
+              <div class="button-coontainer">
+                <button type="submit">Sign Up</button>
+              </div>
+            </form>
+          </div>
+          <div class="other-login">
+            <div class="text">Or Sign Up With</div>
+            <div class="icons">
+              <div class="icon">
+                <i class="fab fa-google"></i>
+              </div>
+              <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+              </div>
+              <div class="icon">
+                <i class="fab fa-twitter"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lower">
+          <div class="text">Already have an account?</div>
+          <div class="link">
+            <a href="#" id="login">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let signup = document.getElementById("signup");
+      let login = document.getElementById("login");
+      let welcomeText = document.getElementById("welcome-text");
+      let loginContainer = document.getElementById("login-container");
+      let signUpContainer = document.getElementById("signup-container");
+
+      signup.addEventListener("click", () => {
+        console.log("clicked");
+        loginContainer.classList.toggle("flip-login");
+        setTimeout(() => {
+          loginContainer.classList.add("display-none");
+          signUpContainer.classList.add("display-flex");
+          signUpContainer.classList.remove("flip-signup");
+        }, 1000);
+        welcomeText.innerHTML = `
+        <div class="heading">Welcome!</div>
+                <div class="text">
+                    Enter your personal details and start your journey with us today.
+                </div>`;
+      });
+
+      login.addEventListener("click", () => {
+        console.log("clicked");
+        signUpContainer.classList.toggle("flip-signup");
+        setTimeout(() => {
+          loginContainer.classList.remove("display-none");
+          signUpContainer.classList.remove("display-flex");
+          loginContainer.classList.remove("flip-login");
+        }, 1000);
+        welcomeText.innerHTML = `
+        <div class="heading">Welcome Back!</div>
+          <div class="text">
+            To keep connected with us please login with your personal info.
+          </div>`;
+      });
+    </script>
+  </body>
+</html>
