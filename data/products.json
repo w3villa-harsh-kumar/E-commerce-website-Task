@@ -1,46 +1,862 @@
 {
-    "products" : [
-        {
-            "name" : "T-shirt",
-            "price" : 10.99,
-            "quantity" : 2,
-            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
-        },
-        {
-            "name" : "Jeans",
-            "price" : 10.99,
-            "quantity" : 2,
-            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
-        },
-        {
-            "name" : "T-shirt",
-            "price" : 10.99,
-            "quantity" : 2,
-            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
-        },
-        {
-            "name" : "T-shirt",
-            "price" : 10.99,
-            "quantity" : 2,
-            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
-        },
-        {
-            "name" : "T-shirt",
-            "price" : 10.99,
-            "quantity" : 2,
-            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
-        },
-        {
-            "name" : "T-shirt",
-            "price" : 10.99,
-            "quantity" : 2,
-            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
-        },
-        {
-            "name" : "T-shirt",
-            "price" : 10.99,
-            "quantity" : 2,
-            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
-        }    
-    ]
+    "products" : {
+        "top-categories" : [
+            {
+                "name" : "fashion",
+                "img" : "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+            },
+            {
+                "name" : "beauty",
+                "img" : "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+            },
+            {
+                "name" : "footware",
+                "img" : "https://images.unsplash.com/photo-1673542972043-6eec7756e7b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+            },
+            {
+                "name" : "bags",
+                "img" : "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            },
+            {
+                "name" : "homedacor",
+                "img" : "https://media.istockphoto.com/id/1333060261/photo/modern-living-room-interior-design.jpg?b=1&s=170667a&w=0&k=20&c=x43sLuuam-Kd7CaO7KjtaIZFGZfwGRqNRfusaJvuER4="
+            },
+            {
+                "name" : "electronics",
+                "img" : "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=629&q=80"
+            }
+        ],
+        "electronics" : [
+            {
+                "name" : "mobiles",
+                "img" : "https://images.unsplash.com/photo-1596558450268-9c27524ba856?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=100"
+            },
+            {
+                "name" : "laptops",
+                "img" : "https://images.unsplash.com/photo-1504707748692-419802cf939d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=100"
+            },
+            {
+                "name" : "headphones",
+                "img" : "https://images.unsplash.com/photo-1545127398-14699f92334b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=100"
+            },
+            {
+                "name" : "speakers",
+                "img" : "https://images.unsplash.com/photo-1585605109191-03cc36051fcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=100"
+            },
+            {
+                "name" : "cameras",
+                "img" : "https://images.unsplash.com/photo-1491796014055-e6835cdcd4c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=100"
+            },
+            {
+                "name" : "accessories",
+                "img" : "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=100"
+            }
+        ],
+        "beauty" : [
+            {
+                "name" : "makeup",
+                "img" : "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=100"
+            },
+            {
+                "name" : "skincare",
+                "img" : "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=100"
+            },
+            {
+                "name" : "haircare",
+                "img" : "https://images.unsplash.com/photo-1624939461078-66a124b3539c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=100"
+            },
+            {
+                "name" : "fragrances",
+                "img" : "https://images.unsplash.com/photo-1587304946976-cbbbafce2133?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+            },
+            {
+                "name" : "tools",
+                "img" : "https://images.unsplash.com/photo-1600228397442-46ea628b4bdd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=100"
+            },
+            {
+                "name" : "accessories",
+                "img" : "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=100"
+            }
+        ],
+        "fashion" : [
+            {
+                "name" : "Jeans",
+                "img" : "https://images.unsplash.com/photo-1582552938357-32b906df40cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=100"
+            },
+            {
+                "name" : "T-shirts",
+                "img" : "https://images.unsplash.com/photo-1616006897093-5e4635c0de35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=100"
+            },
+            {
+                "name" : "Shirts",
+                "img" : "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=100"
+            },
+            {
+                "name" : "Sweaters",
+                "img" : "https://images.unsplash.com/photo-1579954568250-8b7abc7743e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=100"
+            },
+            {
+                "name" : "Jackets",
+                "img" : "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=100"
+            },
+            {
+                "name" : "Suits",
+                "img" : "https://images.unsplash.com/photo-1593030103066-0093718efeb9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=100"
+            }
+        ],
+        "fashionProducts" : [
+            {
+                "name" : "Men T-shirt",
+                "price" : 100,
+                "img" : "https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                "tags" : [
+                    {
+                        "tag" : "free",
+                        "color" : "blue"
+                    },
+                    {
+                        "tag" : "new",
+                        "color" : "red"
+                    }
+                ]
+    
+            },
+            {
+                "name" : "Women T-shirt",
+                "price" : 100,
+                "img" : "https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                "tags" : [
+                    {
+                        "tag" : "new",
+                        "color" : "red"
+                    },
+                    {
+                        "tag" : "pre-order",
+                        "color" : "green"
+                    }
+                ]
+            },
+            {
+                "name" : "Men Shirt",
+                "price" : 100,
+                "img" : "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+                "tags" : [
+                    {
+                        "tag" : "sale",
+                        "color" : "orange"
+                    }
+                ]
+            },
+            {
+                "name" : "Wedding Gown",
+                "price" : 100,
+                "img" : "https://images.unsplash.com/photo-1547697875-a99fe8f08327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                "tags" : [
+                    {
+                        "tag" : "sale",
+                        "color" : "magenta"
+                    },
+                    {
+                        "tag" : "pre-order",
+                        "color" : "orange"
+                    }
+                ]
+            }
+            
+        ],
+        "featured" : [
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop",
+                "img" : "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=100",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "207",
+                "name" : "Smart Phone",
+                "img" : "https://images.unsplash.com/photo-1606341802409-aceb7ebbec1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+                "actualPrice" : "250",
+                "discountedPrice" : "200",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "208",
+                "name" : "Smart Tv",
+                "img" : "https://media.istockphoto.com/id/1442113658/photo/rear-view-of-cream-colored-leather-sofa-to-large-flat-screen-tv-black-laminated-cabinet-floor.jpg?b=1&s=170667a&w=0&k=20&c=2bME-M2pCk1HeL3jL6BLAMNuQaGsHLBMfOpFgG25Bm8=",
+                "actualPrice" : "300",
+                "discountedPrice" : "250",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "209",
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "actualPrice" : "350",
+                "discountedPrice" : "300",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "210",
+                "name" : "Digital Camera",
+                "img" : "https://images.unsplash.com/photo-1616423640778-28d1b53229bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+                "actualPrice" : "400",
+                "discountedPrice" : "350",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "211",
+                "name" : "Smart Watch",
+                "img" : "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
+                "actualPrice" : "450",
+                "discountedPrice" : "400",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            }
+        ],
+        "latest" : [
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Ice Skates",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Ice-Skates.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            }
+        ],
+        "bestsellers" : [
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Wireless Phone Chargers",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Wireless-Phone-Chargers.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            }
+        ],
+        "specials" : [
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            },
+            {
+                "company" : "Apple",
+                "modalNo" : "206",
+                "name" : "Laptop Accessories",
+                "img" : "https://www.cloudways.com/blog/wp-content/uploads/Laptop-Accessories.jpg",
+                "actualPrice" : "200",
+                "discountedPrice" : "150",
+                "tags" : [
+                    {
+                        "tag" :  "new",
+                        "color" :  "red"
+                    },
+                    {
+                        "tag" :  "sale",
+                        "color" :  "green"
+                    }
+                ]
+            }
+            
+        ],
+        "mostViewedProducts" : [
+            {
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "price" : "299.00"
+            },
+            {
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "price" : "299.00"
+            },
+            {
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "price" : "299.00"
+            },
+            {
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "price" : "299.00"
+            },
+            {
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "price" : "299.00"
+            },
+            {
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "price" : "299.00"
+            },
+            {
+                "name" : "Headphone",
+                "img" : "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "price" : "299.00"
+            }
+        ]
+    }
 }
