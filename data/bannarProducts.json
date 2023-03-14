@@ -1,0 +1,24 @@
+{
+    "bannar-products" : [
+        {
+            "tag" : "smart phone",  
+            "description" : "Best Smart Phone options <br /> at affordable prices",
+            "img" : "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        {
+            "tag" : "latest laptop",  
+            "description" : "Latest Laptop options <br /> with free shipping",
+            "img" : "https://images.pexels.com/photos/939331/pexels-photo-939331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        {
+            "tag" : "smart watch",  
+            "description" : "Best Smart Watch options <br /> with lowest price",
+            "img" : "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80"
+        },
+        {
+            "tag" : "digital camera",  
+            "description" : "Best Digital Camera <br /> options at any resolution",
+            "img" : "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        }
+    ]
+}

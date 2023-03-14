@@ -1,0 +1,46 @@
+{
+    "products" : [
+        {
+            "name" : "T-shirt",
+            "price" : 10.99,
+            "quantity" : 2,
+            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
+        },
+        {
+            "name" : "Jeans",
+            "price" : 10.99,
+            "quantity" : 2,
+            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
+        },
+        {
+            "name" : "T-shirt",
+            "price" : 10.99,
+            "quantity" : 2,
+            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
+        },
+        {
+            "name" : "T-shirt",
+            "price" : 10.99,
+            "quantity" : 2,
+            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
+        },
+        {
+            "name" : "T-shirt",
+            "price" : 10.99,
+            "quantity" : 2,
+            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
+        },
+        {
+            "name" : "T-shirt",
+            "price" : 10.99,
+            "quantity" : 2,
+            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
+        },
+        {
+            "name" : "T-shirt",
+            "price" : 10.99,
+            "quantity" : 2,
+            "img_url" : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ikea.com%2Fpi%2Fimages%2Fproducts%2Ft-shirt%2Ft-shirt__0711002_PE729201_S5.JPG&imgrefurl=https%3A%2F%2Fwww.ikea.com%2Fus%2Fen%2Fp%2Ft-shirt-white-702-071-10%"
+        }    
+    ]
+}

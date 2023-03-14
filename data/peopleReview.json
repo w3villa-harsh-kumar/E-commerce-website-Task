@@ -1,0 +1,24 @@
+{
+    "peopleReviews" : [
+        {
+            "reviewContent" : "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet , dolorem!",
+            "author" : "John Doe"
+        },
+        {
+            "reviewContent" : "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet , dolorem!",
+            "author" : "John Doe"
+        },
+        {
+            "reviewContent" : "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet , dolorem!",
+            "author" : "John Doe"
+        },
+        {
+            "reviewContent" : "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet , dolorem!",
+            "author" : "John Doe"
+        },
+        {
+            "reviewContent" : "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dicta, voluptates illo provident, quaerat veniam eligendi debitis minima et omnis aperiam? Aliquam,dolor sit amet , dolorem!",
+            "author" : "John Doe"
+        }
+    ]
+}
