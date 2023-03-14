@@ -758,7 +758,7 @@
 
     // Buy From us Listing Function
     async function buyFromUs(term) {
-      let response = await fetch("/data/buyFromUs.json");
+      let response = await fetch("data/buyFromUs.json");
       let data = await response.json();
       let cartegoryCarousel = document.getElementById("category-carousel");
       let html = `<div id="category-carousel-${term}" class="owl-carousel owl-theme">`;
@@ -804,7 +804,7 @@
 
     // Featured Products Listing Function
     async function featuredProducts(term) {
-      let response = await fetch("/data/featuredProducts.json");
+      let response = await fetch("data/featuredProducts.json");
       let data = await response.json();
       let cartegoryCarousel = document.getElementById("featurred-products-category-carousel");
       let html = `<div id="featurred-products-carousel-${term}" class="owl-carousel owl-theme">`;
@@ -914,7 +914,7 @@
 
     // Blogs Listing Function
     async function blogs(term) {
-      let response = await fetch("/data/blogs.json");
+      let response = await fetch("data/blogs.json");
       let data = await response.json();
       const blogsContainer = document.getElementById("blog-categories-carousal-container");
       let blogsData = `<div id="blog-carousel-${term}" class="owl-carousel owl-theme">`;
