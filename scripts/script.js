@@ -5,7 +5,7 @@ async function getData(url){
 }
 
 async function bannarProducts() {
-  let data = await getData("./data/bannarProducts.json");
+  let data = await getData("data/bannarProducts.json");
   const bannarCarousel = document.getElementById("bannar-carousel");
 
   let bannarCarouselData = "";
@@ -53,7 +53,7 @@ async function bannarProducts() {
 
 
 async function fashionProducts() {
-  let data = await getData("./data/fashionProducts.json");
+  let data = await getData("data/fashionProducts.json");
   const featuredCategoryCarousel = document.getElementById(
     "featurred-category-carousel"
   );
@@ -136,7 +136,7 @@ async function fashionProducts() {
 }
 
 async function reviews() {
-  let data = await getData("./data/peopleReview.json")
+  let data = await getData("data/peopleReview.json")
   const peopleReviews = document.getElementById("people-reviews-container");
 
   let peopleReviewsData = `<div id="review-carousel" class="owl-carousel owl-theme">`;
@@ -182,7 +182,7 @@ async function reviews() {
 }
 
 async function mostViewedProducts() {
-  const data = await getData("./data/mostViewedProducts.json");
+  const data = await getData("data/mostViewedProducts.json");
   const mostViewedProducts = document.getElementById("most-viewed-products");
 
   let mostViewedProductsData = `<div id="most-viewed-carousel" class="owl-carousel owl-theme">`;
