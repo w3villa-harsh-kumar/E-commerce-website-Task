@@ -63,10 +63,11 @@ async function bannarProducts() {
 
 // Buy From us Listing Function
 async function buyFromUs(term) {
-  let data = await getAllProductsData();
+  let response = await fetch("data/buyFromUs.json");
+  let data = await response.json();
   let cartegoryCarousel = document.getElementById("category-carousel");
   let html = `<div id="category-carousel-${term}" class="owl-carousel owl-theme">`;
-  data['products'][term].forEach((item) => {
+  data[term].forEach((item) => {
     html += `
     <div class="item">
         <div class="image">
@@ -106,6 +107,7 @@ async function buyFromUs(term) {
   });
 }
 
+
 // Featured Products Listing Function
 async function featuredProducts(term) {
   let data = await getAllProductsData();
@@ -136,7 +138,7 @@ async function featuredProducts(term) {
         </div>
         <div class="details">
           <div class="name">
-            <span>${item.productName}</span>
+            <span>${item.name}</span>
           </div>
           <div class="price">
             <div class="discount">
@@ -481,10 +483,9 @@ async function searchProduct(searchTerm){
   let allProducts = Object.values(data['products']).flat();
 
   // Find all the product with the search term
-  let filteredData = []
-  allProducts.filter((item) => {
+  let filteredData =  allProducts.filter((item) => {
     if(item.name.toLowerCase().includes(searchTerm.toLowerCase())){
-      filteredData.push(item);
+      return item
     }
   });
 
@@ -495,9 +496,69 @@ async function searchProduct(searchTerm){
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", async () => {
   const searchInput = document.getElementById("search-input");
-  let data = await searchProduct(searchInput.value);
-  return data;
+  let data = await searchProduct(searchInput.value);  
+  showSearchResult(data)
 });
+
+function showSearchResult(products){
+  let searchItemsContainer = document.getElementById("search-items-container")
+
+  let searchItems = ""
+  Array.from(products).forEach((item, index) => {
+    searchItems += `
+    <div class="item" id="${index}">
+    <div class="image">
+      <img
+        src=${item.img} />
+      <div class="green-strip product-strip" style="background-color: ${item?.tags[0]?.color || "green"};">
+        <span>${item?.tags[0]?.tag || "free"}</span>
+      </div>
+      <div class="red-strip product-strip" style="background-color: ${item?.tags[1]?.color || "red"};">
+        <span>${item?.tags[1]?.tag || "new"}</span>
+      </div>
+      <div class="badges">
+        <span class="badge badge1">-70%</span>
+        <span class="badge badge2">new</span>
+      </div>
+    </div>
+    <div class="details">
+      <div class="name">
+        <span>${item.name}</span>
+      </div>
+      <div class="price">
+        <div class="current">
+          <span>$ ${item.price || 200}</span>
+        </div>
+      </div>
+      <div class="bottom flex-between-center">
+        <div class="bottom-left">
+          <div class="add-to-cart">
+            Add to cart
+          </div>
+        </div>
+        <div class="bottom-right">
+          <div class="wishlist">
+            <li class="list-item">
+              <a href=""><i class="fa-regular fa-heart"></i></a>
+            </li>
+          </div>
+          <div class="compare">
+            <li class="list-item">
+              <a href=""><i class="fa-regular fa-circle-waveform-lines"></i>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    `;
+  });
+
+  searchItemsContainer.innerHTML = searchItems;
+  let mainContainer = document.getElementById("main-container");
+  mainContainer.style.display = "none";
+}
 
 bannarProducts();
 buyFromUs("top-categories");
