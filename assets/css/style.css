@@ -1,8 +1,13 @@
+/* 
+****************************
+Importing Font from google
+****************************
+*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 /* 
 ****************************
-CSS Variable
+CSS Variables
 ****************************
 */
 
@@ -24,6 +29,9 @@ CSS Variable
   /* Border */
   --primary-border-color: #e2e1e1;
   --secondary-border-color: #ccc;
+
+  /* Font */
+  --primary-font-size: 16px;
 }
 
 /* 
@@ -45,7 +53,6 @@ body {
   line-height: 1.5;
   color: var(--primary-text-color);
   background: var(--primary-background-color);
-  font-size: 14px;
   font-weight: 400;
   font-style: normal;
   line-height: inherit;
@@ -137,7 +144,7 @@ Common Styles
 
 .dropdown__item {
   padding: 8px 16px;
-  display: inline-block;
+  display: block;
 }
 
 .dropdown__item:hover {
@@ -162,15 +169,14 @@ Common Styles
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: var(--tertiory-background-color);
   position: fixed;
   right: 3%;
   bottom: 3%;
   z-index: 1000;
-  font-size: 20px;
   color: var(--primary-light-text-color);
   text-decoration: none;
   display: none;
@@ -196,7 +202,7 @@ Common Styles
 }
 
 .content-container .heading {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--primary-text-color);
   line-height: 1.2;
@@ -210,7 +216,7 @@ Common Styles
 }
 
 .content-container .desc {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--secondary-light-text-color);
   line-height: 1.2;
@@ -225,11 +231,12 @@ Common Styles
 
   .content-container .heading {
     align-items: start;
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .content-container .desc {
     text-align: start;
+    font-size: 14;
     width: 100%;
   }
 }
@@ -250,7 +257,7 @@ Common Styles
   background-color: var(--primary-dark-background-color);
   padding: 10px 30px;
   border-right: 1px solid var(--primary-text-color);
-  font-size: 20px;
+  font-size: 16px;
   color: var(--primary-text-color);
   text-transform: uppercase;
   font-weight: 500;
@@ -282,14 +289,12 @@ Common Styles
 @media screen and (max-width: 890px) {
   .categories-list .category {
     padding: 10px 15px;
-    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 632px) {
   .categories-list {
     padding: 10px 10px;
-    font-size: 14px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -297,14 +302,13 @@ Common Styles
   .categories-list .category {
     border: none;
     padding: 10px 15px;
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 470px) {
   .categories-list {
-    padding: 5px px;
-    font-size: 14px;
+    padding: 5px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -323,7 +327,7 @@ Common Styles
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--primary-light-text-color);
   text-transform: uppercase;
@@ -350,9 +354,9 @@ Common Styles
 .red-strip {
   content: "";
   position: absolute;
-  top: 14%;
+  top: 11%;
   left: -17%;
-  width: 70%;
+  width: 84%;
   height: 7%;
   background-color: rgb(217, 33, 33);
 }
@@ -365,7 +369,8 @@ Header Styles
 
 /* Navbar */
 .navbar {
-  padding: 15px 0;
+  padding: 10px 0;
+  font-size: 12px !important;
 }
 
 .navbar .left .menu-items .menu-item {
@@ -384,7 +389,6 @@ Header Styles
 .navbar .left .menu-items .menu-item a {
   text-decoration: none;
   color: var(--primary-dark-text-color);
-  font-size: 18px;
   font-weight: 400;
   opacity: 0.7;
   cursor: pointer;
@@ -393,7 +397,6 @@ Header Styles
 .navbar .left .menu-items .faq {
   text-decoration: none;
   color: #333333b3;
-  font-size: 18px;
   font-weight: 400;
   cursor: pointer;
 }
@@ -430,7 +433,7 @@ Header Styles
 .mobile-nav .mobile-menu-items .mobile-menu-item a {
   text-decoration: none;
   color: var(--primary-light-text-color);
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -443,7 +446,6 @@ Header Styles
 }
 
 .navbar .mid > div {
-  font-size: 18px;
   color: #333333b3;
   cursor: pointer;
 }
@@ -453,7 +455,6 @@ Header Styles
 }
 
 .navbar .right > div {
-  font-size: 18px;
   color: #333333b3;
   cursor: pointer;
 }
@@ -475,7 +476,7 @@ Header Styles
 }
 
 .header-top .content .logo {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -494,10 +495,14 @@ Header Styles
   background-color: var(--tertiory-background-color);
   color: var(--primary-light-text-color);
   border-radius: 5px 0 0 5px;
+  padding: 9px 15px;
   font-size: 20px;
-  padding: 12px 15px;
   user-select: none;
   cursor: pointer;
+}
+
+.header-top .content .search-container .all i {
+  font-size: 16px;
 }
 
 .header-top .content .search-container .all ul {
@@ -508,8 +513,7 @@ Header Styles
 .header-top .content .search-container .search-input input {
   border: 1px solid var(--secondary-border-color);
   padding: 16px 15px;
-  width: 650px;
-  font-size: large;
+  width: 550px;
 }
 
 .header-top .content .search-container .search-input input:focus {
@@ -518,8 +522,8 @@ Header Styles
 
 .header-top .content .search-container .search-input input::placeholder {
   color: #4f4e4ecf;
-  font-size: 20px;
   font-weight: 400;
+  font-size: 18px;
   font-style: normal;
   line-height: inherit;
   position: relative;
@@ -532,9 +536,10 @@ Header Styles
   background-color: var(--tertiory-background-color);
   color: var(--primary-light-text-color);
   border-radius: 0 5px 5px 0;
-  font-size: 20px;
   font-weight: bold;
-  padding: 12px 15px;
+  padding: 9px 15px;
+  font-size: 20px;
+  font-weight: bolder;
   cursor: pointer;
 }
 
@@ -583,11 +588,10 @@ Header Styles
 
 .header-top .content .cart-container .info {
   margin-right: 15px;
-  font-size: 18px;
 }
 
 .header-top .content .cart-container .cart-logo {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: var(--primary-light-text-color);
   padding: 10px 14px;
@@ -608,7 +612,7 @@ Header Styles
 }
 
 .header-top .content .mobile-navigation .mobile-navigation-items {
-  font-size: 35px;
+  font-size: 20px;
   color: var(--primary-text-color);
 }
 
@@ -626,10 +630,6 @@ Header Styles
   background-color: var(--tertiory-background-color);
 }
 
-.header-bottom .strip {
-  height: 100%;
-}
-
 .header-bottom .strip .left {
   height: 100%;
 }
@@ -637,7 +637,6 @@ Header Styles
 .header-bottom .strip .left .all-department {
   padding: 15px 20px;
   width: 300px;
-  font-size: 20px;
   font-weight: 500;
   color: var(--primary-text-color);
   margin-right: 15px;
@@ -667,7 +666,6 @@ Header Styles
 .header-bottom .strip .left .items .item a {
   text-decoration: none;
   color: var(--primary-light-text-color);
-  font-size: 20px;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -692,16 +690,13 @@ Header Styles
 }
 
 .header-bottom .strip .right > div {
-  font-size: 18px;
   color: var(--primary-light-text-color);
 }
 
 .header-bottom .strip .right .blog {
   padding: 15px 20px;
-  font-size: 20px;
   font-weight: 500;
   color: var(--primary-text-color);
-  margin-right: 15px;
   background-color: #f6d70d;
   height: 100%;
   text-transform: uppercase;
@@ -709,52 +704,75 @@ Header Styles
 }
 
 .header-bottom .strip .right .blog i {
-  font-size: 22px;
   font-weight: bold;
 }
 
 @media screen and (max-width: 1734px) {
-  .header-top .content .cart-container .info {
-    display: none;
-  }
-
   .header-top .content .search-container .search-input input {
     width: 550px;
     transition: all 0.3s ease;
   }
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1540px) {
+  .header-top .content .search-container .search-input input {
+    width: 430px;
+    transition: all 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 1439px) {
   .header-top .content .search-container .search-input input {
     width: 450px;
     transition: all 0.3s ease;
+  }
+
+  .header-top .content .cart-container .info {
+    display: none;
   }
 }
 
 @media screen and (max-width: 1350px) {
   .header-top .content .search-container .search-input input {
-    width: 250px;
+    width: 350px;
     transition: all 0.3s ease;
   }
 }
 
 @media screen and (max-width: 1200px) {
+  .header-top .content .search-container .search-input input {
+    width: 150px;
+    transition: all 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .header-top .content .search-container .search-input input {
+    width: 150px;
+    transition: all 0.3s ease;
+  }
+
+  .header-bottom {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
   .navbar .left .menu-items .faq {
     color: #ffffffb5;
   }
+
+  .header-top {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .header-top .content .search-container .all ul li {
     color: var(--primary-light-text-color);
-  }
-  .header-bottom {
-    display: none;
   }
 
   .currancy ul {
     right: 0;
-  }
-  .header-top .content .search-container .search-input input {
-    width: 150px;
-    transition: all 0.3s ease;
   }
 
   header .navbar-container {
@@ -772,13 +790,7 @@ Header Styles
   .navbar .mid > div {
     color: #ffffffb5;
   }
-}
 
-@media screen and (max-width: 992px) {
-  .header-top .content .search-container .search-input input {
-    width: 150px;
-    transition: all 0.3s ease;
-  }
   .header-top .content .list-items,
   .header-top .content .search-container,
   .header-top .content .cart-container {
@@ -814,10 +826,6 @@ Header Styles
     font-size: 30px;
   }
 
-  .header-top .content .mobile-navigation .mobile-navigation-items {
-    font-size: 20px;
-  }
-
   .header-top .content .mobile-navigation .mobile-navigation-items > div {
     margin: 0 10px;
   }
@@ -842,12 +850,10 @@ Header Styles
 Search Container Section
 *********************
 */
-.search-items-container{
+.search-items-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .search-items-container .item {
@@ -902,24 +908,21 @@ Search Container Section
 }
 
 .search-items-container .item .details .name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--primary-text-color);
   margin-bottom: 10px;
 }
 
 .search-items-container .item .details .price {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
 
-.search-items-container .item
-  .details
-  .price
-  .current {
+.search-items-container .item .details .price .current {
   font-weight: 400;
   color: var(--primary-text-color);
   margin-right: 10px;
@@ -939,91 +942,59 @@ Search Container Section
   cursor: pointer;
 }
 
-.search-items-container .item
-  .bottom
-  .bottom-right {
+.search-items-container .item .bottom .bottom-right {
   display: flex;
   align-items: center;
 }
 
-.search-items-container .item
-  .bottom
-  .bottom-right
-  > div {
+.search-items-container .item .bottom .bottom-right > div {
   margin-right: 10px;
 }
 
-.search-items-container .item
-  .bottom
-  .bottom-right
-  > div:last-child {
+.search-items-container .item .bottom .bottom-right > div:last-child {
   margin-right: 0;
 }
 
-.search-items-container .item
-  .bottom
-  .bottom-right
-  > div
-  li {
+.search-items-container .item .bottom .bottom-right > div li {
   list-style: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #828282;
   cursor: pointer;
 }
 
-.search-items-container .item
-  .bottom
-  .bottom-right
-  > div
-  li
-  a {
+.search-items-container .item .bottom .bottom-right > div li a {
   text-decoration: none;
   color: #828282;
 }
 
-.search-items-container .item
-  .bottom
-  .bottom-right
-  > div
-  li
-  a:hover {
+.search-items-container .item .bottom .bottom-right > div li a:hover {
   color: #000000;
   opacity: 0.8;
 }
 
-.search-items-container .item
-  .bottom
-  .bottom-right
-  > div
-  li
-  a
-  i {
+.search-items-container .item .bottom .bottom-right > div li a i {
   margin-right: 5px;
-  font-size: 20px;
+  font-size: 16px;
 }
-.search-items-container .item
-  .bottom
-  .bottom-right
-  > div
-  li:hover {
+.search-items-container .item .bottom .bottom-right > div li:hover {
   color: var(--secondary-dark-text-color);
 }
 
 @media screen and (max-width: 1200px) {
-  .search-items-container{
+  .search-items-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media screen and (max-width:850px) {
-  .search-items-container{
+@media screen and (max-width: 850px) {
+  .search-items-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width:850px) {
-  .search-items-container{
+@media screen and (max-width: 850px) {
+  .search-items-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -1035,14 +1006,14 @@ Hero Section
 */
 
 .hero .container {
-  height: 60vh;
+  height: 500px;
   display: flex;
 }
 
 .hero .container .left {
   width: 70%;
   background-color: var(--primary-text-color);
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -1056,12 +1027,13 @@ Hero Section
 .hero .owl-theme .owl-dots {
   position: absolute;
   bottom: 40px;
-  left: 10%;
+  left: 0%;
+  padding-left: 40px;
 }
 
 .hero .owl-dots button span {
-  width: 30px !important;
-  height: 7px !important;
+  width: 25px !important;
+  height: 6px !important;
   border-radius: 30%;
   display: inline-block;
   margin: 0 5px;
@@ -1095,7 +1067,7 @@ Hero Section
 .hero .container .left .owl-carousel .item .content .badge span {
   background-color: var(--tertiory-background-color);
   padding: 5px 10px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--primary-light-text-color);
   text-transform: uppercase;
@@ -1103,7 +1075,7 @@ Hero Section
 }
 
 .hero .container .left .owl-carousel .item .content .heading {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   color: var(--primary-text-color);
   line-height: 1.2;
@@ -1112,7 +1084,7 @@ Hero Section
 .hero .container .left .owl-carousel .item .content .button a {
   display: inline-block;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   outline: 1px solid #333;
   color: var(--primary-text-color);
@@ -1139,7 +1111,7 @@ Hero Section
 .hero .container .right > div {
   height: 50%;
   background-color: var(--primary-text-color);
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
   margin-bottom: 30px;
   position: relative;
@@ -1165,14 +1137,15 @@ Hero Section
 }
 
 .hero .container .right > div .content .heading {
-  font-size: 25px;
+  font-size: 16px;
   font-weight: 300;
   color: #26a8f8;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .hero .container .right > div .content .desc {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--primary-text-color);
   line-height: 1.2;
@@ -1189,18 +1162,30 @@ Hero Section
   .hero .container .left {
     width: 100%;
     margin-bottom: 30px;
-    height: 60%;
+    height: 70%;
   }
 
   .owl-carousel {
     width: 100% !important;
   }
 
+  .hero .owl-theme .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    right: -62%;
+    padding-right: 40px;
+  }
+
+  .hero .owl-dots button span {
+    width: 20px !important;
+    height: 5px !important;
+  }
+
   .hero .container .right {
     flex-direction: row;
     width: 100%;
     margin-left: 0;
-    height: 40%;
+    height: 30%;
   }
 
   .hero .container .right > div {
@@ -1232,6 +1217,10 @@ Hero Section
     bottom: 20px;
   }
 
+  .hero .container .left .owl-carousel .item .content .button a {
+    padding: 7px 17px;
+  }
+
   .m-tb {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -1242,15 +1231,22 @@ Hero Section
   }
 
   .hero .container .right > div .content .heading {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .hero .container .right > div .content .desc {
-    font-size: 20px;
+    font-size: 16px;
+  }
+  .hero .container .left .owl-carousel .item .content {
+    top: 14%;
   }
 }
 
 @media screen and (max-width: 457px) {
+  .hero .container .left .owl-carousel .item .content .heading {
+    font-size: 16px;
+  }
+
   .hero .owl-carousel .owl-dots {
     display: none;
   }
@@ -1272,11 +1268,13 @@ Hero Section
     top: 5%;
     padding: 0 15px;
   }
-}
 
-@media screen and (max-width: 400px) {
-  .hero .container .left .owl-carousel .item .content .button {
-    display: none;
+  .hero .container .right > div .content .heading {
+    font-size: 12px;
+  }
+
+  .hero .container .right > div .content .desc {
+    font-size: 16px;
   }
 }
 
@@ -1302,8 +1300,8 @@ Strip Section
 }
 
 .ribbon .items .item .logo {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border: 2px solid var(--secondary-dark-text-color);
   border-radius: 50%;
   margin-right: 20px;
@@ -1314,7 +1312,7 @@ Strip Section
 }
 
 .ribbon .items .item .logo i {
-  font-size: 30px;
+  font-size: 16px;
   color: #ff6a00;
 }
 
@@ -1386,7 +1384,7 @@ Buy-from-us Section
   left: 50%;
   transform: translate(-50%, 50%);
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -1475,14 +1473,14 @@ Featured Products Section
   .item
   .gray-strip
   .company-name {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #828282;
   text-decoration: underline;
 }
 
 .featured-products .categories-carousal-container .item .gray-strip .modal {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #828282;
 }
@@ -1496,14 +1494,14 @@ Featured Products Section
 }
 
 .featured-products .categories-carousal-container .item .details .name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--primary-text-color);
   margin-bottom: 10px;
 }
 
 .featured-products .categories-carousal-container .item .details .price {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: #777;
   margin-bottom: 20px;
@@ -1600,7 +1598,7 @@ Featured Products Section
   padding: 10px 20px;
   border-radius: 5px;
   color: var(--primary-light-text-color);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -1614,7 +1612,7 @@ Featured Products Section
   border-radius: 5px;
   background-color: var(--tertiory-background-color);
   color: var(--primary-light-text-color);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -1645,7 +1643,7 @@ Featured Products Section
   > div
   li {
   list-style: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #828282;
   cursor: pointer;
@@ -1705,7 +1703,7 @@ Featured Products Section
 
 .featured-products .categories-carousal-container .item .gray-strip .buy-now i {
   color: rgb(80, 148, 57);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .featured-products
@@ -1715,7 +1713,7 @@ Featured Products Section
   .question
   i {
   color: rgb(214, 69, 21);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .featured-products
@@ -1731,7 +1729,7 @@ Featured Products Section
   color: #1945d6;
 }
 
-.featured-products .categories-carousal-container .see-all-products {
+.see-all-products {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1739,9 +1737,9 @@ Featured Products Section
   margin-bottom: 20px;
 }
 
-.featured-products .categories-carousal-container .see-all-products a {
+.see-all-products a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   padding: 10px 20px;
   border-radius: 5px;
@@ -1756,7 +1754,7 @@ Featured Products Section
   }
 }
 
-@media screen and (max-width: 1480px) {
+@media screen and (max-width: 1280px) {
   .featured-products .categories-carousal-container .item .bottom .add-to-cart {
     display: none;
   }
@@ -1805,7 +1803,7 @@ Featured Categories Section
   .right
   .content-container
   .heading {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
   align-items: start;
@@ -1863,7 +1861,7 @@ Featured Categories Section
   a {
   text-decoration: none;
   color: #444;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -1881,7 +1879,7 @@ Featured Categories Section
 }
 
 .featured-categories .categories-carousal-container .left .see-all-fashion a {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--secondary-dark-text-color);
 }
@@ -1950,14 +1948,14 @@ Featured Categories Section
 }
 
 .featured-categories .categories-carousal-container .item .details .name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--primary-text-color);
   margin-bottom: 10px;
 }
 
 .featured-categories .categories-carousal-container .item .details .price {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 20px;
   display: flex;
@@ -2025,7 +2023,7 @@ Featured Categories Section
   > div
   li {
   list-style: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #828282;
   cursor: pointer;
@@ -2065,7 +2063,7 @@ Featured Categories Section
   a
   i {
   margin-right: 5px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .featured-categories
@@ -2276,7 +2274,7 @@ Blog Section
   width: 13%;
   background-color: rgb(5, 33, 159);
   z-index: 10;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--primary-light-text-color);
   text-transform: uppercase;
@@ -2320,7 +2318,7 @@ Blog Section
 }
 
 .blog .categories-carousal-container .item .strip > div i {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .blog .categories-carousal-container .item .strip > div:first-child {
@@ -2333,14 +2331,14 @@ Blog Section
 }
 
 .blog .categories-carousal-container .item .blog-container .title {
-  font-size: 25px;
+  font-size: 16px;
   font-weight: 600;
   color: #000000ad;
   margin-bottom: 10px;
 }
 
 .blog .categories-carousal-container .item .blog-container .description {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   color: #333333a9;
   margin-bottom: 10px;
@@ -2369,7 +2367,7 @@ Reciew Section
 }
 
 .review .categories-carousal-container .item .icon {
-  font-size: 100px;
+  font-size: 80px;
   color: var(--secondary-background-color);
   margin-bottom: 10px;
 }
@@ -2382,7 +2380,7 @@ Reciew Section
 }
 
 .review .categories-carousal-container .item .name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: #000000b5;
   margin-bottom: 10px;
@@ -2411,7 +2409,7 @@ Most viewed Section
   color: var(--primary-light-text-color);
   text-align: center;
   margin-bottom: 0px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -2457,7 +2455,7 @@ Most viewed Section
   .most-viewed-container
   .title {
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--primary-text-color);
 }
@@ -2467,7 +2465,7 @@ Most viewed Section
   .item
   .most-viewed-container
   .price {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #000000ad;
 }
@@ -2488,7 +2486,7 @@ Most viewed Section
   .most-viewed-container
   .icons
   .icon {
-  font-size: 20px;
+  font-size: 16px;
   color: #000000ad;
   margin-right: 35px;
 }
@@ -2551,10 +2549,10 @@ Social Media handle Section
 }
 
 .social-media .social-media-container .social-media-icon {
-  font-size: 30px;
+  font-size: 20px;
   margin-right: 20px;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2616,7 +2614,7 @@ Footer Section
 .footer .content-container .heading {
   text-align: center;
   margin-bottom: 0px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   align-items: start;
 }
@@ -2650,7 +2648,7 @@ Footer Section
 .footer .footer-container .about-links .links a,
 .footer .footer-container .customer-service-links .links a,
 .footer .footer-container .my-account-links .links a {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--secondary-dark-text-color);
   margin-bottom: 15px;
@@ -2672,7 +2670,7 @@ Footer Section
   border: 1px solid #33333337;
   border-radius: 5px;
   padding: 10px 15px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--primary-text-color);
   display: flex;
@@ -2688,7 +2686,7 @@ Footer Section
   height: 50px;
   border: 1px solid #33333337;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--primary-light-text-color);
   background-color: var(--tertiory-background-color);

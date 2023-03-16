@@ -16,8 +16,7 @@ async function getData(url){
 // Banner Products Listing Function
 async function bannarProducts() {
   let data = await getData("data/bannarProducts.json");
-  const bannarCarousel = document.getElementById("bannar-carousel");
-
+  const bannarCarousel = document.getElementById("bannar-carousel");  
   let bannarCarouselData = "";
   Array.from(data["bannar-products"]).forEach((item, index) => {
     bannarCarouselData += `
@@ -111,9 +110,15 @@ async function buyFromUs(term) {
 // Featured Products Listing Function
 async function featuredProducts(term) {
   let data = await getAllProductsData();
+  let filteredData = Array.from(data['products']).filter((product) => {
+    if(product['category'] === term){
+      return product;
+    }
+  })
+
   let cartegoryCarousel = document.getElementById("featurred-products-category-carousel");
   let html = `<div id="featurred-products-carousel-${term}" class="owl-carousel owl-theme">`;
-  data['products'][term].forEach((item) => {
+  filteredData.forEach((item) => {
     html += `
     <div class="item">
         <div class="image">
@@ -220,12 +225,19 @@ async function featuredProducts(term) {
 // Fashion Products Listing Function
 async function fashionProducts() {
   let data = await getAllProductsData();
+
+  let filteredData = Array.from(data['products']).filter((product) => {
+    if(product['category'] === "fashionProducts"){
+      return product;
+    }
+  })
+
   const featuredCategoryCarousel = document.getElementById(
     "featurred-category-carousel"
   );
 
   let featuredCategoryCarouselData = "";
-  Array.from(data['products']["fashionProducts"]).forEach((item, index) => {
+  filteredData.forEach((item, index) => {
     featuredCategoryCarouselData += `
     <div class="item" id="${index}">
     <div class="image">
@@ -297,6 +309,12 @@ async function fashionProducts() {
       1200: {
         items: 4,
       },
+      1450: {
+        items: 5,
+      },      
+      1850: {
+        items: 6,
+      }
     },
   });
 }
@@ -415,10 +433,17 @@ async function reviews() {
 // Most Viewed Products Function
 async function mostViewedProducts() {
   let data = await getAllProductsData();
+
+  let filteredData = Array.from(data['products']).filter((product) => {
+    if(product['category'] === "mostViewedProducts"){
+      return product;
+    }
+  })
+
   const mostViewedProducts = document.getElementById("most-viewed-products");
 
   let mostViewedProductsData = `<div id="most-viewed-carousel" class="owl-carousel owl-theme">`;
-  Array.from(data['products']["mostViewedProducts"]).forEach((item, index) => {
+  filteredData.forEach((item, index) => {
     mostViewedProductsData += `
     <div class="item">
     <div class="image">
@@ -695,12 +720,12 @@ $(document).ready(function () {
     autoplay: true,
     responsive: {
       0: {
+        items: 1,
+      },
+      400: {
         items: 3,
       },
       600: {
-        items: 3,
-      },
-      800: {
         items: 4,
       },
       1000: {
