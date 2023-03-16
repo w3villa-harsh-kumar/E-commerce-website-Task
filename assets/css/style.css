@@ -147,6 +147,7 @@ Common Styles
   display: block;
 }
 
+
 .dropdown__item:hover {
   opacity: 0.8;
   background-color: #e2e2e2;
@@ -222,6 +223,11 @@ Common Styles
   line-height: 1.2;
   text-align: center;
   width: 80%;
+}
+@media screen and (max-width: 992px) {
+  .dropdown{
+    right: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1754,7 +1760,7 @@ Featured Products Section
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1480px) {
   .featured-products .categories-carousal-container .item .bottom .add-to-cart {
     display: none;
   }
