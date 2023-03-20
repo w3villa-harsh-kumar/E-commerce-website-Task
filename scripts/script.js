@@ -780,7 +780,7 @@ $(document).ready(function () {
 });
 
 function isUserLoggedIn() {
-  let loggedUserId = localStorage.getItem("loggedUserId");
+  let loggedUserId = localStorage.getItem("loggedUserId") || false;
   let userLogin = document.getElementById("userLogin");
   let userLogout = document.getElementById("userLogout");
 
