@@ -1,226 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Font Awesome CDN -->
-    <link
-      rel="stylesheet"
-      data-purpose="Layout StyleSheet"
-      title="Default"
-      disabled
-      href="/css/app-af6a05f42b013986b481566363f0186f.css?vsn=d"
-    />
-    <link
-      rel="stylesheet"
-      data-purpose="Layout StyleSheet"
-      title="Web Awesome"
-      href="/css/app-wa-df1bd4d47fc6bf066625b27b61ccafe7.css?vsn=d"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
-    />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Default" disabled
+    href="/css/app-af6a05f42b013986b481566363f0186f.css?vsn=d" />
+  <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+    href="/css/app-wa-df1bd4d47fc6bf066625b27b61ccafe7.css?vsn=d" />
 
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/sharp-solid.css"
-    />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/sharp-regular.css"
-    />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.3.0/css/sharp-solid.css" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/login-signup.css" />
-    <title>Login Page</title>
-  </head>
-  <body>
-    <!-- Login Page -->
-    <div class="container">
-      <!-- Image Container -->
-      <div class="image-container">
-        <div class="bubble1 bubble"></div>
-        <div class="bubble2 bubble"></div>
-        <div class="bubble3 bubble"></div>
-        <div class="img-container">
-          <img src="assets/images/img2.svg" alt="Login Image" />
-        </div>
-        <div class="welcome-text" id="welcome-text">
-          <div class="heading">Welcome Back!</div>
-          <div class="text">
-            To keep connected with us please login with your personal info.
-          </div>
-        </div>
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.3.0/css/sharp-regular.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/login-signup.css" />
+  <title>Login Page</title>
+</head>
+
+<body>
+  <!-- Login Page -->
+  <div class="container">
+    <!-- Image Container -->
+    <div class="image-container">
+      <div class="bubble1 bubble"></div>
+      <div class="bubble2 bubble"></div>
+      <div class="bubble3 bubble"></div>
+      <div class="img-container">
+        <img src="assets/images/img2.svg" alt="Login Image" />
       </div>
-
-      <!-- Login Container -->
-      <div class="login-container" id="login-container">
-        <div class="upper">
-          <div class="logo">
-            <div class="icon">
-                <i class="fa-solid fa-user gradient-text"></i>
-            </div>
-          </div>
-          <div class="login-content">
-            <div class="heading">Hello Again!</div>
-            <div class="text">
-              Enter your personal details and start your journey with us today.
-            </div>
-          </div>
-          <div class="login-form">
-            <form action="#" method="#">
-              <div class="input-container">
-                <input type="text" name="email" placeholder="Email" required />
-                <i class="fa-regular fa-at"></i>
-              </div>
-              <div class="input-container">
-                <input
-                  class="active"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                />
-                <i class="fa-regular fa-lock-keyhole"></i>
-              </div>
-              <div class="login-bottom-container">
-                <div class="remember-me">
-                  <input type="checkbox" name="remember" id="remember" />
-                  <label for="remember">Remember Me</label>
-                </div>
-                <div class="forgot-password">
-                  <a href="#">Forgot Password?</a>
-                </div>
-              </div>
-              <div class="button-coontainer">
-                <button type="submit">Login</button>
-              </div>
-            </form>
-          </div>
-          <div class="other-login">
-            <div class="text">Or Login With</div>
-            <div class="icons">
-              <div class="icon">
-                <i class="fab fa-google"></i>
-              </div>
-              <div class="icon">
-                <i class="fab fa-facebook-f"></i>
-              </div>
-              <div class="icon">
-                <i class="fab fa-twitter"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="lower">
-          <div class="text">Don't have an account?</div>
-          <div class="link">
-            <a href="#" id="signup">Sign Up</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sign Up Container -->
-      <div class="signup-container" id="signup-container">
-        <div class="upper">
-            <div class="logo">
-                <div class="icon">
-                    <i class="fa-solid fa-user gradient-text"></i>
-                </div>
-              </div>
-          <div class="login-content">
-            <div class="heading">Welcome User!</div>
-            <div class="text">
-              Enter your personal details and start your journey with us today.
-            </div>
-          </div>
-          <div class="login-form">
-            <form action="login.php" method="POST">
-              <div class="input-container">
-                <input type="text" name="name" placeholder="Name" required />
-                <i class="fa-regular fa-user"></i>
-              </div>
-              <div class="input-container">
-                <input type="text" name="email" placeholder="Email" required />
-                <i class="fa-regular fa-at"></i>
-              </div>
-              <div class="input-container">
-                <input
-                  class="active"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                />
-                <i class="fa-regular fa-lock-keyhole"></i>
-              </div>
-              <div class="button-coontainer">
-                <button type="submit">Sign Up</button>
-              </div>
-            </form>
-          </div>
-          <div class="other-login">
-            <div class="text">Or Sign Up With</div>
-            <div class="icons">
-              <div class="icon">
-                <i class="fab fa-google"></i>
-              </div>
-              <div class="icon">
-                <i class="fab fa-facebook-f"></i>
-              </div>
-              <div class="icon">
-                <i class="fab fa-twitter"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="lower">
-          <div class="text">Already have an account?</div>
-          <div class="link">
-            <a href="#" id="login">Login</a>
-          </div>
+      <div class="welcome-text" id="welcome-text">
+        <div class="heading">Welcome Back!</div>
+        <div class="text">
+          To keep connected with us please login with your personal info.
         </div>
       </div>
     </div>
-    <script>
-      let signup = document.getElementById("signup");
-      let login = document.getElementById("login");
-      let welcomeText = document.getElementById("welcome-text");
-      let loginContainer = document.getElementById("login-container");
-      let signUpContainer = document.getElementById("signup-container");
 
-      signup.addEventListener("click", () => {
-        loginContainer.classList.toggle("flip-login");
-        setTimeout(() => {
-          loginContainer.classList.add("display-none");
-          signUpContainer.classList.add("display-flex");
-          signUpContainer.classList.remove("flip-signup");
-        }, 1000);
-        welcomeText.innerHTML = `
+    <!-- Login Container -->
+    <div class="login-container" id="login-container">
+      <div class="upper">
+        <div class="logo">
+          <div class="icon">
+            <i class="fa-solid fa-user gradient-text"></i>
+          </div>
+        </div>
+        <div class="login-content">
+          <div class="heading">Hello Again!</div>
+          <div class="text">
+            Enter your personal details and start your journey with us today.
+          </div>
+        </div>
+        <div class="login-form" id="login">
+          <form onsubmit="return false;">
+            <div class="input-container">
+              <input type="text" id="login-email" name="email" placeholder="Email" />
+              <i class="fa-regular fa-at"></i>
+            </div>
+            <div class="input-container">
+              <input class="active" id="login-password" type="password" name="password" placeholder="Password" />
+              <i class="fa-regular fa-lock-keyhole"></i>
+            </div>
+            <div class="login-bottom-container">
+              <div class="remember-me">
+                <input type="checkbox" name="remember" id="remember" />
+                <label for="remember">Remember Me</label>
+              </div>
+              <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+              </div>
+            </div>
+            <div class="button-coontainer">
+              <button onclick="userLogin()" id="login-button">Login</button>
+            </div>
+          </form>
+        </div>
+        <div class="other-login">
+          <div class="text">Or Login With</div>
+          <div class="icons">
+            <div class="icon">
+              <i class="fab fa-google"></i>
+            </div>
+            <div class="icon">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="icon">
+              <i class="fab fa-twitter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lower">
+        <div class="text">Don't have an account?</div>
+        <div class="link">
+          <a href="#" id="signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Container -->
+    <div class="signup-container" id="signup-container">
+      <div class="upper">
+        <div class="logo">
+          <div class="icon">
+            <i class="fa-solid fa-user gradient-text"></i>
+          </div>
+        </div>
+        <div class="signup-content">
+          <div class="heading">Welcome User!</div>
+          <div class="text">
+            Enter your personal details and start your journey with us today.
+          </div>
+        </div>
+        <div class="signup-form" id="sign-up">
+          <form onsubmit="return false;">
+            <div class="input-container">
+              <input id="signup-name" type="text" name="name" placeholder="Name" />
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="input-container">
+              <input id="signup-email" type="text" name="email" placeholder="Email" />
+              <i class="fa-regular fa-at"></i>
+            </div>
+            <div class="input-container">
+              <input class="active" type="password" name="password" placeholder="Password" id="signup-password" />
+              <i class="fa-regular fa-lock-keyhole"></i>
+            </div>
+            <div class="button-coontainer">
+              <button onclick="userRegisteration()" id="signup-button">Sign Up</button>
+            </div>
+          </form>
+        </div>
+        <div class="other-signup">
+          <div class="text">Or Sign Up With</div>
+          <div class="icons">
+            <div class="icon">
+              <i class="fab fa-google"></i>
+            </div>
+            <div class="icon">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="icon">
+              <i class="fab fa-twitter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lower">
+        <div class="text">Already have an account?</div>
+        <div class="link">
+          <a href="#" id="login-link">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    let signup = document.getElementById("signup");
+    let login = document.getElementById("login-link");
+    let welcomeText = document.getElementById("welcome-text");
+    let loginContainer = document.getElementById("login-container");
+    let signUpContainer = document.getElementById("signup-container");
+    console.log(login)
+
+    // Hide Login Container
+    function getSignUpPage() {
+      loginContainer.classList.toggle("flip-login");
+      setTimeout(() => {
+        loginContainer.classList.add("display-none");
+        signUpContainer.classList.add("display-flex");
+        signUpContainer.classList.remove("flip-signup");
+      }, 1000);
+      welcomeText.innerHTML = `
         <div class="heading">Welcome!</div>
                 <div class="text">
                     Enter your personal details and start your journey with us today.
                 </div>`;
-      });
+    }
 
-      login.addEventListener("click", () => {
-        signUpContainer.classList.toggle("flip-signup");
-        setTimeout(() => {
-          loginContainer.classList.remove("display-none");
-          signUpContainer.classList.remove("display-flex");
-          loginContainer.classList.remove("flip-login");
-        }, 1000);
-        welcomeText.innerHTML = `
+    // Hide Sign Up Container
+    function getLoginPage() {
+      signUpContainer.classList.toggle("flip-signup");
+      setTimeout(() => {
+        loginContainer.classList.remove("display-none");
+        signUpContainer.classList.remove("display-flex");
+        loginContainer.classList.remove("flip-login");
+      }, 1000);
+      welcomeText.innerHTML = `
         <div class="heading">Welcome Back!</div>
           <div class="text">
             To keep connected with us please login with your personal info.
           </div>`;
-      });
-    </script>
-  </body>
+    }
+
+    // Event Listeners
+    signup.addEventListener("click", () => {
+      console.log("clicked");
+      getSignUpPage()
+    });
+
+    login.addEventListener("click", () => {
+      getLoginPage()
+    });
+
+    // Redirect to the page from the index page
+    function redirectedToPage() {
+      let page = localStorage.getItem("redirectPage");
+
+      // if user is already logged in
+      let loggedUserId = localStorage.getItem("loggedUserId");
+      if (loggedUserId) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'You are already logged in!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          window.location.href = "index.html";
+        })
+        
+      }
+
+      if (page === "login") {
+        getLoginPage();
+      }
+      else if (page === "register") {
+        getSignUpPage();
+      }
+      console.log(page);
+      localStorage.removeItem("redirectPage");
+    }
+    redirectedToPage();
+
+    // User Register Function
+    function userRegisteration() {
+      let name = document.getElementById("signup-name").value;
+      let email = document.getElementById("signup-email").value;
+      let password = document.getElementById("signup-password").value;
+
+      // Check whether the fields are empty or not
+      if (name == "" || email == "" || password == "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill all the fields!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        })
+        return;
+      }
+
+      // Name Validation
+      if (name.length < 3) {
+        console.log("Name Must Be At Least 3 Characters Long!");
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Name Must Be At Least 3 Characters Long!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        })
+        return;
+      }
+
+      // Email Validation
+      if (!(email.includes("@") && email.includes(".") && email.length > 8 && email.endsWith("gmail.com"))) {
+        console.log("Email Is Not Valid!");
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Email Is Not Valid! Please Enter A Valid Email Address! eg: example123@gmail.com ',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        })
+        return;
+      }
+
+      // Password Validation
+      if (password.length < 6) {
+        console.log("Password Must Be At Least 6 Characters Long!");
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Password Must Be At Least 6 Characters Long!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        })
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      console.log(users)
+      if (!users) {
+        let userID = 0;
+        console.log("I'm here...")
+        const userDetails = { id: ++userID, name, email, password }
+        users.push(userDetails);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Registered Successfully, Please login to proceed!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          document.getElementById("signup-name").value = "";
+          document.getElementById("signup-email").value = "";
+          document.getElementById("signup-password").value = "";
+          getLoginPage()
+        })
+      } else {
+        let userID = users[users?.length - 1]?.id;
+        const userDetails = { id: ++userID, name, email, password }
+        // Check whether the user is already registered or not
+        let isUserExist = false;
+        users.forEach((user) => {
+          if (user.email === email) {
+            isUserExist = true;
+          }
+        })
+
+        if (isUserExist) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'User already exist with this email! Please login with this email or use another email!',
+            confirmButtonColor: '#4285f4',
+            confirmButtonText: 'Ok'
+          })
+        } else {
+          users.push(userDetails);
+          localStorage.setItem("users", JSON.stringify(users));
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Registeration Successfully, Please login to proceed!',
+            confirmButtonColor: '#4285f4',
+            confirmButtonText: 'Ok'
+          }).then(() => {
+            document.getElementById("signup-name").value = "";
+            document.getElementById("signup-email").value = "";
+            document.getElementById("signup-password").value = "";
+            getLoginPage()
+          })
+        }
+      }
+    }
+
+    // User Login Function
+    function userLogin() {
+      const email = document.getElementById("login-email").value
+      const password = document.getElementById("login-password").value
+
+      // Check whether the fields are empty or not
+      if (email == "" || password == "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill all the fields!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        })
+        return;
+      }
+
+      // Email Validation
+      if (!(email.includes("@") && email.includes(".") && email.length > 8 && email.endsWith("gmail.com"))) {
+        console.log("Email Is Not Valid!");
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Either email or password is Invalid, Try Again!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          window.location.reload()
+        })
+        return;
+      }
+
+      // Password Validation
+      if (password.length < 6) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Invalid email or password, Try Again!",
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          window.location.reload()
+        })
+        return;
+      }
+
+      // Checking whether the user exist with the email or not
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      let userDetails;
+      let isUserExist = false;
+      users.forEach((user) => {
+        if (user.email === email) {
+          userDetails = user
+          isUserExist = true;
+          return
+        }
+      })
+
+      if (!isUserExist) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "No account found for the given credentials, please register to login! ",
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          getSignUpPage()
+          return
+        })
+      }
+
+      // if the user exists then checks the credentials of user
+      if (userDetails?.email === email && userDetails?.password === password) {
+        const loggedUserId = userDetails.id
+        localStorage.setItem("loggedUserId", loggedUserId)
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Login Successfully!',
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          window.location.href = "index.html"
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Invalid email or password, Try Again!",
+          confirmButtonColor: '#4285f4',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          window.location.reload()
+        })
+      }
+    }
+
+  </script>
+</body>
+
 </html>

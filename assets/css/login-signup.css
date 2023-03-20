@@ -275,13 +275,13 @@ Login and Signup Section Styles
 }
 
 .login-container .login-content,
-.signup-container .login-content {
+.signup-container .signup-content {
   width: 70%;
   padding-bottom: 2rem;
 }
 
 .login-container .login-content .heading,
-.signup-container .login-content .heading {
+.signup-container .signup-content .heading {
   font-size: 2rem;
   font-weight: 400;
   color: #333;
@@ -290,7 +290,7 @@ Login and Signup Section Styles
 }
 
 .login-container .login-content .text,
-.signup-container .login-content .text {
+.signup-container .signup-content .text {
   font-size: 1rem;
   font-weight: 300;
   color: #333;
@@ -299,12 +299,12 @@ Login and Signup Section Styles
 }
 
 .login-container .login-form,
-.signup-container .login-form {
+.signup-container .signup-form {
   width: 70%;
 }
 
 .login-container .login-form form .input-container,
-.signup-container .login-form form .input-container {
+.signup-container .signup-form form .input-container {
   width: 100%;
   height: 50px;
   display: flex;
@@ -316,8 +316,8 @@ Login and Signup Section Styles
 
 .login-container .login-form form .input-container input[type="text"],
 .login-container .login-form form .input-container input[type="password"],
-.signup-container .login-form form .input-container input[type="text"],
-.signup-container .login-form form .input-container input[type="password"] {
+.signup-container .signup-form form .input-container input[type="text"],
+.signup-container .signup-form form .input-container input[type="password"] {
   width: 100%;
   height: 100%;
   display: flex;
@@ -326,11 +326,6 @@ Login and Signup Section Styles
   border: 1px solid #e8e8e8;
   border-radius: 5px;
   padding: 0 1rem;
-}
-
-.login-container .login-form form .input-container input[type="text"],
-.signup-container .login-form form .input-container input[type="text"] {
-  margin-bottom: 0.5rem;
 }
 
 .login-container
@@ -344,12 +339,12 @@ Login and Signup Section Styles
   .input-container:focus
   input[type="password"]::placeholder,
 .signup-container
-  .login-form
+  .signup-form
   form
   .input-container:focus
   input[type="text"]::placeholder,
 .signup-container
-  .login-form
+  .signup-form
   form
   .input-container:focus
   input[type="password"]::placeholder {
@@ -360,9 +355,9 @@ Login and Signup Section Styles
 
 .login-container .login-form form .input-container input[type="text"]:focus,
 .login-container .login-form form .input-container input[type="password"]:focus,
-.signup-container .login-form form .input-container input[type="text"]:focus,
+.signup-container .signup-form form .input-container input[type="text"]:focus,
 .signup-container
-  .login-form
+  .signup-form
   form
   .input-container
   input[type="password"]:focus {
@@ -372,7 +367,7 @@ Login and Signup Section Styles
 }
 
 .login-container .login-form form .input-container i,
-.signup-container .login-form form .input-container i {
+.signup-container .signup-form form .input-container i {
   position: absolute;
   right: 5%;
   font-size: 0.9rem;
@@ -388,13 +383,13 @@ Login and Signup Section Styles
   input[type="password"]:focus
   + i,
 .signup-container
-  .login-form
+  .signup-form
   form
   .input-container
   input[type="text"]:focus
   + i,
 .signup-container
-  .login-form
+  .signup-form
   form
   .input-container
   input[type="password"]:focus
@@ -403,8 +398,7 @@ Login and Signup Section Styles
   transition: all 0.3s ease-in-out;
 }
 
-.login-container .login-form form .login-bottom-container,
-.signup-container .login-form form .login-bottom-container {
+.login-container .login-form form .login-bottom-container{
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -454,13 +448,13 @@ Login and Signup Section Styles
 }
 
 .login-container .login-form form .button-coontainer,
-.signup-container .login-form form .button-coontainer {
+.signup-container .signup-form form .button-coontainer {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
 .login-container .login-form form .button-coontainer button,
-.signup-container .login-form form .button-coontainer button {
+.signup-container .signup-form form .button-coontainer button {
   width: 100%;
   height: 50px;
   border: none;
@@ -473,22 +467,22 @@ Login and Signup Section Styles
 }
 
 .login-container .login-form form .button-coontainer button:hover,
-.signup-container .login-form form .button-coontainer button:hover {
+.signup-container .signup-form form .button-coontainer button:hover {
   background: #4285f4;
 }
 
 .login-container .login-form form .button-coontainer button:focus,
-.signup-container .login-form form .button-coontainer button:focus {
+.signup-container .signup-form form .button-coontainer button:focus {
   outline: none;
 }
 
 .login-container .other-login,
-.signup-container .other-login {
+.signup-container .other-signup {
   padding-bottom: 1rem;
 }
 
 .login-container .other-login .text,
-.signup-container .other-login .text {
+.signup-container .other-signup .text {
   font-size: 1rem;
   font-weight: 300;
   color: #333;
@@ -497,14 +491,14 @@ Login and Signup Section Styles
 }
 
 .login-container .other-login .icons,
-.signup-container .other-login .icons {
+.signup-container .other-signup .icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .login-container .other-login .icons .icon,
-.signup-container .other-login .icons .icon {
+.signup-container .other-signup .icons .icon {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -517,23 +511,23 @@ Login and Signup Section Styles
 }
 
 .login-container .other-login .icons .icon i,
-.signup-container .other-login .icons .icon i {
+.signup-container .other-signup .icons .icon i {
   font-size: 1.5rem;
   color: #4285f4;
 }
 
 .login-container .other-login .icons .icon:hover,
-.signup-container .other-login .icons .icon:hover {
+.signup-container .other-signup .icons .icon:hover {
   background: #4285f4;
 }
 
 .login-container .other-login .icons .icon:hover i,
-.signup-container .other-login .icons .icon:hover i {
+.signup-container .other-signup .icons .icon:hover i {
   color: #fff;
 }
 
 .login-container .other-login .icons .icon:first-child,
-.signup-container .other-login .icons .icon:first-child {
+.signup-container .other-signup .icons .icon:first-child {
   margin-left: 0;
 }
 
@@ -569,12 +563,12 @@ Login and Signup Section Styles
 
 @media screen and (max-width: 1024px) {
   .login-container .login-content,
-  .signup-container .login-content {
+  .signup-container .signup-content {
     width: 80%;
   }
 
   .login-container .login-form,
-  .signup-container .login-form {
+  .signup-container .signup-form {
     width: 80%;
   }
 }
@@ -598,12 +592,12 @@ Login and Signup Section Styles
   }
 
   .login-container .login-content .heading,
-  .signup-container .login-content .heading {
+  .signup-container .signup-content .heading {
     color: white;
   }
 
   .login-container .login-content .text,
-  .signup-container .login-content .text {
+  .signup-container .signup-content .text {
     color: white;
   }
 
@@ -617,18 +611,18 @@ Login and Signup Section Styles
   }
 
   .login-container .login-form form .button-coontainer button,
-  .signup-container .login-form form .button-coontainer button {
+  .signup-container .signup-form form .button-coontainer button {
     background: white;
     color: #2571ec;
   }
 
   .login-container .other-login .icons .icon i,
-  .signup-container .other-login .icons .icon i {
+  .signup-container .other-signup .icons .icon i {
     color: white;
   }
 
   .login-container .other-login .text,
-  .signup-container .other-login .text {
+  .signup-container .other-signup .text {
     color: white;
   }
 
@@ -649,7 +643,7 @@ Login and Signup Section Styles
     form
     .input-container
     input[type="password"]:focus,
-  .signup-container .login-form form .input-container input[type="text"]:focus,
+  .signup-container .signup-form form .input-container input[type="text"]:focus,
   .signup-container
     .login-form
     form
@@ -661,12 +655,12 @@ Login and Signup Section Styles
   }
 
   .login-container .login-content,
-  .signup-container .login-content {
+  .signup-container .signup-content {
     width: 70%;
     padding-bottom: 1rem;
   }
 
-  .signup-container .login-form form .button-coontainer {
+  .signup-container .signup-form form .button-coontainer {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
@@ -677,7 +671,7 @@ Login and Signup Section Styles
   }
 
   .login-container .login-form form .button-coontainer,
-  .signup-container .login-form form .button-coontainer {
+  .signup-container .signup-form form .button-coontainer {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
@@ -709,13 +703,13 @@ Login and Signup Section Styles
     height: 70px;
   }
 
-  .signup-container .login-form form .button-coontainer {
+  .signup-container .signup-form form .button-coontainer {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
 
   .login-container .login-content,
-  .signup-container .login-content {
+  .signup-container .signup-content {
     padding: 0;
   }
 }

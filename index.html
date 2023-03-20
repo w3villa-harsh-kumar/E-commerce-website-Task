@@ -155,15 +155,9 @@
             </div>
           </div>
           <ul class="list-items flex-center">
-            <div class="login">
-              <li class="list-item">
-                <a href="login-signup.html"> <i class="fa-regular fa-user"></i> Login</a>
-              </li>
+            <div class="login" id="userLogin">
             </div>
-            <div class="register">
-              <li class="list-item">
-                <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
-              </li>
+            <div class="register" id="userLogout">
             </div>
             <div class="wishlist">
               <li class="list-item">
@@ -231,7 +225,10 @@
 
   <div>
     <div class="container">
-      <div class="search-items-container" id="search-items-container"></div>
+      <div class="search-items-container" id="search-items-container">
+      </div>
+      <div class="pagination" id="pagination">
+      </div>
     </div>
   </div>
   <main id="main-container">
@@ -722,6 +719,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
     integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Owl Carousel Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"

@@ -1,4 +1,3 @@
-
 // get add products
 async function getAllProductsData() {
   let response = await fetch("data/products.json");
@@ -7,7 +6,7 @@ async function getAllProductsData() {
 }
 
 // get the data from json file
-async function getData(url){
+async function getData(url) {
   let response = await fetch(url);
   let data = await response.json();
   return data;
@@ -16,7 +15,7 @@ async function getData(url){
 // Banner Products Listing Function
 async function bannarProducts() {
   let data = await getData("data/bannarProducts.json");
-  const bannarCarousel = document.getElementById("bannar-carousel");  
+  const bannarCarousel = document.getElementById("bannar-carousel");
   let bannarCarouselData = "";
   Array.from(data["bannar-products"]).forEach((item, index) => {
     bannarCarouselData += `
@@ -37,7 +36,7 @@ async function bannarProducts() {
       </div>
     </div>
   </div>
-    `
+    `;
   });
 
   bannarCarousel.innerHTML = bannarCarouselData;
@@ -76,8 +75,8 @@ async function buyFromUs(term) {
         </div>
       <div class="category">${item.name}</div>
     </div>
-    `
-  })
+    `;
+  });
 
   cartegoryCarousel.innerHTML = html;
   $(`#category-carousel-${term}`).owlCarousel({
@@ -106,17 +105,18 @@ async function buyFromUs(term) {
   });
 }
 
-
 // Featured Products Listing Function
 async function featuredProducts(term) {
   let data = await getAllProductsData();
-  let filteredData = Array.from(data['products']).filter((product) => {
-    if(product['category'] === term){
+  let filteredData = Array.from(data["products"]).filter((product) => {
+    if (product["category"] === term) {
       return product;
     }
-  })
+  });
 
-  let cartegoryCarousel = document.getElementById("featurred-products-category-carousel");
+  let cartegoryCarousel = document.getElementById(
+    "featurred-products-category-carousel"
+  );
   let html = `<div id="featurred-products-carousel-${term}" class="owl-carousel owl-theme">`;
   filteredData.forEach((item) => {
     html += `
@@ -125,10 +125,14 @@ async function featuredProducts(term) {
           <img
             src="${item.img}"
             alt="image" />
-          <div class="green-strip product-strip" style="background-color: ${item?.tags[0]?.color || "green"};">
+          <div class="green-strip product-strip" style="background-color: ${
+            item?.tags[0]?.color || "green"
+          };">
             <span>${item?.tags[0]?.tag || "free"}</span>
           </div>
-          <div class="red-strip product-strip" style="background-color: ${item?.tags[1]?.color || "red"};">
+          <div class="red-strip product-strip" style="background-color: ${
+            item?.tags[1]?.color || "red"
+          };">
             <span>${item?.tags[1]?.tag || "new"}</span>
           </div>
           <div class="badges">
@@ -195,8 +199,8 @@ async function featuredProducts(term) {
           <div class="question"><i class="fa-regular fa-circle-question"></i> Question</div>
         </div>
       </div>
-    `
-  })
+    `;
+  });
 
   cartegoryCarousel.innerHTML = html;
   $(`#featurred-products-carousel-${term}`).owlCarousel({
@@ -226,11 +230,11 @@ async function featuredProducts(term) {
 async function fashionProducts() {
   let data = await getAllProductsData();
 
-  let filteredData = Array.from(data['products']).filter((product) => {
-    if(product['category'] === "fashionProducts"){
+  let filteredData = Array.from(data["products"]).filter((product) => {
+    if (product["category"] === "fashionProducts") {
       return product;
     }
-  })
+  });
 
   const featuredCategoryCarousel = document.getElementById(
     "featurred-category-carousel"
@@ -243,10 +247,14 @@ async function fashionProducts() {
     <div class="image">
       <img
         src=${item.img} />
-      <div class="green-strip product-strip" style="background-color: ${item?.tags[0]?.color || "green"};">
+      <div class="green-strip product-strip" style="background-color: ${
+        item?.tags[0]?.color || "green"
+      };">
         <span>${item?.tags[0]?.tag || "free"}</span>
       </div>
-      <div class="red-strip product-strip" style="background-color: ${item?.tags[1]?.color || "red"};">
+      <div class="red-strip product-strip" style="background-color: ${
+        item?.tags[1]?.color || "red"
+      };">
         <span>${item?.tags[1]?.tag || "new"}</span>
       </div>
       <div class="badges">
@@ -311,10 +319,10 @@ async function fashionProducts() {
       },
       1450: {
         items: 5,
-      },      
+      },
       1850: {
         items: 6,
-      }
+      },
     },
   });
 }
@@ -323,7 +331,9 @@ async function fashionProducts() {
 async function blogs(term) {
   let response = await fetch("data/blogs.json");
   let data = await response.json();
-  const blogsContainer = document.getElementById("blog-categories-carousal-container");
+  const blogsContainer = document.getElementById(
+    "blog-categories-carousal-container"
+  );
   let blogsData = `<div id="blog-carousel-${term}" class="owl-carousel owl-theme">`;
   Array.from(data[term]).forEach((item, index) => {
     blogsData += `
@@ -332,7 +342,9 @@ async function blogs(term) {
           <img src="${item.img}" alt="image" />
           <div class="date">
             <div class="day">${new Date(item.date).getDay()}</div>
-            <div class="month">${new Date(item.date).toLocaleString('default', { month: 'long' }).slice(0, 3)}</div>
+            <div class="month">${new Date(item.date)
+              .toLocaleString("default", { month: "long" })
+              .slice(0, 3)}</div>
           </div>
           <div class="strip">
             <div class="admin">
@@ -377,15 +389,15 @@ async function blogs(term) {
         items: 2,
       },
       1000: {
-        items: 3
-      }
+        items: 3,
+      },
     },
   });
 }
 
 // Review Listing Function
 async function reviews() {
-  let data = await getData("data/peopleReview.json")
+  let data = await getData("data/peopleReview.json");
   const peopleReviews = document.getElementById("people-reviews-container");
 
   let peopleReviewsData = `<div id="review-carousel" class="owl-carousel owl-theme">`;
@@ -424,8 +436,8 @@ async function reviews() {
         items: 2,
       },
       1000: {
-        items: 3
-      }
+        items: 3,
+      },
     },
   });
 }
@@ -434,11 +446,11 @@ async function reviews() {
 async function mostViewedProducts() {
   let data = await getAllProductsData();
 
-  let filteredData = Array.from(data['products']).filter((product) => {
-    if(product['category'] === "mostViewedProducts"){
+  let filteredData = Array.from(data["products"]).filter((product) => {
+    if (product["category"] === "mostViewedProducts") {
       return product;
     }
-  })
+  });
 
   const mostViewedProducts = document.getElementById("most-viewed-products");
 
@@ -494,23 +506,22 @@ async function mostViewedProducts() {
       },
       1300: {
         items: 4,
-      }
+      },
     },
   });
-
 }
 
 // Search Product Function
-async function searchProduct(searchTerm){
+async function searchProduct(searchTerm) {
   let data = await getAllProductsData();
 
   // combine all products in one array
-  let allProducts = Object.values(data['products']).flat();
+  let allProducts = Object.values(data["products"]).flat();
 
   // Find all the product with the search term
-  let filteredData =  allProducts.filter((item) => {
-    if(item.name.toLowerCase().includes(searchTerm.toLowerCase())){
-      return item
+  let filteredData = allProducts.filter((item) => {
+    if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return item;
     }
   });
 
@@ -521,24 +532,28 @@ async function searchProduct(searchTerm){
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", async () => {
   const searchInput = document.getElementById("search-input");
-  let data = await searchProduct(searchInput.value);  
-  showSearchResult(data)
+  let data = await searchProduct(searchInput.value);
+  showSearchResult(data);
 });
 
-function showSearchResult(products){
-  let searchItemsContainer = document.getElementById("search-items-container")
+function showSearchResult(products) {
+  let searchItemsContainer = document.getElementById("search-items-container");
 
-  let searchItems = ""
+  let searchItems = "";
   Array.from(products).forEach((item, index) => {
     searchItems += `
     <div class="item" id="${index}">
     <div class="image">
       <img
         src=${item.img} />
-      <div class="green-strip product-strip" style="background-color: ${item?.tags[0]?.color || "green"};">
+      <div class="green-strip product-strip" style="background-color: ${
+        item?.tags[0]?.color || "green"
+      };">
         <span>${item?.tags[0]?.tag || "free"}</span>
       </div>
-      <div class="red-strip product-strip" style="background-color: ${item?.tags[1]?.color || "red"};">
+      <div class="red-strip product-strip" style="background-color: ${
+        item?.tags[1]?.color || "red"
+      };">
         <span>${item?.tags[1]?.tag || "new"}</span>
       </div>
       <div class="badges">
@@ -576,8 +591,34 @@ function showSearchResult(products){
         </div>
       </div>
     </div>
+    
   </div>
+      
     `;
+    
+    // let arr = []
+    // let page = Math.ceil(Array.from(products).length / 6);
+
+    // let pagination = document.getElementById("pagination");
+    // pagination.innerHTML = "";
+    // for (let i = 1; i <= page; i++) {
+    //   let paginationProducts = {
+    //     page: i,
+    //     pageProduct: Array.from(products).slice(i * 6 - 6, i * 6)
+    //   }
+
+    //   arr.push(paginationProducts)
+    //   localStorage.setItem("pagination", JSON.stringify(arr))
+
+    //   pagination.innerHTML += `
+    //   <li class="list-item">
+    //     <a href="#" class="page-link">${paginationProducts.page}</a>
+    //   </li>
+    //   `;
+    // }
+
+    
+
   });
 
   searchItemsContainer.innerHTML = searchItems;
@@ -594,74 +635,75 @@ reviews();
 mostViewedProducts();
 
 // Go to top Functionality
-let goToTop = document.getElementById('top');
+let goToTop = document.getElementById("top");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 200) {
     goToTop.style.display = "flex";
     goToTop.style.transition = "all .6s ease-in-out";
-  }
-  else {
+  } else {
     goToTop.style.display = "none";
     goToTop.style.transition = "all .6s ease-in-out";
   }
-})
+});
 
 // Handling Categories Lists
 function handleClick(id) {
-  buyFromUs(id)
-  let currentActive = document.getElementById(id)
-  let categoriesList1 = document.getElementById("categories-list1")
-  categoryListWorking(categoriesList1.firstElementChild, id, currentActive, 1)
+  buyFromUs(id);
+  let currentActive = document.getElementById(id);
+  let categoriesList1 = document.getElementById("categories-list1");
+  categoryListWorking(categoriesList1.firstElementChild, id, currentActive, 1);
 }
 
 function handleClick1(id) {
-  featuredProducts(id)
-  let currentActive = document.getElementById(id)
-  let categoriesList2 = document.getElementById("categories-list2")
-  categoryListWorking(categoriesList2.firstElementChild, id, currentActive, 2)
+  featuredProducts(id);
+  let currentActive = document.getElementById(id);
+  let categoriesList2 = document.getElementById("categories-list2");
+  categoryListWorking(categoriesList2.firstElementChild, id, currentActive, 2);
 }
 function handleClick2(id) {
-  blogs(id)
-  let currentActive = document.getElementById(id)
-  let categoriesList3 = document.getElementById("categories-list3")
-  categoryListWorking(categoriesList3.firstElementChild, id, currentActive, 3)
+  blogs(id);
+  let currentActive = document.getElementById(id);
+  let categoriesList3 = document.getElementById("categories-list3");
+  categoryListWorking(categoriesList3.firstElementChild, id, currentActive, 3);
 }
 
 // Category List Working Function
 function categoryListWorking(firstChild, id, currentActive, num) {
   if (Array.from(firstChild.classList).includes("active") === true) {
-
-    firstChild.classList.remove("active")
-    currentActive.classList.add("active")
-    localStorage.setItem(`recentActiveID-${num}`, id)
-  }
-  else {
-    let recentActive = document.getElementById(localStorage.getItem(`recentActiveID-${num}`))
-    recentActive.classList.remove("active")
-    currentActive.classList.add("active")
-    localStorage.setItem(`recentActiveID-${num}`, id)
+    firstChild.classList.remove("active");
+    currentActive.classList.add("active");
+    localStorage.setItem(`recentActiveID-${num}`, id);
+  } else {
+    let recentActive = document.getElementById(
+      localStorage.getItem(`recentActiveID-${num}`)
+    );
+    recentActive.classList.remove("active");
+    currentActive.classList.add("active");
+    localStorage.setItem(`recentActiveID-${num}`, id);
   }
 }
 
 // Sticky Navbar
-let tag1 = document.getElementById("tag1")
-let tag2 = document.getElementById("tag2")
-window.onscroll = function () { myFunction() };
+let tag1 = document.getElementById("tag1");
+let tag2 = document.getElementById("tag2");
+window.onscroll = function () {
+  myFunction();
+};
 
 var navbar = document.getElementById("header-bottom");
 var sticky = navbar.offsetTop;
 
 function myFunction() {
   if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-    tag1.style.display = "none"
-    tag2.style.display = "none"
-    navbar.style.transform = "all .5s ease-in-out"
+    navbar.classList.add("sticky");
+    tag1.style.display = "none";
+    tag2.style.display = "none";
+    navbar.style.transform = "all .5s ease-in-out";
   } else {
     navbar.classList.remove("sticky");
-    tag1.style.display = "block"
-    tag2.style.display = "block"
-    navbar.style.transform = "all .5s ease-in-out"
+    tag1.style.display = "block";
+    tag2.style.display = "block";
+    navbar.style.transform = "all .5s ease-in-out";
   }
 }
 
@@ -677,28 +719,24 @@ let iconContainer2 = document.getElementById("icon2");
 let iconContainer3 = document.getElementById("icon3");
 let iconContainer4 = document.getElementById("icon4");
 
-
 dropdownContainer.addEventListener("click", () => {
   dropdownFunction(dropdown, iconContainer);
-})
+});
 dropdownContainer1.addEventListener("click", () => {
   dropdownFunction(dropdown1, iconContainer1);
-})
+});
 dropdownContainer2.addEventListener("click", () => {
   dropdownFunction(dropdown2, iconContainer2);
-})
+});
 dropdownContainer3.addEventListener("click", () => {
   dropdownFunction(dropdown3, iconContainer3);
-})
+});
 dropdownContainer4.addEventListener("click", () => {
   dropdownFunction(dropdown4, iconContainer4);
-})
+});
 
 function dropdownFunction(dropdown, iconContainer) {
-  if (
-    dropdown.style.display === "none" ||
-    dropdown.style.display === ""
-  ) {
+  if (dropdown.style.display === "none" || dropdown.style.display === "") {
     dropdown.style.display = "block";
     iconContainer.innerHTML = `
             <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -740,3 +778,53 @@ $(document).ready(function () {
     },
   });
 });
+
+function isUserLoggedIn() {
+  let loggedUserId = localStorage.getItem("loggedUserId");
+  let userLogin = document.getElementById("userLogin");
+  let userLogout = document.getElementById("userLogout");
+
+  // get user details from local storage
+  let users = JSON.parse(localStorage.getItem("users"));
+  let user = users.find((user) => user.id == loggedUserId);
+
+  if (loggedUserId) {
+    userLogin.innerHTML = ` <li class="list-item" style="cursorpointer;">
+                              <a> <i class="fa-regular fa-user"></i> ${user.name}</a>
+                            </li>`;
+    userLogout.innerHTML = ` <li class="list-item" style="cursorpointer;" onclick="handleLogout()">
+                              <a> <i class="fa-regular fa-right-from-bracket"></i> Logout</a>
+                            </li>`;
+  } else {
+    userLogin.innerHTML = ` <li class="list-item" id="login-page" onclick="redirectToPage(this.id)">
+                              <a href="login-signup.html"> <i class="fa-regular fa-user"></i> Login</a>
+                            </li>`;
+    userLogout.innerHTML = `<li class="list-item" id="register-page" onclick="redirectToPage(this.id)">
+                              <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
+                            </li>`;
+  }
+}
+
+function handleLogout() {
+  localStorage.removeItem("loggedUserId");
+  Swal.fire({
+    icon: "success",
+    title: "Success",
+    text: "logout Successfully!",
+    confirmButtonColor: "#4285f4",
+    confirmButtonText: "Ok",
+  }).then(() => {
+    location.reload();
+  });
+}
+
+function redirectToPage(id) {
+  if (id === "login-page") {
+    localStorage.setItem("redirectPage", "login");
+  } else if (id === "register-page") {
+    localStorage.setItem("redirectPage", "register");
+  }
+}
+
+isUserLoggedIn();
+
