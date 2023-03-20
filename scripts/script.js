@@ -786,7 +786,7 @@ function isUserLoggedIn() {
 
   // get user details from local storage
   let users = JSON.parse(localStorage.getItem("users"));
-  let user = users.find((user) => user.id == loggedUserId);
+  let user = users?.find((user) => user?.id == loggedUserId);
 
   if (loggedUserId) {
     userLogin.innerHTML = ` <li class="list-item" style="cursorpointer;">
