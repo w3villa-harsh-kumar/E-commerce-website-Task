@@ -1,6 +1,7 @@
 {
   "products": [
     {
+      "id" : 1,
       "name": "Men T-shirt",
       "price": 100,
       "img": "https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -17,6 +18,7 @@
       "category": "fashionProducts"
     },
     {
+      "id" : 2,
       "name": "Women T-shirt",
       "price": 100,
       "img": "https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -33,6 +35,7 @@
       "category": "fashionProducts"
     },
     {
+      "id" : 3,
       "name": "Men Shirt",
       "price": 100,
       "img": "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
@@ -45,6 +48,7 @@
       "category": "fashionProducts"
     },
     {
+      "id" : 4,
       "name": "Wedding Gown",
       "price": 100,
       "img": "https://images.unsplash.com/photo-1547697875-a99fe8f08327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -61,6 +65,7 @@
       "category": "fashionProducts"
     },
     {
+      "id" : 5,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop",
@@ -80,6 +85,7 @@
       "category": "featured"
     },
     {
+      "id" : 6,
       "company": "Apple",
       "modalNo": "207",
       "name": "Smart Phone",
@@ -99,6 +105,7 @@
       "category": "featured"
     },
     {
+      "id" : 7,
       "company": "Apple",
       "modalNo": "208",
       "name": "Smart Tv",
@@ -118,6 +125,7 @@
       "category": "featured"
     },
     {
+      "id" : 8,
       "company": "Apple",
       "modalNo": "209",
       "name": "Headphone",
@@ -137,6 +145,7 @@
       "category": "featured"
     },
     {
+      "id" : 9,
       "company": "Apple",
       "modalNo": "210",
       "name": "Digital Camera",
@@ -156,6 +165,7 @@
       "category": "featured"
     },
     {
+      "id" : 10,
       "company": "Apple",
       "modalNo": "211",
       "name": "Smart Watch",
@@ -175,6 +185,7 @@
       "category": "featured"
     },
     {
+      "id" : 11,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -194,6 +205,7 @@
       "category": "latest"
     },
     {
+      "id" : 12,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -213,6 +225,7 @@
       "category": "latest"
     },
     {
+      "id" : 13,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -232,6 +245,7 @@
       "category": "latest"
     },
     {
+      "id" : 14,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -251,6 +265,7 @@
       "category": "latest"
     },
     {
+      "id" : 15,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -270,6 +285,7 @@
       "category": "latest"
     },
     {
+      "id" : 16,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -289,6 +305,7 @@
       "category": "latest"
     },
     {
+      "id" : 17,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -308,6 +325,7 @@
       "category": "latest"
     },
     {
+      "id" : 18,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -327,6 +345,7 @@
       "category": "latest"
     },
     {
+      "id" : 19,
       "company": "Apple",
       "modalNo": "206",
       "name": "Ice Skates",
@@ -346,6 +365,7 @@
       "category": "latest"
     },
     {
+      "id" : 20,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -365,6 +385,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 21,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -384,6 +405,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 22,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -403,6 +425,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 23,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -422,6 +445,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 24,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -441,6 +465,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 25,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -460,6 +485,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 26,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -479,6 +505,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 27,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -498,6 +525,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 28,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -517,6 +545,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 29,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -536,6 +565,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 30,
       "company": "Apple",
       "modalNo": "206",
       "name": "Wireless Phone Chargers",
@@ -555,6 +585,7 @@
       "category": "bestsellers"
     },
     {
+      "id" : 31,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -574,6 +605,7 @@
       "category": "specials"
     },
     {
+      "id" : 32,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -593,6 +625,7 @@
       "category": "specials"
     },
     {
+      "id" : 33,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -612,6 +645,7 @@
       "category": "specials"
     },
     {
+      "id" : 34,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -631,6 +665,7 @@
       "category": "specials"
     },
     {
+      "id" : 35,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -650,6 +685,7 @@
       "category": "specials"
     },
     {
+      "id" : 36,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -669,6 +705,7 @@
       "category": "specials"
     },
     {
+      "id" : 37,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -688,6 +725,7 @@
       "category": "specials"
     },
     {
+      "id" : 38,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -707,6 +745,7 @@
       "category": "specials"
     },
     {
+      "id" : 39,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -726,6 +765,7 @@
       "category": "specials"
     },
     {
+      "id" : 40,
       "company": "Apple",
       "modalNo": "206",
       "name": "Laptop Accessories",
@@ -745,41 +785,48 @@
       "category": "specials"
     },
     {
+      "id" : 41,
       "name": "Headphone",
       "img": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "price": "299.00",
       "category": "mostViewedProducts"
     },
     {
+      "id" : 42,
       "name": "Headphone",
       "img": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "price": "299.00",
       "category": "mostViewedProducts"
     },
     {
+      "id" : 43,
       "name": "Headphone",
       "img": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "price": "299.00",
       "category": "mostViewedProducts"
     },
     {
+      "id" : 44,
       "name": "Headphone",
       "img": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "price": "299.00"
     },
     {
+      "id" : 45,
       "name": "Headphone",
       "img": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "price": "299.00",
       "category": "mostViewedProducts"
     },
     {
+      "id" : 46,
       "name": "Headphone",
       "img": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "price": "299.00",
       "category": "mostViewedProducts"
     },
     {
+      "id" : 47,
       "name": "Headphone",
       "img": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "price": "299.00",

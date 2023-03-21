@@ -171,11 +171,8 @@
               </li>
             </div>
           </ul>
-          <div class="cart-container flex-center">
-            <div class="info">0 item(s) - $0.00</div>
-            <div class="cart-logo">
-              <i class="fa-regular fa-cart-shopping"></i>
-            </div>
+          <div class="cart-container flex-center" id="cart-icon-container">
+            
           </div>
           <div class="mobile-navigation">
             <div class="mobile-navigation-items flex-center">
@@ -223,14 +220,52 @@
   </header>
   <!-- Header Section code End -->
 
-  <div>
+  <!-- All products container code Start -->
+  <div id="all-products-conatiner" class="all-products-conatiner">
     <div class="container">
-      <div class="search-items-container" id="search-items-container">
+      <div class="all-products-heading">
+        <h2>All Products</h2>
       </div>
-      <div class="pagination" id="pagination">
+      <div class="all-products" id="all-products">
+
+      </div>
+      <div class="all-prodcuts-pagination-container" id="all-prodcuts-pagination-container">
       </div>
     </div>
   </div>
+  <!-- All products container code End -->
+
+  <!-- Cart Item container code Start -->
+  <div id="cart-container" class="cart-items-container">
+    <div class="container">
+      <div class="cart-heading">
+        <h2>My Cart</h2>
+      </div>
+      <div class="cart-items" id="cart-items">
+      </div>
+      <div class="cart-pagination-container" id="cart-pagination-container">
+      </div>
+    </div>
+  </div>
+  <!-- Cart Item container code End -->
+
+  <!-- Search Item Container code start -->
+  <div class="my-search" id="my-search">
+    <div class="container">
+      <div class="search-heading" id="search-heading">
+        <h2>Search Results</h2>
+      </div>
+     <div class="search-items-parent" id="search-items-parent">
+      <div class="search-items-container" id="search-items-container">
+      </div>
+      <div class="pagination-container" id="pagination-container">
+      </div>
+     </div>
+    </div>
+  </div>
+  <!-- Search Item Container code end -->
+
+  <!-- Main Container code start -->
   <main id="main-container">
 
     <!-- Hero Section Code Start -->
@@ -371,8 +406,8 @@
         </div>
         <div id="featurred-products-category-carousel" class="categories-carousal-container">
         </div>
-        <div class="see-all-products">
-          <a href="">View All Products <i class="fa-regular fa-arrow-right"></i></a>
+        <div class="see-all-products" id="see-all-products" onclick="handleAllProductsPagination()">
+          <a>View All Products <i class="fa-regular fa-arrow-right"></i></a>
         </div>
       </div>
       </div>
@@ -413,7 +448,7 @@
               <li class="list-item"><a href="#">Pants</a></li>
               <li class="list-item"><a href="#">T-Shirts</a></li>
             </ul>
-            <div class="see-all-fashion">
+            <div class="see-all-fashion"
               <a href="#">See all in Fashion</a>
             </div>
           </div>
@@ -590,6 +625,7 @@
     </section>
     <!-- Most Viewed Section Code Start -->
   </main>
+  <!-- Main Section Code End -->
 
   <!-- Social Media handles Section Code Start -->
   <section class="social-media">
@@ -726,7 +762,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="scripts/script.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/carousels.js"></script>
 </body>
 
 </html>
