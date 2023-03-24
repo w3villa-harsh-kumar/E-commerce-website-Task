@@ -69,15 +69,10 @@
             </ul>
             <div class="mobile-nav">
               <div class="mobile-menu-items flex-center">
-                <div class="login">
-                  <li class="mobile-menu-item">
-                    <a href="login-signup.html"> <i class="fa-regular fa-user"></i> Login</a>
-                  </li>
+                <div class="login" id="mobileUserLogin">
+                  
                 </div>
-                <div class="register">
-                  <li class="mobile-menu-item">
-                    <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
-                  </li>
+                <div class="register" id="mobileUserLogout">
                 </div>
               </div>
             </div>
@@ -159,9 +154,9 @@
             </div>
             <div class="register" id="userLogout">
             </div>
-            <div class="wishlist">
+            <div class="wishlist" onclick="handleWishlistPagination()">
               <li class="list-item">
-                <a href=""><i class="fa-regular fa-heart"></i> wishlist</a>
+                <a><i class="fa-regular fa-heart"></i> wishlist</a>
               </li>
             </div>
             <div class="compare">
@@ -172,7 +167,6 @@
             </div>
           </ul>
           <div class="cart-container flex-center" id="cart-icon-container">
-            
           </div>
           <div class="mobile-navigation">
             <div class="mobile-navigation-items flex-center">
@@ -182,8 +176,7 @@
               <div class="search-icon">
                 <i class="fa-regular fa-magnifying-glass"></i>
               </div>
-              <div class="cart-logo">
-                <i class="fa-regular fa-cart-shopping"></i>
+              <div class="my-mobile-cart" id="mobile-cart-icon-container">
               </div>
             </div>
           </div>
@@ -248,6 +241,20 @@
     </div>
   </div>
   <!-- Cart Item container code End -->
+
+  <!-- Wishlist Item container code Start -->
+  <div id="wishlist-container" class="wishlist-items-container">
+    <div class="container">
+      <div class="wishlist-heading">
+        <h2>My Wishlist</h2>
+      </div>
+      <div class="wishlist-items" id="wishlist-items">
+      </div>
+      <div class="wishlist-pagination-container" id="wishlist-pagination-container">
+      </div>
+    </div>
+  </div>
+  <!-- Wishlist Item container code End -->
 
   <!-- Search Item Container code start -->
   <div class="my-search" id="my-search">

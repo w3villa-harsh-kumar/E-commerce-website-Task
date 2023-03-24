@@ -264,7 +264,6 @@ Login and Signup Section Styles
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 1rem; */
   border: 1px solid #e8e8e8;
 }
 
@@ -464,11 +463,6 @@ Login and Signup Section Styles
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-}
-
-.login-container .login-form form .button-coontainer button:hover,
-.signup-container .signup-form form .button-coontainer button:hover {
-  background: #4285f4;
 }
 
 .login-container .login-form form .button-coontainer button:focus,

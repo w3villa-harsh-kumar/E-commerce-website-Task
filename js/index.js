@@ -196,9 +196,13 @@ async function featuredProducts(term) {
               </div>
             </div>
             <div class="right">
-              <div class="wishlist">
+              <div id="${
+                item.id
+              }" id="${
+                item.id
+              }" class="wishlist"  onclick="handleAddToWishlist(this.id)">
                 <li class="list-item">
-                  <a href=""><i class="fa-regular fa-heart"></i></a>
+                  <a><i class="fa-regular fa-heart"></i></a>
                 </li>
               </div>
               <div class="compare">
@@ -296,9 +300,11 @@ async function fashionProducts() {
           </div>
         </div>
         <div class="bottom-right">
-          <div class="wishlist">
+          <div id="${
+                item.id
+              }" class="wishlist" onclick="handleAddToWishlist(this.id)">
             <li class="list-item">
-              <a href=""><i class="fa-regular fa-heart"></i></a>
+              <a><i class="fa-regular fa-heart"></i></a>
             </li>
           </div>
           <div class="compare">
@@ -562,37 +568,47 @@ $(document).ready(function () {
 
 // Show Active Container Function
 function showActivePage() {
-  let allProductsConatiner = document.getElementById("all-products-conatiner");
-  let searchItemsContainer = document.getElementById("my-search");
-  let cartContainer = document.getElementById("cart-container");
-  let activeContainer = localStorage.getItem("activeContainer");
+  const allProductsConatiner = document.getElementById(
+    "all-products-conatiner"
+  );
+  const searchItemsContainer = document.getElementById("my-search");
+  const cartContainer = document.getElementById("cart-container");
+  const wishlistContainer = document.getElementById("wishlist-container");
+  const activeContainer = localStorage.getItem("activeContainer");
   if (activeContainer === "paginationPage") {
     allProductsConatiner.classList.add("d-none");
     searchItemsContainer.classList.remove("d-none");
     cartContainer.classList.add("d-none");
-  }
- else if(activeContainer === "cartPaginationPage") {
+    wishlistContainer.classList.add("d-none");
+  } else if (activeContainer === "cartPaginationPage") {
     allProductsConatiner.classList.add("d-none");
     searchItemsContainer.classList.add("d-none");
     cartContainer.classList.remove("d-none");
+    wishlistContainer.classList.add("d-none");
+  } else if (activeContainer === "wishlistPaginationPage") {
+    allProductsConatiner.classList.add("d-none");
+    searchItemsContainer.classList.add("d-none");
+    cartContainer.classList.add("d-none");
+    wishlistContainer.classList.remove("d-none");
   }
-  else {
+   else {
     allProductsConatiner.classList.remove("d-none");
     searchItemsContainer.classList.add("d-none");
     cartContainer.classList.add("d-none");
+    wishlistContainer.classList.add("d-none");
     console.log("all");
   }
 }
 
 // Search Product Function
 async function searchProduct(searchTerm) {
-  let data = await getAllProductsData();
+  const data = await getAllProductsData();
 
   // combine all products in one array
-  let allProducts = data["products"];
+  const allProducts = data["products"];
 
   // Find all the product with the search term
-  let filteredData = allProducts.filter((item) => {
+  const filteredData = allProducts.filter((item) => {
     if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
       return item;
     }
@@ -605,14 +621,14 @@ async function searchProduct(searchTerm) {
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", async () => {
   const searchInput = document.getElementById("search-input");
-  let data = await searchProduct(searchInput.value);
+  const data = await searchProduct(searchInput.value);
   showSearchResult(data);
 });
 
 // Show Search Result Function
 function showSearchResult(products) {
-  let arr = [];
-  let pages = Math.ceil(Array.from(products).length / 8);
+  const arr = [];
+  const pages = Math.ceil(products.length / 8);
   localStorage.setItem("pages", pages);
   for (let i = 1; i <= pages; i++) {
     let paginationProducts = {
@@ -637,14 +653,13 @@ function showSearchResult(products) {
     mainContainer.style.display = "none";
     handlePagination("page-1");
   }
-
 }
 
 // Handling Pagination for Search Result
 function handlePagination(id) {
   let paginationConatiner = document.getElementById("pagination-container");
   let pages = localStorage.getItem("pages");
-  pagination = `<div class="pagination"><a onclick="handleSearchLeftpagination()" style="cursor:pointer;">&laquo;</a>
+  pagination = `<div class="pagination"><a class="leftnav" onclick="handleSearchLeftpagination()" ><</a>
       `;
   for (let i = 1; i <= pages; i++) {
     pagination += `
@@ -653,7 +668,7 @@ function handlePagination(id) {
       </a>
         `;
   }
-  pagination += `<a onclick="handleSearchRightpagination(${pages})" style="cursor:pointer;">&raquo;</a></div>`;
+  pagination += `<a onclick="handleSearchRightpagination(${pages})" class="rightnav" >></a></div>`;
   paginationConatiner.innerHTML = pagination;
 
   let itemsArr = JSON.parse(localStorage.getItem("pagination"));
@@ -706,9 +721,11 @@ function handlePagination(id) {
             </div>
           </div>
           <div class="bottom-right">
-            <div class="wishlist">
+            <div id="${
+                item.id
+              }" class="wishlist" onclick="handleAddToWishlist(this.id)">
               <li class="list-item">
-                <a href=""><i class="fa-regular fa-heart"></i></a>
+                <a><i class="fa-regular fa-heart"></i></a>
               </li>
             </div>
             <div class="compare">
@@ -725,10 +742,11 @@ function handlePagination(id) {
   });
 
   searchItemsContainer.innerHTML = searchItems;
-  let activePgae = document.getElementById(
+  let activePage = document.getElementById(
     `page-${localStorage.getItem("paginationPage")}`
   );
-  activePgae.classList.add("active");
+  activePage.classList.add("active");
+  // console.log(activePage);
   let mainContainer = document.getElementById("main-container");
   mainContainer.style.display = "none";
   showActivePage();
@@ -736,22 +754,12 @@ function handlePagination(id) {
 
 // Handle Left Pagination for Search Result
 function handleSearchLeftpagination() {
-  let page = localStorage.getItem("paginationPage");
-  if (page == 1) {
-    return;
-  } else {
-    handlePagination(`page-${Number(page) - 1}`);
-  }
+  commonLeftPagination("paginationPage", handlePagination);
 }
 
 // Handle Right Pagination for Search Result
 function handleSearchRightpagination(totalPages) {
-  let page = localStorage.getItem("paginationPage");
-  if (page == totalPages) {
-    return;
-  } else {
-    handlePagination(`page-${Number(page) + 1}`);
-  }
+  commonRightPagination("paginationPage", handlePagination, totalPages);
 }
 
 // Check User is Logged In or Not
@@ -759,26 +767,40 @@ function isUserLoggedIn() {
   let allProductsConatiner = document.getElementById("all-products-conatiner");
   let searchItemsContainer = document.getElementById("search-items-container");
   let cartContainer = document.getElementById("cart-container");
+  const wishlistContainer = document.getElementById("wishlist-container");
   let searchHeading = document.getElementById("search-heading");
   allProductsConatiner.classList.add("d-none");
   searchItemsContainer.classList.add("d-none");
   cartContainer.classList.add("d-none");
   searchHeading.classList.add("d-none");
+  wishlistContainer.classList.add("d-none");
   let loggedUserId = localStorage.getItem("loggedUserId") || false;
   let userLogin = document.getElementById("userLogin");
   let userLogout = document.getElementById("userLogout");
+  let mobileUserLogin = document.getElementById("mobileUserLogin");
+  let mobileUserLogout = document.getElementById("mobileUserLogout");
 
   // get user details from local storage
   let users = JSON.parse(localStorage.getItem("users"));
   let user = users?.find((user) => user?.id == loggedUserId);
 
   if (loggedUserId) {
-    userLogin.innerHTML = ` <li class="list-item" style="cursorpointer;">
+    userLogin.innerHTML = ` <li class="list-item" style="cursor:pointer;">
                               <a> <i class="fa-regular fa-user"></i> ${user.name}</a>
                             </li>`;
     userLogout.innerHTML = ` <li class="list-item" style="cursorpointer;" onclick="handleLogout()">
                               <a> <i class="fa-regular fa-right-from-bracket"></i> Logout</a>
                             </li>`;
+    mobileUserLogin.innerHTML = `
+      <li class="mobile-menu-item" style="cursor:pointer;">
+        <a> <i class="fa-regular fa-user"></i>${user.name}</a>
+      </li>
+    `;
+    mobileUserLogout.innerHTML = `
+      <li class="mobile-menu-item" style="cursor:pointer;" onclick="handleLogout()">
+        <a> <i class="fa-regular fa-right-from-bracket"></i> Logout</a>
+      </li>`;
+
   } else {
     userLogin.innerHTML = ` <li class="list-item" id="login-page" onclick="redirectToPage(this.id)">
                               <a href="login-signup.html"> <i class="fa-regular fa-user"></i> Login</a>
@@ -786,6 +808,18 @@ function isUserLoggedIn() {
     userLogout.innerHTML = `<li class="list-item" id="register-page" onclick="redirectToPage(this.id)">
                               <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
                             </li>`;
+    mobileUserLogin.innerHTML = `
+      <li class="mobile-menu-item" id="login-page" onclick="redirectToPage(this.id)">
+        <a href="login-signup.html"> <i class="fa-regular fa-user"></i>Login</a>
+      </li>
+    `;
+
+    mobileUserLogout.innerHTML = `
+      <li class="mobile-menu-item" id="register-page" onclick="redirectToPage(this.id)">
+        <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
+      </li>
+    `;
+
   }
 }
 
@@ -822,7 +856,7 @@ async function handleAllProductsPagination(id) {
     "all-prodcuts-pagination-container"
   );
   let pages = Math.ceil(allProductsData.length / 8);
-  pagination = `<div class="pagination"><a onclick="handleLeftpagination()" style="cursor:pointer;">&laquo;</a>
+  pagination = `<div class="pagination"><a class="leftnav" onclick="handleLeftpagination()" ><</a>
     `;
   for (let i = 1; i <= pages; i++) {
     let paginationProducts = {
@@ -837,7 +871,7 @@ async function handleAllProductsPagination(id) {
         <a style="cursor:pointer" id="page-${paginationProducts.page}" onclick="handleAllProductsPagination(this.id)" >${paginationProducts.page}</a>
       `;
   }
-  pagination += `<a onclick="handleRightpagination(${pages})" style="cursor:pointer;">&raquo;</a></div>`;
+  pagination += `<a onclick="handleRightpagination(${pages})" class="rightnav" >></a></div>`;
   paginationConatiner.innerHTML = pagination;
 
   let itemsArr = JSON.parse(localStorage.getItem("all-products-pagination"));
@@ -845,7 +879,7 @@ async function handleAllProductsPagination(id) {
   if (id === undefined) {
     page = itemsArr.find((item) => item.page == 1);
     localStorage.setItem("allProductsPaginationPage", 1);
-    localStorage.setItem("activeContainer", "all-products")
+    localStorage.setItem("activeContainer", "all-products");
   } else {
     page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
     localStorage.setItem("allProductsPaginationPage", Number(id.split("-")[1]));
@@ -898,9 +932,11 @@ async function handleAllProductsPagination(id) {
             </div>
           </div>
           <div class="bottom-right">
-            <div class="wishlist">
+            <div id="${
+                item.id
+              }" class="wishlist" onclick="handleAddToWishlist(this.id)">
               <li class="list-item">
-                <a href=""><i class="fa-regular fa-heart"></i></a>
+                <a><i class="fa-regular fa-heart"></i></a>
               </li>
             </div>
             <div class="compare">
@@ -929,25 +965,22 @@ async function handleAllProductsPagination(id) {
 
 // Handle Left Pagination for All Products
 function handleLeftpagination() {
-  let page = localStorage.getItem("allProductsPaginationPage");
-  if (page == 1) {
-    return;
-  } else {
-    handleAllProductsPagination(`page-${Number(page) - 1}`);
-  }
+  commonLeftPagination(
+    "allProductsPaginationPage",
+    handleAllProductsPagination
+  );
 }
 
 // Handle Right Pagination for All Products
 function handleRightpagination(totalPages) {
-  let page = localStorage.getItem("allProductsPaginationPage");
-  if (page == totalPages) {
-    return;
-  } else {
-    handleAllProductsPagination(`page-${Number(page) + 1}`);
-  }
+  commonRightPagination(
+    "allProductsPaginationPage",
+    handleAllProductsPagination,
+    totalPages
+  );
 }
-
-// Handle Add To Cart ==> IN PROGRESS
+ 
+/* ************************ Cart Code Start **************************** */
 function handleAddToCart(id) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -980,6 +1013,7 @@ async function showCountOfCartItems() {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   console.log(cartItems);
   let cartCount = document.getElementById("cart-icon-container");
+  let mobileCartCount = document.getElementById("mobile-cart-icon-container");
   if (cartItems.length > 0) {
     cartCount.innerHTML = `
     <div class="info" id="cart-info">${cartItems.length} item(s) - $${totalPrice}</div>
@@ -989,12 +1023,25 @@ async function showCountOfCartItems() {
       </div>
       <div class="count-badge">${cartItems.length}</div>
     </div>`;
+
+    mobileCartCount.innerHTML = `
+      <div class="cart-logo" onclick="handleCartPagination()">
+      <i class="fa-regular fa-cart-shopping"></i>
+      </div>
+      <div class="count-badge">${cartItems.length}</div>`;
+    
   } else {
     cartCount.innerHTML = `
     <div class="info" id="cart-info">0 item(s) - $0.00</div>
     <div class="cart-logo" onclick="handleCartPagination()">
       <i class="fa-regular fa-cart-shopping"></i>
     </div>`;
+
+    mobileCartCount.innerHTML = `
+      <div class="cart-logo" onclick="handleCartPagination()">
+      <i class="fa-regular fa-cart-shopping"></i>
+      </div>
+      `;
   }
 }
 
@@ -1039,7 +1086,7 @@ async function handleCartPagination(id = "page-1") {
   );
   let pages = Math.ceil(cartItems.length / 8);
   console.log(cartItems.length, pages);
-  pagination = `<div class="pagination"><a onclick="handleCartLeftpagination()" style="cursor:pointer;">&laquo;</a>
+  let pagination = `<div class="pagination"><a class="leftnav" onclick="handleCartLeftpagination()" ><</a>
     `;
 
   for (let i = 1; i <= pages; i++) {
@@ -1056,7 +1103,7 @@ async function handleCartPagination(id = "page-1") {
         <a style="cursor:pointer" id="page-${paginationProducts.page}" onclick="handleCartPagination(this.id)" >${paginationProducts.page}</a>
       `;
   }
-  pagination += `<a onclick="handleCartRightpagination(${pages})" style="cursor:pointer;">&raquo;</a></div>`;
+  pagination += `<a onclick="handleCartRightpagination(${pages})" class="rightnav" >></a></div>`;
   paginationConatiner.innerHTML = pagination;
 
   let itemsArr = JSON.parse(localStorage.getItem("cart-pagination"));
@@ -1096,7 +1143,9 @@ async function handleCartPagination(id = "page-1") {
             </div>
           </div>
           <div class="bottom-right" title="Add to favourite">
-            <div class="wishlist">
+            <div id="${
+                item.id
+              }" class="wishlist" onclick="handleWishlistPagination(this.id)">
               <li class="list-item">
                 <a href=""><i class="fa-regular fa-heart"></i></a>
               </li>
@@ -1108,6 +1157,11 @@ async function handleCartPagination(id = "page-1") {
   });
 
   cartItemsContainer.innerHTML = cartItemsItems;
+  let activePgae = document.getElementById(
+    `page-${localStorage.getItem("cartPaginationPage")}`
+  );
+  activePgae.classList.add("active");
+
   let mainContainer = document.getElementById("main-container");
   mainContainer.style.display = "none";
   showActivePage();
@@ -1115,22 +1169,12 @@ async function handleCartPagination(id = "page-1") {
 
 // Handle Left Pagination for Cart
 function handleCartLeftpagination() {
-  let page = localStorage.getItem("cartPaginationPage");
-  if (page == 1) {
-    return;
-  } else {
-    handleCartPagination(`page-${Number(page) - 1}`);
-  }
+  commonLeftPagination("cartPaginationPage", handleCartPagination);
 }
 
 // Handle Right Pagination for Cart
 function handleCartRightpagination(totalPages) {
-  let page = localStorage.getItem("cartPaginationPage");
-  if (page == totalPages) {
-    return;
-  } else {
-    handleCartPagination(`page-${Number(page) + 1}`);
-  }
+  commonRightPagination("cartPaginationPage", handleCartPagination, totalPages);
 }
 
 // Remove Item from Cart
@@ -1158,10 +1202,175 @@ function handleRemoveFromCart(id) {
       confirmButtonColor: "#4285f4",
       confirmButtonText: "Ok",
     }).then(() => {
-      handleCartPagination("page-1");
+      handleCartPagination();
     });
   }
 }
+
+// Handle Add to Wishlist
+function handleAddToWishlist(id) {
+  let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+  console.log(wishlistItems);
+
+  if (wishlistItems.includes(id)) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Product Already In Wishlist!",
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "Ok",
+    });
+    return;
+  }
+
+  wishlistItems.push(id);
+  localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+  Swal.fire({
+    icon: "success",
+    title: "Success",
+    text: "Product Added to Wishlist Successfully!",
+    confirmButtonColor: "#4285f4",
+    confirmButtonText: "Ok",
+  });
+
+  return;
+}
+
+// Handle Show Wishlist
+async function handleWishlistPagination(id = "page-1") {
+  let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+
+  if (wishlistItems.length == 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Wishlist Is Empty!",
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "Ok",
+    });
+    return;
+  }
+
+  let data = await getAllProductsData();
+  let products = data["products"];
+  let arr = [];
+  let paginationConatiner = document.getElementById(
+    "wishlist-pagination-container"
+  );
+  let pages = Math.ceil(wishlistItems.length / 8);
+  console.log(wishlistItems.length, pages);
+  let pagination = `<div class="pagination"><a class="leftnav" onclick="handleWishlistLeftpagination()" ><</a>
+    `;
+  for (let i = 1; i <= pages; i++) {
+    let paginationProducts = {
+      page: i,
+      pageProduct: wishlistItems.slice(i * 8 - 8, i * 8),
+    };
+
+    arr.push(paginationProducts);
+    localStorage.setItem("wishlist-pagination", JSON.stringify(arr));
+
+    pagination += `
+        <a style="cursor:pointer" id="page-${paginationProducts.page}" onclick="handleWishlistPagination(this.id)" >${paginationProducts.page}</a>
+      `;
+  }
+
+  pagination += `<a onclick="handleWishlistRightpagination(${pages})" class="rightnav" >></a></div>`;
+  paginationConatiner.innerHTML = pagination;
+
+  let itemsArr = JSON.parse(localStorage.getItem("wishlist-pagination"));
+  let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
+  localStorage.setItem("wishlistPaginationPage", Number(id.split("-")[1]));
+  localStorage.setItem("activeContainer", "wishlistPaginationPage");
+
+  let wishlistContainer = document.getElementById("wishlist-container");
+  wishlistContainer.classList.remove("d-none");
+  let wishlistItemsContainer = document.getElementById("wishlist-items");
+  let wishlistItemsItems = "";
+  wishlistItemsContainer.style.marginTop = "16px";
+  wishlistItemsContainer.style.marginBottom = "16px";
+
+  Array.from(page.pageProduct).forEach((item) => {
+    let product = products.find((product) => product.id == item);
+    wishlistItemsItems += `
+    <div class="item">
+      <div class="image">
+        <img src=${product.img} />
+      </div>
+      <div class="details">
+        <div class="name">
+          <span>${product.name}</span>
+        </div>
+        <div class="price">
+          <div class="current">
+            <span>$ ${product.price || product.actualPrice}</span>
+          </div>
+        </div>
+        <div class="bottom flex-between-center">
+          <div class="bottom-left">
+            <div class="add-to-cart" id="${
+              product.id
+            }" onclick="handleRemoveFromWishlist(this.id)">
+              Remove from wishlist
+            </div>
+          </div>
+          <div class="bottom-right" title="Add to favourite">
+            <div id="${
+                item.id
+              }" class="wishlist" onclick="handleWishlistPagination(this.id)">
+              <li class="list-item">
+                <a href=""><i class="fa-solid fa-heart"></i></a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  })
+
+  wishlistItemsContainer.innerHTML = wishlistItemsItems;
+  let activePgae = document.getElementById(
+    `page-${localStorage.getItem("wishlistPaginationPage")}`
+  );
+  activePgae.classList.add("active");
+
+  let mainContainer = document.getElementById("main-container");
+  mainContainer.style.display = "none";
+  showActivePage();
+}
+
+// Remove from wishlist
+function handleRemoveFromWishlist(id) {
+  let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems"));
+  let arr = removeElt(wishlistItems, id);
+  localStorage.setItem("wishlistItems", JSON.stringify(arr));
+  
+  if (wishlistItems.length == 0) {
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Product Removed from wishlist Successfully!",
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "Ok",
+    }).then(() => {
+      location.href = "index.html";
+    });
+  }
+  else{
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Product Removed from wishlist Successfully!",
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "Ok",
+    }).then(() => {
+      handleWishlistPagination();
+    });
+  }
+
+}
+
+/*Common Javascript Function */
 
 // Remove element function
 function removeElt(arr, elt) {
@@ -1170,6 +1379,34 @@ function removeElt(arr, elt) {
     arr.splice(index, 1);
   }
   return arr;
+}
+
+// Common pagination
+function commonPagination(id, pagination) {
+  let itemsArr = JSON.parse(localStorage.getItem("pagination"));
+  let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
+  localStorage.setItem("paginationPage", Number(id.split("-")[1]));
+  localStorage.setItem("activeContainer", "paginationPage");
+}
+
+// Common Left Pagination
+function commonLeftPagination(p, pagination) {
+  let page = localStorage.getItem(p);
+  if (page == 1) {
+    return;
+  } else {
+    pagination(`page-${Number(page) - 1}`);
+  }
+}
+
+// Common Right Pagination
+function commonRightPagination(p, pagination, totalPages) {
+  let page = localStorage.getItem(p);
+  if (page == totalPages) {
+    return;
+  } else {
+    pagination(`page-${Number(page) + 1}`);
+  }
 }
 
 bannarProducts();
