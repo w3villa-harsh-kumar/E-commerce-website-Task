@@ -140,14 +140,14 @@ async function featuredProducts(term) {
             src="${item.img}"
             alt="image" />
           <div class="green-strip product-strip" style="background-color: ${
-            item?.tags[0]?.color || "green"
+            item?.tags?.[0]?.color || "green"
           };">
-            <span>${item?.tags[0]?.tag || "free"}</span>
+            <span>${item?.tags?.[0]?.tag || "free"}</span>
           </div>
           <div class="red-strip product-strip" style="background-color: ${
-            item?.tags[1]?.color || "red"
+            item?.tags?.[1]?.color || "red"
           };">
-            <span>${item?.tags[1]?.tag || "new"}</span>
+            <span>${item?.tags?.[1]?.tag || "new"}</span>
           </div>
           <div class="badges">
             <span class="badge badge1">-70%</span>
@@ -196,11 +196,9 @@ async function featuredProducts(term) {
               </div>
             </div>
             <div class="right">
-              <div id="${
-                item.id
-              }" id="${
-                item.id
-              }" class="wishlist"  onclick="handleAddToWishlist(this.id)">
+              <div id="${item.id}" id="${
+      item.id
+    }" class="wishlist"  onclick="handleAddToWishlist(this.id)">
                 <li class="list-item">
                   <a><i class="fa-regular fa-heart"></i></a>
                 </li>
@@ -268,14 +266,14 @@ async function fashionProducts() {
       <img
         src=${item.img} />
       <div class="green-strip product-strip" style="background-color: ${
-        item?.tags[0]?.color || "green"
+        item?.tags?.[0]?.color || "green"
       };">
-        <span>${item?.tags[0]?.tag || "free"}</span>
+        <span>${item?.tags?.[0]?.tag || "free"}</span>
       </div>
       <div class="red-strip product-strip" style="background-color: ${
-        item?.tags[1]?.color || "red"
+        item?.tags?.[1]?.color || "red"
       };">
-        <span>${item?.tags[1]?.tag || "new"}</span>
+        <span>${item?.tags?.[1]?.tag || "new"}</span>
       </div>
       <div class="badges">
         <span class="badge badge1">-70%</span>
@@ -301,8 +299,8 @@ async function fashionProducts() {
         </div>
         <div class="bottom-right">
           <div id="${
-                item.id
-              }" class="wishlist" onclick="handleAddToWishlist(this.id)">
+            item.id
+          }" class="wishlist" onclick="handleAddToWishlist(this.id)">
             <li class="list-item">
               <a><i class="fa-regular fa-heart"></i></a>
             </li>
@@ -590,8 +588,7 @@ function showActivePage() {
     searchItemsContainer.classList.add("d-none");
     cartContainer.classList.add("d-none");
     wishlistContainer.classList.remove("d-none");
-  }
-   else {
+  } else {
     allProductsConatiner.classList.remove("d-none");
     searchItemsContainer.classList.add("d-none");
     cartContainer.classList.add("d-none");
@@ -689,14 +686,14 @@ function handlePagination(id) {
         <img
           src=${item.img} />
         <div class="green-strip product-strip" style="background-color: ${
-          item?.tags[0]?.color || "green"
+          item?.tags?.[0]?.color || "green"
         };">
-          <span>${item?.tags[0]?.tag || "free"}</span>
+          <span>${item?.tags?.[0]?.tag || "free"}</span>
         </div>
         <div class="red-strip product-strip" style="background-color: ${
-          item?.tags[1]?.color || "red"
+          item?.tags?.[1]?.color || "red"
         };">
-          <span>${item?.tags[1]?.tag || "new"}</span>
+          <span>${item?.tags?.[1]?.tag || "new"}</span>
         </div>
         <div class="badges">
           <span class="badge badge1">-70%</span>
@@ -722,8 +719,8 @@ function handlePagination(id) {
           </div>
           <div class="bottom-right">
             <div id="${
-                item.id
-              }" class="wishlist" onclick="handleAddToWishlist(this.id)">
+              item.id
+            }" class="wishlist" onclick="handleAddToWishlist(this.id)">
               <li class="list-item">
                 <a><i class="fa-regular fa-heart"></i></a>
               </li>
@@ -800,7 +797,6 @@ function isUserLoggedIn() {
       <li class="mobile-menu-item" style="cursor:pointer;" onclick="handleLogout()">
         <a> <i class="fa-regular fa-right-from-bracket"></i> Logout</a>
       </li>`;
-
   } else {
     userLogin.innerHTML = ` <li class="list-item" id="login-page" onclick="redirectToPage(this.id)">
                               <a href="login-signup.html"> <i class="fa-regular fa-user"></i> Login</a>
@@ -819,7 +815,6 @@ function isUserLoggedIn() {
         <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
       </li>
     `;
-
   }
 }
 
@@ -848,31 +843,14 @@ function redirectToPage(id) {
 
 // All Products Pagination
 async function handleAllProductsPagination(id) {
-  let data = await getAllProductsData();
-  let allProductsData = data["products"];
-
-  let arr = [];
-  let paginationConatiner = document.getElementById(
-    "all-prodcuts-pagination-container"
+  await commonPagination(
+    "all-products",
+    id,
+    "all-products",
+    "handleLeftpagination",
+    "handleRightpagination",
+    "handleAllProductsPagination"
   );
-  let pages = Math.ceil(allProductsData.length / 8);
-  pagination = `<div class="pagination"><a class="leftnav" onclick="handleLeftpagination()" ><</a>
-    `;
-  for (let i = 1; i <= pages; i++) {
-    let paginationProducts = {
-      page: i,
-      pageProduct: allProductsData.slice(i * 8 - 8, i * 8),
-    };
-
-    arr.push(paginationProducts);
-    localStorage.setItem("all-products-pagination", JSON.stringify(arr));
-
-    pagination += `
-        <a style="cursor:pointer" id="page-${paginationProducts.page}" onclick="handleAllProductsPagination(this.id)" >${paginationProducts.page}</a>
-      `;
-  }
-  pagination += `<a onclick="handleRightpagination(${pages})" class="rightnav" >></a></div>`;
-  paginationConatiner.innerHTML = pagination;
 
   let itemsArr = JSON.parse(localStorage.getItem("all-products-pagination"));
   let page;
@@ -933,8 +911,8 @@ async function handleAllProductsPagination(id) {
           </div>
           <div class="bottom-right">
             <div id="${
-                item.id
-              }" class="wishlist" onclick="handleAddToWishlist(this.id)">
+              item.id
+            }" class="wishlist" onclick="handleAddToWishlist(this.id)">
               <li class="list-item">
                 <a><i class="fa-regular fa-heart"></i></a>
               </li>
@@ -979,7 +957,7 @@ function handleRightpagination(totalPages) {
     totalPages
   );
 }
- 
+
 /* ************************ Cart Code Start **************************** */
 function handleAddToCart(id) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -1029,7 +1007,6 @@ async function showCountOfCartItems() {
       <i class="fa-regular fa-cart-shopping"></i>
       </div>
       <div class="count-badge">${cartItems.length}</div>`;
-    
   } else {
     cartCount.innerHTML = `
     <div class="info" id="cart-info">0 item(s) - $0.00</div>
@@ -1077,34 +1054,17 @@ async function handleCartPagination(id = "page-1") {
     });
     return;
   }
-
   let data = await getAllProductsData();
   let products = data["products"];
-  let arr = [];
-  let paginationConatiner = document.getElementById(
-    "cart-pagination-container"
+
+  await commonPagination(
+    "cart",
+    id,
+    "cart",
+    "handleCartLeftpagination",
+    "handleCartRightpagination",
+    "handleCartPagination"
   );
-  let pages = Math.ceil(cartItems.length / 8);
-  console.log(cartItems.length, pages);
-  let pagination = `<div class="pagination"><a class="leftnav" onclick="handleCartLeftpagination()" ><</a>
-    `;
-
-  for (let i = 1; i <= pages; i++) {
-    console.log(i * 6 - 6, i * 6);
-    let paginationProducts = {
-      page: i,
-      pageProduct: cartItems.slice(i * 8 - 8, i * 8),
-    };
-
-    arr.push(paginationProducts);
-    localStorage.setItem("cart-pagination", JSON.stringify(arr));
-
-    pagination += `
-        <a style="cursor:pointer" id="page-${paginationProducts.page}" onclick="handleCartPagination(this.id)" >${paginationProducts.page}</a>
-      `;
-  }
-  pagination += `<a onclick="handleCartRightpagination(${pages})" class="rightnav" >></a></div>`;
-  paginationConatiner.innerHTML = pagination;
 
   let itemsArr = JSON.parse(localStorage.getItem("cart-pagination"));
   let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
@@ -1144,8 +1104,8 @@ async function handleCartPagination(id = "page-1") {
           </div>
           <div class="bottom-right" title="Add to favourite">
             <div id="${
-                item.id
-              }" class="wishlist" onclick="handleWishlistPagination(this.id)">
+              item.id
+            }" class="wishlist" onclick="handleWishlistPagination(this.id)">
               <li class="list-item">
                 <a href=""><i class="fa-regular fa-heart"></i></a>
               </li>
@@ -1253,30 +1213,15 @@ async function handleWishlistPagination(id = "page-1") {
 
   let data = await getAllProductsData();
   let products = data["products"];
-  let arr = [];
-  let paginationConatiner = document.getElementById(
-    "wishlist-pagination-container"
+
+  await commonPagination(
+    "wishlist",
+    id,
+    "wishlist",
+    "handleWishlistLeftpagination",
+    "handleWishlistRightpagination",
+    "handleWishlistPagination"
   );
-  let pages = Math.ceil(wishlistItems.length / 8);
-  console.log(wishlistItems.length, pages);
-  let pagination = `<div class="pagination"><a class="leftnav" onclick="handleWishlistLeftpagination()" ><</a>
-    `;
-  for (let i = 1; i <= pages; i++) {
-    let paginationProducts = {
-      page: i,
-      pageProduct: wishlistItems.slice(i * 8 - 8, i * 8),
-    };
-
-    arr.push(paginationProducts);
-    localStorage.setItem("wishlist-pagination", JSON.stringify(arr));
-
-    pagination += `
-        <a style="cursor:pointer" id="page-${paginationProducts.page}" onclick="handleWishlistPagination(this.id)" >${paginationProducts.page}</a>
-      `;
-  }
-
-  pagination += `<a onclick="handleWishlistRightpagination(${pages})" class="rightnav" >></a></div>`;
-  paginationConatiner.innerHTML = pagination;
 
   let itemsArr = JSON.parse(localStorage.getItem("wishlist-pagination"));
   let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
@@ -1316,8 +1261,8 @@ async function handleWishlistPagination(id = "page-1") {
           </div>
           <div class="bottom-right" title="Add to favourite">
             <div id="${
-                item.id
-              }" class="wishlist" onclick="handleWishlistPagination(this.id)">
+              item.id
+            }" class="wishlist" onclick="handleWishlistPagination(this.id)">
               <li class="list-item">
                 <a href=""><i class="fa-solid fa-heart"></i></a>
               </li>
@@ -1326,7 +1271,7 @@ async function handleWishlistPagination(id = "page-1") {
         </div>
       </div>
     </div>`;
-  })
+  });
 
   wishlistItemsContainer.innerHTML = wishlistItemsItems;
   let activePgae = document.getElementById(
@@ -1344,7 +1289,7 @@ function handleRemoveFromWishlist(id) {
   let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems"));
   let arr = removeElt(wishlistItems, id);
   localStorage.setItem("wishlistItems", JSON.stringify(arr));
-  
+
   if (wishlistItems.length == 0) {
     Swal.fire({
       icon: "success",
@@ -1355,8 +1300,7 @@ function handleRemoveFromWishlist(id) {
     }).then(() => {
       location.href = "index.html";
     });
-  }
-  else{
+  } else {
     Swal.fire({
       icon: "success",
       title: "Success",
@@ -1367,7 +1311,6 @@ function handleRemoveFromWishlist(id) {
       handleWishlistPagination();
     });
   }
-
 }
 
 /*Common Javascript Function */
@@ -1382,11 +1325,79 @@ function removeElt(arr, elt) {
 }
 
 // Common pagination
-function commonPagination(id, pagination) {
-  let itemsArr = JSON.parse(localStorage.getItem("pagination"));
-  let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
-  localStorage.setItem("paginationPage", Number(id.split("-")[1]));
-  localStorage.setItem("activeContainer", "paginationPage");
+async function commonPagination(
+  type,
+  id = "page-1",
+  pagination,
+  leftPagination,
+  rightPagination,
+  mainPaginationFunction
+) {
+  let data = await getAllProductsData();
+  let allProductsData = data["products"];
+
+  let arr = [];
+  let paginationConatiner = document.getElementById(
+    `${pagination}-pagination-container`
+  );
+
+  let pages;
+  switch (type) {
+    case "all-products":
+      pages = Math.ceil(allProductsData.length / 8);
+      break;
+
+    case "cart":
+      let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      pages = Math.ceil(cartItems.length / 8);
+      break;
+
+    case "wishlist":
+      let wishlistItems =
+        JSON.parse(localStorage.getItem("wishlistItems")) || [];
+      pages = Math.ceil(wishlistItems.length / 8);
+      break;
+  }
+
+  let paginationHtml = `<div class="pagination"><a class="leftnav" onclick="${leftPagination}()" ><</a>
+    `;
+  for (let i = 1; i <= pages; i++) {
+    let paginationProducts;
+    switch (type) {
+      case "all-products":
+        paginationProducts = {
+          page: i,
+          pageProduct: allProductsData.slice(i * 8 - 8, i * 8),
+        };
+        break;
+
+      case "cart":
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        paginationProducts = {
+          page: i,
+          pageProduct: cartItems.slice(i * 8 - 8, i * 8),
+        };
+        break;
+
+      case "wishlist":
+        let wishlistItems =
+          JSON.parse(localStorage.getItem("wishlistItems")) || [];
+        paginationProducts = {
+          page: i,
+          pageProduct: wishlistItems.slice(i * 8 - 8, i * 8),
+        };
+        break;
+    }
+
+    arr.push(paginationProducts);
+    localStorage.setItem(`${pagination}-pagination`, JSON.stringify(arr));
+
+    paginationHtml += `
+          <a style="cursor:pointer" id="page-${paginationProducts.page}" onclick="${mainPaginationFunction}(this.id)" >${paginationProducts.page}</a>
+        `;
+  }
+  paginationHtml += `<a onclick="${rightPagination}(${pages})" class="rightnav" >></a></div>`;
+  paginationConatiner.innerHTML = paginationHtml;
 }
 
 // Common Left Pagination
