@@ -564,213 +564,15 @@ $(document).ready(function () {
   });
 });
 
-// Show Active Container Function
-function showActivePage() {
-  const allProductsConatiner = document.getElementById(
-    "all-products-conatiner"
-  );
-  const searchItemsContainer = document.getElementById("my-search");
-  const cartContainer = document.getElementById("cart-container");
-  const wishlistContainer = document.getElementById("wishlist-container");
-  const activeContainer = localStorage.getItem("activeContainer");
-  if (activeContainer === "paginationPage") {
-    allProductsConatiner.classList.add("d-none");
-    searchItemsContainer.classList.remove("d-none");
-    cartContainer.classList.add("d-none");
-    wishlistContainer.classList.add("d-none");
-  } else if (activeContainer === "cartPaginationPage") {
-    allProductsConatiner.classList.add("d-none");
-    searchItemsContainer.classList.add("d-none");
-    cartContainer.classList.remove("d-none");
-    wishlistContainer.classList.add("d-none");
-  } else if (activeContainer === "wishlistPaginationPage") {
-    allProductsConatiner.classList.add("d-none");
-    searchItemsContainer.classList.add("d-none");
-    cartContainer.classList.add("d-none");
-    wishlistContainer.classList.remove("d-none");
-  } else {
-    allProductsConatiner.classList.remove("d-none");
-    searchItemsContainer.classList.add("d-none");
-    cartContainer.classList.add("d-none");
-    wishlistContainer.classList.add("d-none");
-    console.log("all");
-  }
-}
-
-// Search Product Function
-async function searchProduct(searchTerm) {
-  const data = await getAllProductsData();
-
-  // combine all products in one array
-  const allProducts = data["products"];
-
-  // Find all the product with the search term
-  const filteredData = allProducts.filter((item) => {
-    if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-      return item;
-    }
-  });
-
-  return filteredData;
-}
-
-// Handling Search Button Click and passing the search term to the searchProduct function
-const searchButton = document.getElementById("search-button");
-searchButton.addEventListener("click", async () => {
-  const searchInput = document.getElementById("search-input");
-  const data = await searchProduct(searchInput.value);
-  showSearchResult(data);
-});
-
-// Show Search Result Function
-function showSearchResult(products) {
-  const arr = [];
-  const pages = Math.ceil(products.length / 8);
-  localStorage.setItem("pages", pages);
-  for (let i = 1; i <= pages; i++) {
-    let paginationProducts = {
-      page: i,
-      pageProduct: products.slice(i * 8 - 8, i * 8),
-    };
-
-    arr.push(paginationProducts);
-    localStorage.setItem("pagination", JSON.stringify(arr));
-  }
-
-  if (products.length === 0) {
-    document.getElementById(
-      "search-items-parent"
-    ).innerHTML = `<h1>No Products Found</h1>`;
-    let mainContainer = document.getElementById("main-container");
-    mainContainer.style.display = "none";
-    return;
-  } else {
-    document.getElementById("search-heading").classList.remove("d-none");
-    let mainContainer = document.getElementById("main-container");
-    mainContainer.style.display = "none";
-    handlePagination("page-1");
-  }
-}
-
-// Handling Pagination for Search Result
-function handlePagination(id) {
-  let paginationConatiner = document.getElementById("pagination-container");
-  let pages = localStorage.getItem("pages");
-  pagination = `<div class="pagination"><a class="leftnav" onclick="handleSearchLeftpagination()" ><</a>
-      `;
-  for (let i = 1; i <= pages; i++) {
-    pagination += `
-      <a style="cursor:pointer" id="page-${i}" onclick="handlePagination(this.id)" >
-        ${i}
-      </a>
-        `;
-  }
-  pagination += `<a onclick="handleSearchRightpagination(${pages})" class="rightnav" >></a></div>`;
-  paginationConatiner.innerHTML = pagination;
-
-  let itemsArr = JSON.parse(localStorage.getItem("pagination"));
-  let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
-  localStorage.setItem("paginationPage", Number(id.split("-")[1]));
-  localStorage.setItem("activeContainer", "paginationPage");
-
-  let searchItemsContainer = document.getElementById("search-items-container");
-  searchItemsContainer.classList.remove("d-none");
-  searchItemsContainer.style.marginTop = "16px";
-  searchItemsContainer.style.marginBottom = "16px";
-
-  let searchItems = "";
-  Array.from(page.pageProduct).forEach((item, index) => {
-    searchItems += `
-      <div class="item" id="${index}">
-      <div class="image">
-        <img
-          src=${item.img} />
-        <div class="green-strip product-strip" style="background-color: ${
-          item?.tags?.[0]?.color || "green"
-        };">
-          <span>${item?.tags?.[0]?.tag || "free"}</span>
-        </div>
-        <div class="red-strip product-strip" style="background-color: ${
-          item?.tags?.[1]?.color || "red"
-        };">
-          <span>${item?.tags?.[1]?.tag || "new"}</span>
-        </div>
-        <div class="badges">
-          <span class="badge badge1">-70%</span>
-          <span class="badge badge2">new</span>
-        </div>
-      </div>
-      <div class="details">
-        <div class="name">
-          <span>${item.name}</span>
-        </div>
-        <div class="price">
-          <div class="current">
-            <span>$ ${item.price || 200}</span>
-          </div>
-        </div>
-        <div class="bottom flex-between-center">
-          <div class="bottom-left">
-            <div class="add-to-cart" id="${
-              item.id
-            }" onclick="handleAddToCart(this.id)">
-              Add to cart
-            </div>
-          </div>
-          <div class="bottom-right">
-            <div id="${
-              item.id
-            }" class="wishlist" onclick="handleAddToWishlist(this.id)">
-              <li class="list-item">
-                <a><i class="fa-regular fa-heart"></i></a>
-              </li>
-            </div>
-            <div class="compare">
-              <li class="list-item">
-                <a href=""><i class="fa-regular fa-circle-waveform-lines"></i>
-                </a>
-              </li>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>`;
-  });
-
-  searchItemsContainer.innerHTML = searchItems;
-  let activePage = document.getElementById(
-    `page-${localStorage.getItem("paginationPage")}`
-  );
-  activePage.classList.add("active");
-  // console.log(activePage);
-  let mainContainer = document.getElementById("main-container");
-  mainContainer.style.display = "none";
-  showActivePage();
-}
-
-// Handle Left Pagination for Search Result
-function handleSearchLeftpagination() {
-  commonLeftPagination("paginationPage", handlePagination);
-}
-
-// Handle Right Pagination for Search Result
-function handleSearchRightpagination(totalPages) {
-  commonRightPagination("paginationPage", handlePagination, totalPages);
-}
-
-// Check User is Logged In or Not
+/* Check User is Logged In or Not */
 function isUserLoggedIn() {
-  let allProductsConatiner = document.getElementById("all-products-conatiner");
-  let searchItemsContainer = document.getElementById("search-items-container");
-  let cartContainer = document.getElementById("cart-container");
-  const wishlistContainer = document.getElementById("wishlist-container");
-  let searchHeading = document.getElementById("search-heading");
-  allProductsConatiner.classList.add("d-none");
-  searchItemsContainer.classList.add("d-none");
-  cartContainer.classList.add("d-none");
-  searchHeading.classList.add("d-none");
-  wishlistContainer.classList.add("d-none");
+  document.getElementById("all-products-conatiner").classList.add("d-none");
+  document.getElementById("search-products-container").classList.add("d-none");
+  document.getElementById("cart-products-container").classList.add("d-none");
+  document
+    .getElementById("wishlist-products-container")
+    .classList.add("d-none");
+
   let loggedUserId = localStorage.getItem("loggedUserId") || false;
   let userLogin = document.getElementById("userLogin");
   let userLogout = document.getElementById("userLogout");
@@ -818,7 +620,7 @@ function isUserLoggedIn() {
   }
 }
 
-// Handle Logout
+/* Handle Logout */
 function handleLogout() {
   localStorage.removeItem("loggedUserId");
   Swal.fire({
@@ -832,7 +634,7 @@ function handleLogout() {
   });
 }
 
-// Redirect to Login or Register Page
+/* Redirect to Login or Register Page */
 function redirectToPage(id) {
   if (id === "login-page") {
     localStorage.setItem("redirectPage", "login");
@@ -841,107 +643,135 @@ function redirectToPage(id) {
   }
 }
 
-// All Products Pagination
+/* Show Active Container Function */
+function showActivePage() {
+  const allProductsConatiner = document.getElementById(
+    "all-products-conatiner"
+  );
+  const searchItemsContainer = document.getElementById(
+    "search-products-container"
+  );
+  const cartContainer = document.getElementById("cart-products-container");
+  const wishlistContainer = document.getElementById(
+    "wishlist-products-container"
+  );
+  console.log(localStorage.getItem("activeContainer"));
+  switch (localStorage.getItem("activeContainer")) {
+    case "searchPaginationPage":
+      allProductsConatiner.classList.add("d-none");
+      searchItemsContainer.classList.remove("d-none");
+      cartContainer.classList.add("d-none");
+      wishlistContainer.classList.add("d-none");
+      break;
+
+    case "cartPaginationPage":
+      allProductsConatiner.classList.add("d-none");
+      searchItemsContainer.classList.add("d-none");
+      cartContainer.classList.remove("d-none");
+      wishlistContainer.classList.add("d-none");
+      break;
+
+    case "wishlistPaginationPage":
+      allProductsConatiner.classList.add("d-none");
+      searchItemsContainer.classList.add("d-none");
+      cartContainer.classList.add("d-none");
+      wishlistContainer.classList.remove("d-none");
+      break;
+
+    default:
+      allProductsConatiner.classList.remove("d-none");
+      searchItemsContainer.classList.add("d-none");
+      cartContainer.classList.add("d-none");
+      wishlistContainer.classList.add("d-none");
+      break;
+  }
+}
+
+/* ************************ Search Code Start **************************** */
+
+// Search Product Function
+async function searchProduct(searchTerm) {
+  const data = await getAllProductsData();
+
+  // combine all products in one array
+  const allProducts = data["products"];
+
+  // Find all the product with the search term
+  const filteredData = allProducts.filter((item) => {
+    if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return item;
+    }
+  });
+
+  return filteredData;
+}
+
+// Handling Search Button Click and passing the search term to the searchProduct function
+const searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", async () => {
+  const searchInput = document.getElementById("search-input");
+  const data = await searchProduct(searchInput.value);
+  localStorage.setItem("searchItems", JSON.stringify(data));
+  showSearchResult(data);
+});
+
+// Show Search Result Function
+function showSearchResult(products) {
+  if (products.length === 0) {
+    document.getElementById(
+      "search-items-parent"
+    ).innerHTML = `<h1>No Products Found</h1>`;
+    let mainContainer = document.getElementById("main-container");
+    mainContainer.style.display = "none";
+    return;
+  } else {
+    let mainContainer = document.getElementById("main-container");
+    mainContainer.style.display = "none";
+    handlePagination();
+  }
+}
+
+// Handling Pagination for Search Result
+async function handlePagination(id = "page-1") {
+  commonShowItems(
+    "search",
+    id,
+    "search",
+    "handleSearchLeftpagination",
+    "handleSearchRightpagination",
+    "handlePagination",
+    ""
+  );
+}
+
+// Handle Left Pagination for Search Result
+function handleSearchLeftpagination() {
+  commonLeftPagination("searchPaginationPage", handlePagination);
+}
+
+// Handle Right Pagination for Search Result
+function handleSearchRightpagination(totalPages) {
+  commonRightPagination("searchPaginationPage", handlePagination, totalPages);
+}
+
+/* ************************ Search Code E nd**************************** */
+
+/* ************************ All Products Code Start **************************** */
+
+/* All Products Pagination */
 async function handleAllProductsPagination(id) {
-  await commonPagination(
+  await commonShowItems(
     "all-products",
     id,
     "all-products",
     "handleLeftpagination",
     "handleRightpagination",
-    "handleAllProductsPagination"
+    "handleAllProductsPagination",
+    "allProducts"
   );
-
-  let itemsArr = JSON.parse(localStorage.getItem("all-products-pagination"));
-  let page;
-  if (id === undefined) {
-    page = itemsArr.find((item) => item.page == 1);
-    localStorage.setItem("allProductsPaginationPage", 1);
-    localStorage.setItem("activeContainer", "all-products");
-  } else {
-    page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
-    localStorage.setItem("allProductsPaginationPage", Number(id.split("-")[1]));
-  }
-
-  let allProductsConatiner = document.getElementById("all-products-conatiner");
-  let allProducts = document.getElementById("all-products");
-
-  allProductsConatiner.classList.remove("d-none");
-  allProducts.style.marginTop = "16px";
-  allProducts.style.marginBottom = "16px";
-
-  let allProductsItems = "";
-  Array.from(page.pageProduct).forEach((item, index) => {
-    allProductsItems += `
-      <div class="item" id="${index}">
-      <div class="image">
-        <img
-          src=${item.img} />
-        <div class="green-strip product-strip" style="background-color: ${
-          item?.tags?.[0]?.color || "green"
-        };">
-          <span>${item?.tags?.[0]?.tag || "free"}</span>
-        </div>
-        <div class="red-strip product-strip" style="background-color: ${
-          item?.tags?.[1]?.color || "red"
-        };">
-          <span>${item?.tags?.[1]?.tag || "new"}</span>
-        </div>
-        <div class="badges">
-          <span class="badge badge1">-70%</span>
-          <span class="badge badge2">new</span>
-        </div>
-      </div>
-      <div class="details">
-        <div class="name">
-          <span>${item.name}</span>
-        </div>
-        <div class="price">
-          <div class="current">
-            <span>$ ${item.price || 200}</span>
-          </div>
-        </div>
-        <div class="bottom flex-between-center">
-          <div class="bottom-left">
-            <div class="add-to-cart" id="${
-              item.id
-            }" onclick="handleAddToCart(this.id)">
-              Add to cart
-            </div>
-          </div>
-          <div class="bottom-right">
-            <div id="${
-              item.id
-            }" class="wishlist" onclick="handleAddToWishlist(this.id)">
-              <li class="list-item">
-                <a><i class="fa-regular fa-heart"></i></a>
-              </li>
-            </div>
-            <div class="compare">
-              <li class="list-item">
-                <a href=""><i class="fa-regular fa-circle-waveform-lines"></i>
-                </a>
-              </li>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>`;
-  });
-
-  allProducts.innerHTML = allProductsItems;
-
-  let activePgae = document.getElementById(
-    `page-${localStorage.getItem("allProductsPaginationPage")}`
-  );
-  activePgae.classList.add("active");
-  let mainContainer = document.getElementById("main-container");
-  mainContainer.style.display = "none";
-  showActivePage();
 }
 
-// Handle Left Pagination for All Products
+/* Handle Left Pagination for All Products */
 function handleLeftpagination() {
   commonLeftPagination(
     "allProductsPaginationPage",
@@ -949,7 +779,7 @@ function handleLeftpagination() {
   );
 }
 
-// Handle Right Pagination for All Products
+/* Handle Right Pagination for All Products */
 function handleRightpagination(totalPages) {
   commonRightPagination(
     "allProductsPaginationPage",
@@ -958,34 +788,16 @@ function handleRightpagination(totalPages) {
   );
 }
 
+/* ************************ All Products Code End **************************** */
+
 /* ************************ Cart Code Start **************************** */
+
+/* Handle Add to Cart */
 function handleAddToCart(id) {
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-  if (cartItems.includes(id)) {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Product Already Added To Cart!",
-      confirmButtonColor: "#4285f4",
-      confirmButtonText: "Ok",
-    });
-    return;
-  }
-
-  cartItems.push(id);
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  Swal.fire({
-    icon: "success",
-    title: "Success",
-    text: "Product Added To Cart Successfully!",
-    confirmButtonColor: "#4285f4",
-    confirmButtonText: "Ok",
-  });
-
-  showCountOfCartItems();
+  commonAddItems(id, "cart");
 }
 
+/* Show count of cart items */
 async function showCountOfCartItems() {
   const totalPrice = await getPriceOfCartItems();
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -1022,6 +834,7 @@ async function showCountOfCartItems() {
   }
 }
 
+/* Get Price of Cart Items */
 async function getPriceOfCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -1040,7 +853,7 @@ async function getPriceOfCartItems() {
   return totalPrice;
 }
 
-// Handle Show Cart
+/* Handle Show Cart Items */
 async function handleCartPagination(id = "page-1") {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -1054,33 +867,265 @@ async function handleCartPagination(id = "page-1") {
     });
     return;
   }
-  let data = await getAllProductsData();
-  let products = data["products"];
 
-  await commonPagination(
+  await commonShowItems(
     "cart",
     id,
     "cart",
     "handleCartLeftpagination",
     "handleCartRightpagination",
-    "handleCartPagination"
+    "handleCartPagination",
+    "cart"
+  );
+}
+
+/* Handle Left Pagination for Cart */
+function handleCartLeftpagination() {
+  commonLeftPagination("cartPaginationPage", handleCartPagination);
+}
+
+/* Handle Right Pagination for Cart */
+function handleCartRightpagination(totalPages) {
+  commonRightPagination("cartPaginationPage", handleCartPagination, totalPages);
+}
+
+/* Remove Item from Cart */
+function handleRemoveFromCart(id) {
+  commonRemoveItems(id, "cart", handleCartPagination);
+}
+
+/* ************************ Cart Code End **************************** */
+
+/* ************************ Wishlist Code Start **************************** */
+
+/* Handle Add to Wishlist */
+function handleAddToWishlist(id) {
+  commonAddItems(id, "wishlist");
+}
+
+/* Handle Show Wishlist */
+async function handleWishlistPagination(id = "page-1") {
+  let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+
+  // Check if wishlist is empty
+  if (wishlistItems.length == 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Wishlist Is Empty!",
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "Ok",
+    });
+    return;
+  }
+
+  // Show wishlist items
+  commonShowItems(
+    "wishlist",
+    id,
+    "wishlist",
+    "handleWishlistLeftpagination",
+    "handleWishlistRightpagination",
+    "handleWishlistPagination",
+    "wishlist"
+  );
+}
+
+/* Handle Left Pagination for Wishlist */
+function handleWishlistLeftpagination() {
+  commonLeftPagination("wishlistPaginationPage", handleWishlistPagination);
+}
+
+/* Handle Right Pagination for Wishlist */
+function handleWishlistRightpagination(totalPages) {
+  commonRightPagination(
+    "wishlistPaginationPage",
+    handleWishlistPagination,
+    totalPages
+  );
+}
+
+/* Handle Remove form Wishlist */
+function handleRemoveFromWishlist(id) {
+  commonRemoveItems(id, "wishlist", handleWishlistPagination);
+}
+
+/* ************************ Wishlist Code End **************************** */
+
+/* ************************ Common Modules Code Start **************************** */
+
+/* Remove item from Array at a specific Location */
+function removeElt(arr, elt) {
+  const index = arr.indexOf(elt);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+/* Common Show Items */
+function commonAddItems(id, type) {
+  let items = JSON.parse(localStorage.getItem(`${type}Items`)) || [];
+  if (items.includes(id)) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `Product already in ${type}!`,
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "OK",
+    });
+    return;
+  }
+
+  items.push(id);
+  localStorage.setItem(`${type}Items`, JSON.stringify(items));
+  Swal.fire({
+    icon: "success",
+    title: "Success",
+    text: `Product added to ${type} successfully!`,
+    confirmButtonColor: "#4285f4",
+    confirmButtonText: "OK",
+  });
+
+  if (type === "cart") {
+    showCountOfCartItems();
+  }
+}
+
+/* Common Show Items */
+function commonRemoveItems(id, type, handlePagination) {
+  let items = JSON.parse(localStorage.getItem(`${type}Items`)) || [];
+  localStorage.setItem(`${type}Items`, JSON.stringify(removeElt(items, id)));
+
+  if (type === "cart") {
+    showCountOfCartItems();
+  }
+
+  if (items.length === 0) {
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: `Product removed from ${type} successfully!`,
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "OK",
+    }).then(() => {
+      location.href = "index.html";
+    });
+  } else {
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: `Product removed from ${type} successfully!`,
+      confirmButtonColor: "#4285f4",
+      confirmButtonText: "OK",
+    }).then(() => {
+      handlePagination();
+    });
+  }
+}
+
+/* Common Pagination */
+async function commonShowItems(
+  type,
+  id = "page-1",
+  pagination,
+  leftPagination,
+  rightPagination,
+  mainPaginationFunction,
+  paginationPage
+) {
+  let data = await getAllProductsData();
+  let products = data["products"];
+
+  await commonPagination(
+    type,
+    id,
+    pagination,
+    leftPagination,
+    rightPagination,
+    mainPaginationFunction
   );
 
-  let itemsArr = JSON.parse(localStorage.getItem("cart-pagination"));
+  let itemsArr = JSON.parse(localStorage.getItem(`${pagination}-pagination`));
   let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
-  localStorage.setItem("cartPaginationPage", Number(id.split("-")[1]));
-  localStorage.setItem("activeContainer", "cartPaginationPage");
+  localStorage.setItem(
+    `${paginationPage}PaginationPage`,
+    Number(id.split("-")[1])
+  );
+  localStorage.setItem("activeContainer", `${pagination}PaginationPage`);
 
-  let cartContainer = document.getElementById("cart-container");
-  cartContainer.classList.remove("d-none");
-  let cartItemsContainer = document.getElementById("cart-items");
-  let cartItemsItems = "";
-  cartItemsContainer.style.marginTop = "16px";
-  cartItemsContainer.style.marginBottom = "16px";
+  let itemsContainer;
+  let allItemsContainer;
+  if (type === "all-products") {
+    itemsContainer = document.getElementById(`${pagination}-conatiner`);
+    allItemsContainer = document.getElementById(`${pagination}`);
+  } else if (type === "cart" || type === "wishlist" || type === "search") {
+    itemsContainer = document.getElementById(
+      `${pagination}-products-container`
+    );
+    allItemsContainer = document.getElementById(`${pagination}-products`);
+  }
 
-  Array.from(page.pageProduct).forEach((item) => {
-    let product = products.find((product) => product.id == item);
-    cartItemsItems += `
+  console.log(itemsContainer);
+  let itemsItems = "";
+  itemsContainer.classList.remove("d-none");
+  allItemsContainer.style.marginTop = "16px";
+  allItemsContainer.style.marginBottom = "16px";
+  if (type === "all-products" || type === "search") {
+    Array.from(page.pageProduct).forEach((item) => {
+      itemsItems += `
+    <div class="item">
+      <div class="image">
+        <img src=${item.img} />
+        <div class="green-strip product-strip" style="background-color: ${
+          item?.tags?.[0]?.color || "green"
+        };">
+          <span>${item?.tags?.[0]?.tag || "free"}</span>
+        </div>
+        <div class="red-strip product-strip" style="background-color: ${
+          item?.tags?.[1]?.color || "red"
+        };">
+          <span>${item?.tags?.[1]?.tag || "new"}</span>
+        </div>
+        <div class="badges">
+          <span class="badge badge1">-70%</span>
+          <span class="badge badge2">new</span>
+        </div>
+      </div>
+      <div class="details">
+        <div class="name">
+          <span>${item.name}</span>
+        </div>
+        <div class="price">
+          <div class="current">
+            <span>$ ${item.price || item.actualPrice || 200}</span>
+          </div>
+        </div>
+        <div class="bottom flex-between-center">
+          <div class="bottom-left">
+            <div class="add-to-cart" id="${
+              item.id
+            }" onclick="handleAddToCart(this.id)">
+              Add to cart
+            </div>
+          </div>
+          <div class="bottom-right" title="Add to favourite">
+            <div id="${
+              item.id
+            }" class="wishlist" onclick="handleAddToWishlist(this.id)">
+              <li class="list-item">
+                <a href=""><i class="fa-solid fa-heart"></i></a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    });
+  } else if (type === "cart" || type === "wishlist") {
+    Array.from(page.pageProduct).forEach((item) => {
+      let product = products.find((product) => product.id == item);
+      itemsItems += `
     <div class="item">
       <div class="image">
         <img src=${product.img} />
@@ -1114,11 +1159,12 @@ async function handleCartPagination(id = "page-1") {
         </div>
       </div>
     </div>`;
-  });
+    });
+  }
 
-  cartItemsContainer.innerHTML = cartItemsItems;
+  allItemsContainer.innerHTML = itemsItems;
   let activePgae = document.getElementById(
-    `page-${localStorage.getItem("cartPaginationPage")}`
+    `page-${localStorage.getItem(`${paginationPage}PaginationPage`)}`
   );
   activePgae.classList.add("active");
 
@@ -1127,204 +1173,7 @@ async function handleCartPagination(id = "page-1") {
   showActivePage();
 }
 
-// Handle Left Pagination for Cart
-function handleCartLeftpagination() {
-  commonLeftPagination("cartPaginationPage", handleCartPagination);
-}
-
-// Handle Right Pagination for Cart
-function handleCartRightpagination(totalPages) {
-  commonRightPagination("cartPaginationPage", handleCartPagination, totalPages);
-}
-
-// Remove Item from Cart
-function handleRemoveFromCart(id) {
-  let cartItems = JSON.parse(localStorage.getItem("cartItems"));
-  let arr = removeElt(cartItems, id);
-  localStorage.setItem("cartItems", JSON.stringify(arr));
-  showCountOfCartItems();
-
-  if (cartItems.length === 0) {
-    Swal.fire({
-      icon: "success",
-      title: "Success",
-      text: "Product Removed from Cart Successfully!",
-      confirmButtonColor: "#4285f4",
-      confirmButtonText: "Ok",
-    }).then(() => {
-      location.href = "index.html";
-    });
-  } else {
-    Swal.fire({
-      icon: "success",
-      title: "Success",
-      text: "Product Removed from Cart Successfully!",
-      confirmButtonColor: "#4285f4",
-      confirmButtonText: "Ok",
-    }).then(() => {
-      handleCartPagination();
-    });
-  }
-}
-
-// Handle Add to Wishlist
-function handleAddToWishlist(id) {
-  let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
-  console.log(wishlistItems);
-
-  if (wishlistItems.includes(id)) {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Product Already In Wishlist!",
-      confirmButtonColor: "#4285f4",
-      confirmButtonText: "Ok",
-    });
-    return;
-  }
-
-  wishlistItems.push(id);
-  localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
-  Swal.fire({
-    icon: "success",
-    title: "Success",
-    text: "Product Added to Wishlist Successfully!",
-    confirmButtonColor: "#4285f4",
-    confirmButtonText: "Ok",
-  });
-
-  return;
-}
-
-// Handle Show Wishlist
-async function handleWishlistPagination(id = "page-1") {
-  let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
-
-  if (wishlistItems.length == 0) {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Wishlist Is Empty!",
-      confirmButtonColor: "#4285f4",
-      confirmButtonText: "Ok",
-    });
-    return;
-  }
-
-  let data = await getAllProductsData();
-  let products = data["products"];
-
-  await commonPagination(
-    "wishlist",
-    id,
-    "wishlist",
-    "handleWishlistLeftpagination",
-    "handleWishlistRightpagination",
-    "handleWishlistPagination"
-  );
-
-  let itemsArr = JSON.parse(localStorage.getItem("wishlist-pagination"));
-  let page = itemsArr.find((item) => item.page == Number(id.split("-")[1]));
-  localStorage.setItem("wishlistPaginationPage", Number(id.split("-")[1]));
-  localStorage.setItem("activeContainer", "wishlistPaginationPage");
-
-  let wishlistContainer = document.getElementById("wishlist-container");
-  wishlistContainer.classList.remove("d-none");
-  let wishlistItemsContainer = document.getElementById("wishlist-items");
-  let wishlistItemsItems = "";
-  wishlistItemsContainer.style.marginTop = "16px";
-  wishlistItemsContainer.style.marginBottom = "16px";
-
-  Array.from(page.pageProduct).forEach((item) => {
-    let product = products.find((product) => product.id == item);
-    wishlistItemsItems += `
-    <div class="item">
-      <div class="image">
-        <img src=${product.img} />
-      </div>
-      <div class="details">
-        <div class="name">
-          <span>${product.name}</span>
-        </div>
-        <div class="price">
-          <div class="current">
-            <span>$ ${product.price || product.actualPrice}</span>
-          </div>
-        </div>
-        <div class="bottom flex-between-center">
-          <div class="bottom-left">
-            <div class="add-to-cart" id="${
-              product.id
-            }" onclick="handleRemoveFromWishlist(this.id)">
-              Remove from wishlist
-            </div>
-          </div>
-          <div class="bottom-right" title="Add to favourite">
-            <div id="${
-              item.id
-            }" class="wishlist" onclick="handleWishlistPagination(this.id)">
-              <li class="list-item">
-                <a href=""><i class="fa-solid fa-heart"></i></a>
-              </li>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  });
-
-  wishlistItemsContainer.innerHTML = wishlistItemsItems;
-  let activePgae = document.getElementById(
-    `page-${localStorage.getItem("wishlistPaginationPage")}`
-  );
-  activePgae.classList.add("active");
-
-  let mainContainer = document.getElementById("main-container");
-  mainContainer.style.display = "none";
-  showActivePage();
-}
-
-// Remove from wishlist
-function handleRemoveFromWishlist(id) {
-  let wishlistItems = JSON.parse(localStorage.getItem("wishlistItems"));
-  let arr = removeElt(wishlistItems, id);
-  localStorage.setItem("wishlistItems", JSON.stringify(arr));
-
-  if (wishlistItems.length == 0) {
-    Swal.fire({
-      icon: "success",
-      title: "Success",
-      text: "Product Removed from wishlist Successfully!",
-      confirmButtonColor: "#4285f4",
-      confirmButtonText: "Ok",
-    }).then(() => {
-      location.href = "index.html";
-    });
-  } else {
-    Swal.fire({
-      icon: "success",
-      title: "Success",
-      text: "Product Removed from wishlist Successfully!",
-      confirmButtonColor: "#4285f4",
-      confirmButtonText: "Ok",
-    }).then(() => {
-      handleWishlistPagination();
-    });
-  }
-}
-
-/*Common Javascript Function */
-
-// Remove element function
-function removeElt(arr, elt) {
-  const index = arr.indexOf(elt);
-  if (index > -1) {
-    arr.splice(index, 1);
-  }
-  return arr;
-}
-
-// Common pagination
+/* common pagination function */
 async function commonPagination(
   type,
   id = "page-1",
@@ -1357,6 +1206,11 @@ async function commonPagination(
         JSON.parse(localStorage.getItem("wishlistItems")) || [];
       pages = Math.ceil(wishlistItems.length / 8);
       break;
+
+    case "search":
+      let searchItems = JSON.parse(localStorage.getItem("searchItems")) || [];
+      pages = Math.ceil(searchItems.length / 8);
+      break;
   }
 
   let paginationHtml = `<div class="pagination"><a class="leftnav" onclick="${leftPagination}()" ><</a>
@@ -1387,6 +1241,14 @@ async function commonPagination(
           pageProduct: wishlistItems.slice(i * 8 - 8, i * 8),
         };
         break;
+
+      case "search":
+        let searchItems = JSON.parse(localStorage.getItem("searchItems")) || [];
+        paginationProducts = {
+          page: i,
+          pageProduct: searchItems.slice(i * 8 - 8, i * 8),
+        };
+        break;
     }
 
     arr.push(paginationProducts);
@@ -1400,7 +1262,7 @@ async function commonPagination(
   paginationConatiner.innerHTML = paginationHtml;
 }
 
-// Common Left Pagination
+/* common left pagination function */
 function commonLeftPagination(p, pagination) {
   let page = localStorage.getItem(p);
   if (page == 1) {
@@ -1410,7 +1272,7 @@ function commonLeftPagination(p, pagination) {
   }
 }
 
-// Common Right Pagination
+/* common right pagination function */
 function commonRightPagination(p, pagination, totalPages) {
   let page = localStorage.getItem(p);
   if (page == totalPages) {
@@ -1419,6 +1281,8 @@ function commonRightPagination(p, pagination, totalPages) {
     pagination(`page-${Number(page) + 1}`);
   }
 }
+
+/* ************************ Common Modules Code End **************************** */
 
 bannarProducts();
 buyFromUs("top-categories");
