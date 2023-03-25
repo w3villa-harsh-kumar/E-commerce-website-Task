@@ -731,7 +731,7 @@ function showSearchResult(products) {
   }
 }
 
-// Handling Pagination for Search Result
+/* Handling Pagination for Search Result */
 async function handlePagination(id = "page-1") {
   commonShowItems(
     "search",
@@ -744,12 +744,12 @@ async function handlePagination(id = "page-1") {
   );
 }
 
-// Handle Left Pagination for Search Result
+/* Handle Left Pagination for Search Result */
 function handleSearchLeftpagination() {
   commonLeftPagination("searchPaginationPage", handlePagination);
 }
 
-// Handle Right Pagination for Search Result
+/* Handle Right Pagination for Search Result */
 function handleSearchRightpagination(totalPages) {
   commonRightPagination("searchPaginationPage", handlePagination, totalPages);
 }
