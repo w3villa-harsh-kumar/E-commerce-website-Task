@@ -655,7 +655,7 @@ function showActivePage() {
   const wishlistContainer = document.getElementById(
     "wishlist-products-container"
   );
-  console.log(localStorage.getItem("activeContainer"));
+
   switch (localStorage.getItem("activeContainer")) {
     case "searchPaginationPage":
       allProductsConatiner.classList.add("d-none");
@@ -740,7 +740,7 @@ async function handlePagination(id = "page-1") {
     "handleSearchLeftpagination",
     "handleSearchRightpagination",
     "handlePagination",
-    ""
+    "search"
   );
 }
 
@@ -801,7 +801,6 @@ function handleAddToCart(id) {
 async function showCountOfCartItems() {
   const totalPrice = await getPriceOfCartItems();
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  console.log(cartItems);
   let cartCount = document.getElementById("cart-icon-container");
   let mobileCartCount = document.getElementById("mobile-cart-icon-container");
   if (cartItems.length > 0) {
@@ -844,11 +843,8 @@ async function getPriceOfCartItems() {
   const products = data["products"];
   cartItems.forEach((item) => {
     let product = products.find((product) => product.id == item);
-    console.log(product.actualPrice, product.name);
     totalPrice += Number(product.price || product.actualPrice);
   });
-
-  console.log(totalPrice);
 
   return totalPrice;
 }
@@ -1066,7 +1062,6 @@ async function commonShowItems(
     allItemsContainer = document.getElementById(`${pagination}-products`);
   }
 
-  console.log(itemsContainer);
   let itemsItems = "";
   itemsContainer.classList.remove("d-none");
   allItemsContainer.style.marginTop = "16px";
