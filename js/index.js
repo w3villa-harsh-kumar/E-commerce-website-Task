@@ -117,7 +117,7 @@ function showActivePage(searchTerm="") {
   console.log(localStorage.getItem("activeContainer"))
   switch (localStorage.getItem("activeContainer")) {
     case "search-page":
-      location.href = "/search.html?search=" + searchTerm;
+      location.href = "search.html?search=" + searchTerm;
       break;
 
     case "cartPaginationPage":
