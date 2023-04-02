@@ -112,3 +112,39 @@ function dropdownFunction(dropdown, iconContainer) {
             `;
   }
 }
+
+// If dropdown is open and user clicks outside of it, close it
+window.onclick = function (event) {
+  if (!event.target.matches(".dropdown__container")) {
+    var dropdowns = document.getElementsByClassName("dropdown");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.style.display === "block") {
+        openDropdown.style.display = "none";
+        openDropdown.previousElementSibling.innerHTML = `
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                `;
+      }
+    }
+  }
+}
+
+// Hide and show mobile search
+let mobileSearchInput = document.getElementById("mobile-search-input");
+let mobileSearchButton = document.getElementById("submit-icon");
+let mobileSearchIcon = document.getElementById("mobile-search-icon");
+
+mobileSearchIcon.addEventListener("click", () => {
+  mobileSearch();
+})
+
+function mobileSearch() {
+  if (Array.from(mobileSearchInput.classList).includes("d-none")) {
+    mobileSearchInput.classList.remove("d-none");
+    mobileSearchButton.classList.remove("d-none");
+  }
+  else {
+    mobileSearchInput.classList.add("d-none");
+    mobileSearchButton.classList.add("d-none");
+  }
+}
