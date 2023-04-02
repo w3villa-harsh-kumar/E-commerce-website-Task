@@ -32,6 +32,77 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/search-page.css" />
+
+    <!-- Range Slider CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
+
+    <style>
+        .irs--round .irs-bar {
+            top: 36px;
+            height: 2px;
+            background-color: #006cfa;
+        }
+
+        .irs--round .irs-handle {
+            background-color: #006cfa;
+            top: 23px;
+            width: 26px;
+            height: 26px;
+        }
+
+        .irs--round .irs-handle.state_hover,
+        .irs--round .irs-handle:hover {
+            background-color: #006cfa;
+        }
+
+        .irs--round .irs-from,
+        .irs--round .irs-to,
+        .irs--round .irs-single {
+            background-color: transparent;
+            color: #666666;
+            display: none;
+        }
+
+        .irs--round .irs-from:before,
+        .irs--round .irs-to:before,
+        .irs--round .irs-single:before,
+        .irs--round .irs-min,
+        .irs--round .irs-max {
+            display: none;
+        }
+
+        .range-inputs-shower {
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .range-inputs-shower .input {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .range-inputs-shower .input input {
+            display: inline-block;
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 5px;
+            font-size: 16px;
+            cursor: default;
+        }
+
+        .range-inputs-shower .input input:focus {
+            outline: none;
+        }
+    </style>
     <title>E-commerce Website</title>
 </head>
 
@@ -174,8 +245,16 @@
                             <div class="hamburger">
                                 <i class="fa-solid fa-bars"></i>
                             </div>
-                            <div class="search-icon">
-                                <i class="fa-regular fa-magnifying-glass"></i>
+                            <div class="mobile-search-icon">
+                                <i class="fa-regular fa-magnifying-glass" id="mobile-search-icon"></i>
+                                <div class="mobile-search-container">
+                                    <div class="mobile-search-input d-none" id="mobile-search-input">
+                                        <input id="search-mobile-input" type="text" placeholder="Search here..." />
+                                    </div>
+                                    <div class="submit-icon d-none" id="submit-icon" onclick="handleMobileSearch()">
+                                        <i class="fa-regular fa-magnifying-glass" id="search-button"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="my-mobile-cart" id="mobile-cart-icon-container">
                             </div>
@@ -294,7 +373,19 @@
                                 </div>
                                 <div class="accordion-item-body">
                                     <div class="accordion-item-body-content range">
-                                        Hello
+                                        <input type="text" class="js-range-slider" name="my_range" data-skin="round"
+                                            data-type="double" data-min="70" data-max="1718" data-grid="false" />
+
+                                        <div class="range-inputs-shower">
+                                            <div class="input">
+                                                <span>$</span><input type="text" maxlength="4" value="70" class="from"
+                                                    readonly="true" />
+                                            </div>
+                                            <div class="input">
+                                                $ <input type="text" maxlength="4" value="1718" class="to"
+                                                    readonly="true" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -457,7 +548,7 @@
                                     <label for="checkbox2">Search in product descriptions</label>
                                 </div>
                             </div>
-                            <div class="button">
+                            <div class="button" onclick="handleSearchOnSearchPage()">
                                 search
                             </div>
                         </div>
@@ -477,7 +568,7 @@
                                         </div>
                                     </div>
                                     <div class="product-compare">
-                                        <i class="fa-regular fa-circle-waveform-lines"></i> Product Compare
+                                        <i class="fa-regular fa-circle-waveform-lines"></i> <span>Product Compare</span>
                                     </div>
                                 </div>
                                 <div class="right-part">
@@ -492,8 +583,28 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="mobile-sort-by">
+                                        <div class="select">
+                                            <select name="select" id="select">
+                                                <option value="all-categories">Default</option>
+                                                <option value="electronics">Electronics</option>
+                                                <option value="beauty">Beauty</option>
+                                                <option value="fashion">Fashion</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="show">
                                         <span>Show:</span>
+                                        <div class="select">
+                                            <select name="select" id="select">
+                                                <option value="all-categories">12</option>
+                                                <option value="electronics">13</option>
+                                                <option value="beauty">14</option>
+                                                <option value="fashion">15</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mobile-show">
                                         <div class="select">
                                             <select name="select" id="select">
                                                 <option value="all-categories">12</option>
@@ -517,6 +628,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="end-of-list">
+                            You have reached the end of the list
                         </div>
                     </div>
                 </div>
@@ -620,7 +734,7 @@
                         <input type="text" placeholder="Your email" />
                         <button><i class="fa-regular fa-envelope"></i> Send</button>
                     </div>
-                    <div class="checkbox-container">
+                    <div class="footer-checkbox-container">
                         <input type="checkbox" />
                         <span>I have read and agree to the <a href="#">Privacy Policy</a> </span>
                     </div>
@@ -690,7 +804,6 @@
                 //    currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
                 //  }
 
-                console.log(accordionItemHeader);
                 accordionItemHeader.classList.toggle("active");
                 const accordionItemBody = accordionItemHeader.nextElementSibling;
                 if (accordionItemHeader.classList.contains("active")) {
@@ -703,8 +816,72 @@
             });
         });
     </script>
+    <!-- JQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+    <!-- Owl Carousel Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="./js/index.js"></script>
     <script src="./js/search.js"></script>
+    <script src="./js/carousel.js"></script>
+    <script>
+        var $range = $(".js-range-slider"),
+            $from = $(".from"),
+            $to = $(".to"),
+            range,
+            min = $range.data('min'),
+            max = $range.data('max'),
+            from,
+            to;
+
+        var updateValues = function () {
+            $from.prop("value", from);
+            $to.prop("value", to);
+        };
+
+        $range.ionRangeSlider({
+            onChange: function (data) {
+                from = data.from;
+                to = data.to;
+                updateValues();
+            }
+        });
+
+        range = $range.data("ionRangeSlider");
+        var updateRange = function () {
+            range.update({
+                from: from,
+                to: to
+            });
+        };
+
+        $from.on("input", function () {
+            from = +$(this).prop("value");
+            if (from < min) {
+                from = min;
+            }
+            if (from > to) {
+                from = to;
+            }
+            updateValues();
+            updateRange();
+        });
+
+        $to.on("input", function () {
+            to = +$(this).prop("value");
+            if (to > max) {
+                to = max;
+            }
+            if (to < from) {
+                to = from;
+            }
+            updateValues();
+            updateRange();
+        });
+    </script>
 </body>
 
 </html>

@@ -4,6 +4,13 @@ let products = [];
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("search");
 
+function handleSearchOnSearchPage(){
+  const searchInput = document.getElementById("search-query-name-input");
+  const searchQuery = searchInput.value;
+  localStorage.setItem("activeContainer", "search-page");
+  showActivePage(searchQuery);
+}
+
 // Search Product Function
 async function searchProduct(searchTerm) {
   const data = await getAllProductsData();
@@ -61,7 +68,6 @@ async function showSearchResult(viewType) {
 
 // Handling Pagination for Search Result
 function handlePagination(id = "page-1") {
-  console.log(id);
   let paginationConatiner = document.getElementById(
     "search-pagination-container"
   );
@@ -78,7 +84,6 @@ function handlePagination(id = "page-1") {
   pagination += `<a onclick="handleSearchRightpagination(${pages})" class="rightnav" >></a></div>`;
   paginationConatiner.innerHTML = pagination;
 
-  console.log(id);
   let itemsArr = JSON.parse(localStorage.getItem("pagination"));
   let page = itemsArr.find(
     (item) => Number(item.page) == Number(id.split("-")[1])
@@ -138,10 +143,13 @@ function handlePagination(id = "page-1") {
       <div class="name">
         <span>${item.name}</span>
       </div>
-      ${type === "list"? `<div class="description">
+      ${
+        type === "list"
+          ? `<div class="description">
       ${item.description}
       </div>
-      `: ""
+      `
+          : ""
       }
       <div class="price">
         <div class="discount">
@@ -178,7 +186,9 @@ function handlePagination(id = "page-1") {
           <div class="add-to-cart" id="${
             item.id
           }" onclick="handleAddToCart(this.id)">
-          ${type==="list" ? `<i class="fa-regular fa-cart-shopping"></i>` : ""} Add to cart
+          ${
+            type === "list" ? `<i class="fa-regular fa-cart-shopping"></i>` : ""
+          } Add to cart
           </div>
           <div class="mobile-cart">
             <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
@@ -225,18 +235,37 @@ function handlePagination(id = "page-1") {
     `page-${localStorage.getItem("paginationPage")}`
   );
   activePage.classList.add("active");
-  // console.log(activePage);\
   localStorage.setItem("activeContainer", "search-page");
 }
 
 /* Handle Left Pagination for Search Result */
 function handleSearchLeftpagination() {
-  commonLeftPagination("searchPaginationPage", handlePagination);
+  commonLeftPagination("paginationPage", handlePagination);
 }
 
 /* Handle Right Pagination for Search Result */
 function handleSearchRightpagination(totalPages) {
-  commonRightPagination("searchPaginationPage", handlePagination, totalPages);
+  commonRightPagination("paginationPage", handlePagination, totalPages);
+}
+
+/* common left pagination function */
+function commonLeftPagination(p, pagination) {
+  let page = localStorage.getItem(p);
+  if (page == 1) {
+    return;
+  } else {
+    pagination(`page-${Number(page) - 1}`);
+  }
+}
+
+/* common right pagination function */
+function commonRightPagination(p, pagination, totalPages) {
+  let page = localStorage.getItem(p);
+  if (page == totalPages) {
+    return;
+  } else {
+    pagination(`page-${Number(page) + 1}`);
+  }
 }
 
 function changeView(type = "grid") {

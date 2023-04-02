@@ -114,7 +114,6 @@ function showActivePage(searchTerm="") {
     "wishlist-products-container"
   );
 
-  console.log(localStorage.getItem("activeContainer"))
   switch (localStorage.getItem("activeContainer")) {
     case "search-page":
       location.href = "./search.html?search=" + searchTerm;
@@ -145,11 +144,19 @@ function showActivePage(searchTerm="") {
 
 // Handling Search Button Click and passing the search term to the searchProduct function
 const searchButton = document.getElementById("search-button");
-searchButton.addEventListener("click", async () => {
+searchButton.addEventListener("click", handleSearch);
+
+function handleSearch() {
   const searchInput = document.getElementById("search-input");
   localStorage.setItem("activeContainer", "search-page");
- showActivePage(searchInput.value);
-});
+  showActivePage(searchInput.value);
+}
+
+function handleMobileSearch() {
+  const searchInput = document.getElementById("search-mobile-input");
+  localStorage.setItem("activeContainer", "search-page");
+  showActivePage(searchInput.value);
+}
 
 /* ************************ Search Code E nd**************************** */
 
@@ -652,7 +659,6 @@ async function commonPagination(
   }
   paginationHtml += `<a onclick="${rightPagination}(${pages})" class="rightnav" >></a></div>`;
 
-  console.log(paginationConatiner)
   paginationConatiner.innerHTML = paginationHtml;
 }
 
