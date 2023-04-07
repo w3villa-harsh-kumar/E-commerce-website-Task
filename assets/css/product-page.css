@@ -1454,6 +1454,9 @@ Peoduct Section
   .product-image-container
   .image-bar {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .product-show-container
@@ -1542,6 +1545,7 @@ Peoduct Section
   display: inline-flex;
   cursor: pointer;
   gap: 5px;
+  padding-bottom: 10px;
 }
 
 .product-show-container
@@ -2050,6 +2054,41 @@ Peoduct Section
 .product-show-container
   .product-container
   .right-product-container
+  .choices
+  .date-choice
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+.product-show-container
+  .product-container
+  .right-product-container
+  .choices
+  .date-choice
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  .fa-calendar-days {
+    width: 40px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #052080;
+    color: #fff;
+    margin-left: 20px;
+}
+  
+
+.product-show-container
+  .product-container
+  .right-product-container
   .buttons-container
   .buttons {
   display: flex;
@@ -2449,7 +2488,7 @@ Peoduct Section
     .right-product-container
     .content-wrapper
     .show-more {
-    width: 30%;
+    width: 40%;
   }
 
   .product-show-container
@@ -2489,6 +2528,19 @@ Peoduct Section
     .right-container {
     width: 15%;
   }
+
+  .product-show-container .heading span.page-name span {
+    width: 20%;
+}
+
+.product-show-container
+.product-container
+.right-product-container
+.choices
+.choice
+select {
+width: 45%;
+}
 }
 
 @media screen and (max-width: 997px) {
@@ -2642,6 +2694,10 @@ Peoduct Section
     .right-container {
     width: 25%;
   }
+
+  .product-show-container .heading span.page-name span {
+    width: 25%;
+}
 }
 @media screen and (max-width: 583px) {
   .product-show-container
@@ -2686,6 +2742,12 @@ Peoduct Section
     select {
     width: 80%;
   }
+}
+
+@media screen and (max-width: 480px) {
+  .product-show-container .product-show-bottom-container .content-container {
+    flex-direction: column;
+}
 }
 
 @media screen and (max-width: 377px) {
@@ -3026,6 +3088,7 @@ Most viewed Section
 .footer .footer-container .newsletter .footer-checkbox-container {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .footer .footer-container .newsletter .footer-checkbox-container span {

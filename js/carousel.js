@@ -501,6 +501,7 @@ async function mostViewedProducts() {
     loop: true,
     margin: 20,
     nav: false,
+    dots: false,
     autoplay: true,
     responsive: {
       0: {
