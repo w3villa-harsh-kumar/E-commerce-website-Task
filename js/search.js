@@ -100,7 +100,7 @@ function handlePagination(id = "page-1") {
     let type = page.viewType;
     searchItems += `
     <div class="item" index="${index}">
-    <div class="image">
+    <div class="image" onclick="handleNavigation(${item?.id})" style="cursor:pointer;">
       <img
         src="${item.img}"
         alt="image" />
@@ -124,7 +124,7 @@ function handlePagination(id = "page-1") {
       type === "grid"
         ? `
       <div class="gray-strip">
-      <div class="company-name">${item.company || "Apple"}</div>
+      <div class="company-name" style="cursor:pointer;">${item.company || "Apple"}</div>
       <div class="modal">Modal ${item?.id || 23}</div>
     </div>`
         : ""
@@ -134,13 +134,13 @@ function handlePagination(id = "page-1") {
       type === "list"
         ? `
       <div class="brand-strip">
-      <div class="brand">Brand: <span>${item.company || "Apple"}</span></div>
+      <div class="brand" style="cursor:pointer;">Brand: <span>${item.company || "Apple"}</span></div>
       <div class="modal">Model: Product ${item?.id || 23}</div>
     </div>
     `
         : ""
     }
-      <div class="name">
+      <div class="name" onclick="handleNavigation(${item?.id})" style="cursor:pointer;">
         <span>${item.name}</span>
       </div>
       ${
@@ -213,8 +213,8 @@ function handlePagination(id = "page-1") {
       ${
         type === "list"
           ? `<div class="gray-strip-list">
-        <div class="buy-now"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
-        <div class="question"><i class="fa-regular fa-circle-question"></i> Question</div>
+        <div class="buy-now" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
+        <div class="question" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
       </div>`
           : ""
       }
@@ -222,8 +222,8 @@ function handlePagination(id = "page-1") {
     ${
       type === "grid"
         ? `    <div class="gray-strip">
-      <div class="buy-now"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
-      <div class="question"><i class="fa-regular fa-circle-question"></i> Question</div>
+      <div class="buy-now" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
+      <div class="question" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
     </div>`
         : ""
     }
@@ -288,3 +288,7 @@ function changeView(type = "grid") {
 }
 
 showSearchResult("grid");
+
+function handleNavigation(productID){
+  location.href = "./product.html?product_id=" + productID;
+}

@@ -411,7 +411,7 @@ Common Styles
   font-size: 16px;
   font-weight: 500;
   color: #111;
-  outline: none;
+  outline: none; 
 }
 
 .no-products-found {
@@ -1367,6 +1367,7 @@ Page Navigation Section
 
 .page-navigation {
   padding: 20px 0;
+  cursor: default;
 }
 
 .page-navigation .home .right-arrow {
@@ -1383,6 +1384,7 @@ Peoduct Section
 .product-show-container {
   background-color: #f8f8f8;
   padding-top: 20px;
+  cursor: default;
 }
 
 .product-show-container .heading span {
@@ -1897,6 +1899,7 @@ Peoduct Section
   cursor: pointer;
   padding: 5px 10px;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .product-show-container
@@ -2055,18 +2058,6 @@ Peoduct Section
   .product-container
   .right-product-container
   .choices
-  .date-choice
-  input[type="date"]::-webkit-calendar-picker-indicator,
-  input[type="time"]::-webkit-calendar-picker-indicator,
-  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-    display: none;
-  }
-
-.product-show-container
-  .product-container
-  .right-product-container
-  .choices
-  .date-choice
   input[type="date"]::-webkit-calendar-picker-indicator,
   input[type="time"]::-webkit-calendar-picker-indicator,
   input[type="datetime-local"]::-webkit-calendar-picker-indicator {
@@ -2083,6 +2074,7 @@ Peoduct Section
     background-color: #052080;
     color: #fff;
     margin-left: 20px;
+    cursor: pointer;
 }
   
 
@@ -2407,6 +2399,7 @@ Peoduct Section
   padding-top: 10px;
   padding-bottom: 10px;
   color: #0d52d6;
+  cursor: pointer;
 }
 
 .product-show-container
