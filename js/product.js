@@ -16,7 +16,6 @@ getProductData();
 // display product
 async function displayDetails() {
   let product = await getProductData();
-  console.log(product);
   const activeProductName = document.getElementById("active-product-name");
   const productName = document.getElementById("product-name");
   const imageBarImages = document.getElementsByClassName("image-bar-image");
