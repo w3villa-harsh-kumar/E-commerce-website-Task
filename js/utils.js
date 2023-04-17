@@ -60,7 +60,7 @@ var sticky = navbar.offsetTop;
 function myFunction() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
-    tag1.style.display = "none";
+    tag1.style.display = "none";  
     tag2.style.display = "none";
     navbar.style.transform = "all .5s ease-in-out";
   } else {
@@ -146,5 +146,18 @@ function mobileSearch() {
   else {
     mobileSearchInput.classList.add("d-none");
     mobileSearchButton.classList.add("d-none");
+  }
+}
+
+// Make Quantity Input Number Functional
+const handleQuantityUpButton = (self) => {
+  let quantity = document.getElementById(self.parentElement.parentElement.firstElementChild.id);
+  quantity.value = parseInt(quantity.value) + 1;
+}
+
+const handleQuantityDownButton = (self) => {
+  let quantity = document.getElementById(self.parentElement.parentElement.firstElementChild.id);
+  if (quantity.value > 1) {
+    quantity.value = parseInt(quantity.value) - 1;
   }
 }

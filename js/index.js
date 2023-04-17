@@ -46,36 +46,36 @@ function isUserLoggedIn() {
 
   if (loggedUserId) {
     userLogin.innerHTML = ` <li class="list-item" style="cursor:pointer;">
-                              <a> <i class="fa-regular fa-user"></i> ${user.name}</a>
+                              <a> <i class="fa-regular fa-user"></i> <span style="font-size: 11px;">${user.name} </span></a>
                             </li>`;
     userLogout.innerHTML = ` <li class="list-item" style="cursorpointer;" onclick="handleLogout()">
-                              <a> <i class="fa-regular fa-right-from-bracket"></i> Logout</a>
+                              <a> <i class="fa-regular fa-right-from-bracket"></i> <span style="font-size: 11px;">Logout </span></a>
                             </li>`;
     mobileUserLogin.innerHTML = `
       <li class="mobile-menu-item" style="cursor:pointer;">
-        <a> <i class="fa-regular fa-user"></i>${user.name}</a>
+        <a> <i class="fa-regular fa-user"></i> <span style="font-size: 11px;">${user.name} </span></a>
       </li>
     `;
     mobileUserLogout.innerHTML = `
       <li class="mobile-menu-item" style="cursor:pointer;" onclick="handleLogout()">
-        <a> <i class="fa-regular fa-right-from-bracket"></i> Logout</a>
+        <a> <i class="fa-regular fa-right-from-bracket"></i> <span style="font-size: 11px;">Logout </span></a>
       </li>`;
   } else {
     userLogin.innerHTML = ` <li class="list-item" id="login-page" onclick="redirectToPage(this.id)">
-                              <a href="login-signup.html"> <i class="fa-regular fa-user"></i> Login</a>
+                              <a href="login-signup.html"> <i class="fa-regular fa-user"></i> <span style="font-size: 11px;">Login</span></a>
                             </li>`;
     userLogout.innerHTML = `<li class="list-item" id="register-page" onclick="redirectToPage(this.id)">
-                              <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
+                              <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> <span style="font-size: 11px;">Register</span></a>
                             </li>`;
     mobileUserLogin.innerHTML = `
       <li class="mobile-menu-item" id="login-page" onclick="redirectToPage(this.id)">
-        <a href="login-signup.html"> <i class="fa-regular fa-user"></i>Login</a>
+        <a href="login-signup.html"> <i class="fa-regular fa-user"></i><span style="font-size: 11px;">Login</span></a>
       </li>
     `;
 
     mobileUserLogout.innerHTML = `
       <li class="mobile-menu-item" id="register-page" onclick="redirectToPage(this.id)">
-        <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> Register</a>
+        <a href="login-signup.html"><i class="fa-regular fa-user-plus"></i> <span style="font-size: 11px;">Register</span></a>
       </li>
     `;
   }
