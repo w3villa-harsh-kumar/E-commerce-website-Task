@@ -622,7 +622,7 @@ Common Styles
 .header-bottom .overlay{
   position: absolute;
   top: 100%;
-  left: -80px;
+  left: -90px;
   background-color: #0000006b;
   z-index: 199;
   height: 100vh;
