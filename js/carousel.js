@@ -539,7 +539,7 @@ async function mostViewedProducts() {
       },
     },
   });
-}
+} 
 
 // Brand Carousel Function
 $(document).ready(function () {
@@ -584,22 +584,27 @@ blogs("latest-post");
 reviews();
 mostViewedProducts();
 
+// Modal Code
 var modal = document.querySelector(".modal");
 var closeButton = document.querySelector(".close-button");
 
+// toggleModal() toggles the modal on and off
 function toggleModal() {
   modal.classList.toggle("show-modal");
 }
 
+// windowOnClick() listens for a click outside of the modal and closes the modal if the user clicks outside of it
 function windowOnClick(event) {
   if (event.target === modal) {
     toggleModal();
   }
 }
 
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
-
+// Trigger Modal
 function triggerModal() {
   toggleModal();
 }
+
+// Event Listeners
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
