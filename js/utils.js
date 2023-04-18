@@ -151,6 +151,7 @@ function mobileSearch() {
 
 // Make Quantity Input Number Functional
 const handleQuantityUpButton = (self) => {
+  console.log(self.parentElement.parentElement.firstElementChild.id)
   let quantity = document.getElementById(self.parentElement.parentElement.firstElementChild.id);
   quantity.value = parseInt(quantity.value) + 1;
 }
