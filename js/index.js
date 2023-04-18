@@ -1,17 +1,3 @@
-/*
-    01) Listing all items ==> Done
-    02) Adding new items
-    03) Deleting items
-    04) Editing items
-    05) Listing item by different parameters
-    06) Searching items ==> Done
-    07) Add item to cart ==> Done
-    08) Remove item from cart ==> Done
-    09) Login ==> Done
-    10) Logout ==> Done
-    11) Register ==> Done
-*/
-
 // get add products
 async function getAllProductsData() {
   let response = await fetch("data/products.json");
