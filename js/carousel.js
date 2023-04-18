@@ -83,7 +83,11 @@ async function buyFromUs(term) {
     pagination: false,
     loop: true,
     margin: 10,
-    nav: false,
+    nav: true,
+    navText: [
+      '<div class="nav-btn prev-slide"><i class="fa-regular fa-chevron-left"></i></div>',
+      '<div class="nav-btn next-slide"><i class="fa-regular fa-chevron-right"></i></div>'
+    ],
     autoplay: true,
     responsive: {
       0: {
@@ -118,7 +122,7 @@ async function featuredProducts(term) {
     "featurred-products-category-carousel"
   );
   let html = `<div id="featurred-products-carousel-${term}" class="owl-carousel owl-theme">`;
-  filteredData.forEach((item) => {
+  filteredData.forEach((item, index) => {
     html += `
       <div class="item">
           <div class="image">
@@ -161,12 +165,12 @@ async function featuredProducts(term) {
               <div class="left">
                 <div class="quantity">
                   <div class="quantity-input">
-                    <input type="text" name="name" value="1" />
+                    <input type="number" readonly id="quantity-input-${index}" name="name" value="1" />
                     <div class="button-container">
-                      <button class="up-btn" type="button" name="button">
+                      <button class="up-btn" onclick="handleQuantityUpButton(this)" type="button" name="button">
                         <i class="fa-sharp fa-regular fa-chevron-up"></i>
                       </button>
-                      <button class="up-btn" type="button" name="button">
+                      <button class="down-btn" onclick="handleQuantityDownButton(this)" type="button" name="button">
                         <i class="fa-sharp fa-regular fa-chevron-down"></i>
                       </button>
                     </div>
@@ -177,7 +181,9 @@ async function featuredProducts(term) {
                 }" onclick="handleAddToCart(this.id)">
                   Add to cart
                 </div>
-                <div class="mobile-cart">
+                <div class="mobile-cart" id="${
+                  item.id
+                }" onclick="handleAddToCart(this.id)">
                   <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
                 </div>
               </div>
@@ -200,7 +206,7 @@ async function featuredProducts(term) {
           </div>
           <div class="gray-strip">
             <div class="buy-now"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
-            <div class="question"><i class="fa-regular fa-circle-question"></i> Question</div>
+            <div class="question" onclick="triggerModal()"><i class="fa-regular fa-circle-question"></i> Question</div>
           </div>
         </div>
       `;
@@ -211,7 +217,11 @@ async function featuredProducts(term) {
     pagination: false,
     loop: true,
     margin: 20,
-    nav: false,
+    nav: true,
+    navText: [
+      '<div class="nav-btn prev-slide"><i class="fa-regular fa-chevron-left"></i></div>',
+      '<div class="nav-btn next-slide"><i class="fa-regular fa-chevron-right"></i></div>'
+    ],
     autoplay: true,
     responsive: {
       0: {
@@ -310,7 +320,11 @@ async function fashionProducts() {
     pagination: false,
     loop: true,
     margin: 10,
-    nav: false,
+    nav: true,
+    navText: [
+      '<div class="nav-btn prev-slide"><i class="fa-regular fa-chevron-left"></i></div>',
+      '<div class="nav-btn next-slide"><i class="fa-regular fa-chevron-right"></i></div>'
+    ],
     autoplay: true,
     responsive: {
       0: {
@@ -387,7 +401,11 @@ async function blogs(term) {
     pagination: false,
     loop: true,
     margin: 20,
-    nav: false,
+    nav: true,
+    navText: [
+      '<div class="nav-btn prev-slide"><i class="fa-regular fa-chevron-left"></i></div>',
+      '<div class="nav-btn next-slide"><i class="fa-regular fa-chevron-right"></i></div>'
+    ],
     autoplay: true,
     responsive: {
       0: {
@@ -434,7 +452,11 @@ async function reviews() {
     pagination: false,
     loop: true,
     margin: 20,
-    nav: false,
+    nav: true,
+    navText: [
+      '<div class="nav-btn prev-slide"><i class="fa-regular fa-chevron-left"></i></div>',
+      '<div class="nav-btn next-slide"><i class="fa-regular fa-chevron-right"></i></div>'
+    ],
     autoplay: true,
     responsive: {
       0: {
@@ -500,7 +522,6 @@ async function mostViewedProducts() {
     pagination: false,
     loop: true,
     margin: 20,
-    nav: false,
     dots: false,
     autoplay: true,
     responsive: {
@@ -526,7 +547,11 @@ $(document).ready(function () {
     pagination: false,
     loop: true,
     margin: 20,
-    nav: false,
+    nav: true,
+    navText: [
+      '<div class="nav-btn prev-slide"><i class="fa-regular fa-chevron-left"></i></div>',
+      '<div class="nav-btn next-slide"><i class="fa-regular fa-chevron-right"></i></div>'
+    ],
     autoplay: true,
     responsive: {
       0: {
@@ -558,3 +583,23 @@ fashionProducts();
 blogs("latest-post");
 reviews();
 mostViewedProducts();
+
+var modal = document.querySelector(".modal");
+var closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+  modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+  if (event.target === modal) {
+    toggleModal();
+  }
+}
+
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+function triggerModal() {
+  toggleModal();
+}
