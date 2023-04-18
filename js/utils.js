@@ -162,3 +162,29 @@ const handleQuantityDownButton = (self) => {
     quantity.value = parseInt(quantity.value) - 1;
   }
 }
+
+
+// Modal Code
+var modal = document.querySelector(".modal");
+var closeButton = document.querySelector(".close-button");
+
+// toggleModal() toggles the modal on and off
+function toggleModal() {
+  modal.classList.toggle("show-modal");
+}
+
+// windowOnClick() listens for a click outside of the modal and closes the modal if the user clicks outside of it
+function windowOnClick(event) {
+  if (event.target === modal) {
+    toggleModal();
+  }
+}
+
+// Trigger Modal
+function triggerModal() {
+  toggleModal();
+}
+
+// Event Listeners
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);

@@ -129,6 +129,9 @@ async function featuredProducts(term) {
             <img
               src="${item.img}"
               alt="image" />
+              <div class="zoom-icon">
+        <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </div>
             <div class="green-strip product-strip" style="background-color: ${
               item?.tags?.[0]?.color || "green"
             };">
@@ -205,7 +208,9 @@ async function featuredProducts(term) {
             </div>
           </div>
           <div class="gray-strip">
-            <div class="buy-now"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
+            <div class="buy-now" id="${
+              item.id
+            }" onclick="handleAddToCart(this.id)"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
             <div class="question" onclick="triggerModal()"><i class="fa-regular fa-circle-question"></i> Question</div>
           </div>
         </div>
@@ -261,6 +266,9 @@ async function fashionProducts() {
       <div class="image">
         <img
           src=${item.img} />
+          <div class="zoom-icon">
+        <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </div>
         <div class="green-strip product-strip" style="background-color: ${
           item?.tags?.[0]?.color || "green"
         };">
@@ -583,28 +591,3 @@ fashionProducts();
 blogs("latest-post");
 reviews();
 mostViewedProducts();
-
-// Modal Code
-var modal = document.querySelector(".modal");
-var closeButton = document.querySelector(".close-button");
-
-// toggleModal() toggles the modal on and off
-function toggleModal() {
-  modal.classList.toggle("show-modal");
-}
-
-// windowOnClick() listens for a click outside of the modal and closes the modal if the user clicks outside of it
-function windowOnClick(event) {
-  if (event.target === modal) {
-    toggleModal();
-  }
-}
-
-// Trigger Modal
-function triggerModal() {
-  toggleModal();
-}
-
-// Event Listeners
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);

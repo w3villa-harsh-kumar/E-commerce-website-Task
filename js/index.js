@@ -100,6 +100,8 @@ function showActivePage(searchTerm="") {
     "wishlist-products-container"
   );
 
+  console.log(localStorage.getItem("activeContainer"))
+
   switch (localStorage.getItem("activeContainer")) {
     case "search-page":
       location.href = "./search.html?search=" + searchTerm;
