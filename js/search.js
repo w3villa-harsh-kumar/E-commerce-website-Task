@@ -104,6 +104,9 @@ function handlePagination(id = "page-1") {
       <img
         src="${item.img}"
         alt="image" />
+        <div class="zoom-icon">
+        <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </div>
       <div class="green-strip product-strip" style="background-color: ${
         item?.tags?.[0]?.color || "green"
       };">
@@ -172,15 +175,15 @@ function handlePagination(id = "page-1") {
         <div class="${type === "grid" ? "left-cont" : "left-bottom-part"}">
           <div class="quantity">
             <div class="quantity-input">
-              <input type="text" name="name" value="1" />
-              <div class="button-container">
-                <button class="up-btn" type="button" name="button">
-                  <i class="fa-sharp fa-regular fa-chevron-up"></i>
-                </button>
-                <button class="up-btn" type="button" name="button">
-                  <i class="fa-sharp fa-regular fa-chevron-down"></i>
-                </button>
-              </div>
+            <input type="number" readonly id="quantity-input-${index}" name="name" value="1" />
+            <div class="button-container">
+            <button class="up-btn" onclick="handleQuantityUpButton(this)" type="button" name="button">
+              <i class="fa-sharp fa-regular fa-chevron-up"></i>
+            </button>
+            <button class="down-btn" onclick="handleQuantityDownButton(this)" type="button" name="button">
+              <i class="fa-sharp fa-regular fa-chevron-down"></i>
+            </button>
+          </div>
             </div>
           </div>
           <div class="add-to-cart" id="${
@@ -190,8 +193,10 @@ function handlePagination(id = "page-1") {
             type === "list" ? `<i class="fa-regular fa-cart-shopping"></i>` : ""
           } Add to cart
           </div>
-          <div class="mobile-cart">
-            <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
+          <div class="mobile-cart" id="${
+            item.id
+          }" onclick="handleAddToCart(this.id)">
+            <i class="fa-regular fa-cart-shopping"></i>
           </div>
         </div>
         ${type === "grid" ? `<div class="right-cont">` : ""}
@@ -213,8 +218,10 @@ function handlePagination(id = "page-1") {
       ${
         type === "list"
           ? `<div class="gray-strip-list">
-        <div class="buy-now" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
-        <div class="question" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
+        <div class="buy-now" id="${
+          item.id
+        }" onclick="handleAddToCart(this.id)" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
+        <div class="question" onclick="triggerModal()" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
       </div>`
           : ""
       }
@@ -222,8 +229,10 @@ function handlePagination(id = "page-1") {
     ${
       type === "grid"
         ? `    <div class="gray-strip">
-      <div class="buy-now" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
-      <div class="question" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
+      <div class="buy-now" id="${
+        item.id
+      }" onclick="handleAddToCart(this.id)" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
+      <div class="question" onclick="triggerModal()" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
     </div>`
         : ""
     }
