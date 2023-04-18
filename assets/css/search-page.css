@@ -3253,7 +3253,7 @@ Most viewed Section
 .header-bottom .overlay{
   position: absolute;
   top: 100%;
-  left: -70px;
+  left: -80px;
   background-color: #0000006b;
   z-index: 199;
   height: 100vh;
