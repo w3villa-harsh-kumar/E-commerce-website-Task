@@ -234,7 +234,7 @@ async function featuredProducts(term) {
         items: 3,
       },
       1200: {
-        items: 4,
+        items: 4, 
       },
     },
   });
