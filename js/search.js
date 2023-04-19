@@ -4,7 +4,7 @@ let products = [];
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("search");
 
-function handleSearchOnSearchPage(){
+function handleSearchOnSearchPage() {
   const searchInput = document.getElementById("search-query-name-input");
   const searchQuery = searchInput.value;
   localStorage.setItem("activeContainer", "search-page");
@@ -100,7 +100,9 @@ function handlePagination(id = "page-1") {
     let type = page.viewType;
     searchItems += `
     <div class="item" index="${index}">
-    <div class="image" onclick="handleNavigation(${item?.id})" style="cursor:pointer;">
+    <div class="image" onclick="handleNavigation(${
+      item?.id
+    })" style="cursor:pointer;">
       <img
         src="${item.img}"
         alt="image" />
@@ -127,7 +129,9 @@ function handlePagination(id = "page-1") {
       type === "grid"
         ? `
       <div class="gray-strip">
-      <div class="company-name" style="cursor:pointer;">${item.company || "Apple"}</div>
+      <div class="company-name" style="cursor:pointer;">${
+        item.company || "Apple"
+      }</div>
       <div class="modal">Modal ${item?.id || 23}</div>
     </div>`
         : ""
@@ -137,13 +141,17 @@ function handlePagination(id = "page-1") {
       type === "list"
         ? `
       <div class="brand-strip">
-      <div class="brand" style="cursor:pointer;">Brand: <span>${item.company || "Apple"}</span></div>
+      <div class="brand" style="cursor:pointer;">Brand: <span>${
+        item.company || "Apple"
+      }</span></div>
       <div class="modal">Model: Product ${item?.id || 23}</div>
     </div>
     `
         : ""
     }
-      <div class="name" onclick="handleNavigation(${item?.id})" style="cursor:pointer;">
+      <div class="name" onclick="handleNavigation(${
+        item?.id
+      })" style="cursor:pointer;">
         <span>${item.name}</span>
       </div>
       ${
@@ -218,9 +226,7 @@ function handlePagination(id = "page-1") {
       ${
         type === "list"
           ? `<div class="gray-strip-list">
-        <div class="buy-now" id="${
-          item.id
-        }" onclick="handleAddToCart(this.id)" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
+        <div class="buy-now" id="${item.id}" onclick="handleAddToCart(this.id)" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
         <div class="question" onclick="triggerModal()" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
       </div>`
           : ""
@@ -229,9 +235,7 @@ function handlePagination(id = "page-1") {
     ${
       type === "grid"
         ? `    <div class="gray-strip">
-      <div class="buy-now" id="${
-        item.id
-      }" onclick="handleAddToCart(this.id)" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
+      <div class="buy-now" id="${item.id}" onclick="handleAddToCart(this.id)" style="cursor:pointer;"><i class="fa-regular fa-circle-dollar"></i> Buy Now</div>
       <div class="question" onclick="triggerModal()" style="cursor:pointer;"><i class="fa-regular fa-circle-question"></i> Question</div>
     </div>`
         : ""
@@ -298,6 +302,61 @@ function changeView(type = "grid") {
 
 showSearchResult("grid");
 
-function handleNavigation(productID){
+function handleNavigation(productID) {
   location.href = "./product.html?product_id=" + productID;
 }
+
+// Range Slider
+var $range = $(".js-range-slider"),
+  $from = $(".from"),
+  $to = $(".to"),
+  range,
+  min = $range.data("min"),
+  max = $range.data("max"),
+  from,
+  to;
+
+var updateValues = function () {
+  $from.prop("value", from);
+  $to.prop("value", to);
+};
+
+$range.ionRangeSlider({
+  onChange: function (data) {
+    from = data.from;
+    to = data.to;
+    updateValues();
+  },
+});
+
+range = $range.data("ionRangeSlider");
+var updateRange = function () {
+  range.update({
+    from: from,
+    to: to,
+  });
+};
+
+$from.on("input", function () {
+  from = +$(this).prop("value");
+  if (from < min) {
+    from = min;
+  }
+  if (from > to) {
+    from = to;
+  }
+  updateValues();
+  updateRange();
+});
+
+$to.on("input", function () {
+  to = +$(this).prop("value");
+  if (to > max) {
+    to = max;
+  }
+  if (to < from) {
+    to = from;
+  }
+  updateValues();
+  updateRange();
+});

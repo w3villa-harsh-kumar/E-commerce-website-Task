@@ -188,3 +188,74 @@ function triggerModal() {
 // Event Listeners
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+
+// Zoom in and Zoom Out Function
+function zoomIn(event) {
+  console.log("Zoom In")
+  var pre = document.getElementById("preview");
+  pre.style.visibility = "visible";
+  if ($("#zoom1").is(":hover")) {
+      var img = document.getElementById("zoom1");
+      pre.style.backgroundImage =
+          `url('${img.src}')`;
+      img.style.opacity = 0;
+  }
+  console.log(event)
+  var posX = event.offsetX;
+  var posY = event.offsetY;
+  console.log(posX, posY)
+  pre.style.backgroundPosition = -posX * 2.5 + "px " + -posY * 2.5 + "px";
+  // pre.style.backgroundRepeat = "no-repeat";
+}
+
+function zoomOut() {
+  var pre = document.getElementById("preview");
+  var img = document.getElementById("zoom1");
+  pre.style.backgroundImage = "";
+  img.style.opacity = 1;
+}
+
+// Email Subscribe
+const email = document.getElementById("email-input-container");
+const emailButton = document.getElementById("email-button");
+
+emailButton.addEventListener("click", () => {
+  const emailArray = JSON.parse(localStorage.getItem("emailArray")) || [];
+
+  // if email is already in array
+  if (emailArray.includes(email.value)) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "You have already subscribed to our newsletter!",
+    });
+    return;
+  } 
+
+  // email validation
+  if(!email.value.includes("@") || !email.value.includes(".")) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please enter a valid email address!",
+    });
+    return;
+  }
+
+  if (email.value === "") {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please enter your email address!",
+    });
+  } else {
+    emailArray.push(email.value);
+    localStorage.setItem("emailArray", JSON.stringify(emailArray));
+    Swal.fire({
+      icon: "success",
+      title: "Thank you!",
+      text: "You have successfully subscribed to our newsletter!",
+    });
+    email.value = "";
+  }
+})
