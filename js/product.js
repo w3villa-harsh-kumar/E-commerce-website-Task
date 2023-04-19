@@ -34,3 +34,11 @@ async function displayDetails() {
 }
 
 displayDetails();
+
+function addProductToCart(){
+  handleAddToCart(productID)
+}
+
+function addProductToWishlist(){
+  handleAddToWishlist(productID)
+}

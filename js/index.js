@@ -501,7 +501,7 @@ async function commonShowItems(
               item.id
             }" class="wishlist" onclick="handleAddToWishlist(this.id)">
               <li class="list-item">
-                <a href=""><i class="fa-solid fa-heart"></i></a>
+                <i class="fa-solid fa-heart"></i>
               </li>
             </div>
           </div>
@@ -539,7 +539,7 @@ async function commonShowItems(
               item.id
             }" class="wishlist" onclick="handleWishlistPagination(this.id)">
               <li class="list-item">
-                <a href=""><i class="fa-regular fa-heart"></i></a>
+                <i class="fa-regular fa-heart"></i>
               </li>
             </div>
           </div>
