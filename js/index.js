@@ -527,7 +527,8 @@ async function commonShowItems(
           </div>
         </div>
         <div class="bottom flex-between-center">
-          <div class="bottom-left">
+          ${
+            type === "cart" ? `<div class="bottom-left">
             <div class="add-to-cart" id="${
               product.id
             }" onclick="handleRemoveFromCart(this.id)">
@@ -542,7 +543,24 @@ async function commonShowItems(
                 <a href=""><i class="fa-regular fa-heart"></i></a>
               </li>
             </div>
+          </div>`
+            : `<div class="bottom-left">
+            <div class="remove-from-wishlist add-to-cart" id="${
+              product.id
+            }" onclick="handleRemoveFromWishlist(this.id)">
+              Remove from wishlist
+            </div>
           </div>
+          <div class="bottom-right" title="Add to Cart">
+            <div id="${
+              item.id
+            }" class="add-to-cart" onclick="handleAddToCartPagination(this.id)">
+              <li class="list-item">
+                <a href=""><i class="fa-solid fa-cart-plus"></i></a>
+              </li>
+            </div>
+          </div>`
+          }
         </div>
       </div>
     </div>`;

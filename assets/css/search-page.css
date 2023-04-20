@@ -1460,7 +1460,7 @@ Search Show Container Section
   cursor: pointer;
 }
 
-.search-bottom .left .top-container .close-button i {
+.search-bottom .left .top-container .clear-button i {
   display: flex;
   justify-content: center;
   align-items: center;

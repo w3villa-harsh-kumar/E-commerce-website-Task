@@ -295,9 +295,9 @@ function changeView(type = "grid") {
   }
   showSearchResult(type);
 }
-
 showSearchResult("grid");
 
+// Redirect to Product Page
 function handleNavigation(productID){
   location.href = "./product.html?product_id=" + productID;
 }
