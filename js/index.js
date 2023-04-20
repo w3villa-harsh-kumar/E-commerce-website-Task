@@ -335,6 +335,8 @@ function handleWishlistRightpagination(totalPages) {
 
 /* Handle Remove form Wishlist */
 function handleRemoveFromWishlist(id) {
+  console.log("remove");
+  console.log(id);
   commonRemoveItems(id, "wishlist", handleWishlistPagination);
 }
 
@@ -458,12 +460,12 @@ async function commonShowItems(
   itemsContainer.classList.remove("d-none");
   allItemsContainer.style.marginTop = "16px";
   allItemsContainer.style.marginBottom = "16px";
-  if (type === "all-products" || type === "search") {
-    Array.from(page.pageProduct).forEach((item) => {
+  if (type === "all-products") {
+    page.pageProduct.forEach((item) => {
       itemsItems += `
     <div class="item">
       <div class="image">
-        <img src=${item.img} />
+        <img src=${item?.img} />
         <div class="green-strip product-strip" style="background-color: ${
           item?.tags?.[0]?.color || "green"
         };">
@@ -481,27 +483,27 @@ async function commonShowItems(
       </div>
       <div class="details">
         <div class="name">
-          <span>${item.name}</span>
+          <span>${item?.name}</span>
         </div>
         <div class="price">
           <div class="current">
-            <span>$ ${item.price || item.actualPrice || 200}</span>
+            <span>$ ${item?.price || item?.actualPrice || 200}</span>
           </div>
         </div>
         <div class="bottom flex-between-center">
           <div class="bottom-left">
             <div class="add-to-cart" id="${
-              item.id
+              item?.id
             }" onclick="handleAddToCart(this.id)">
               Add to cart
             </div>
           </div>
           <div class="bottom-right" title="Add to favourite">
             <div id="${
-              item.id
+              item?.id
             }" class="wishlist" onclick="handleAddToWishlist(this.id)">
               <li class="list-item">
-                <a href=""><i class="fa-solid fa-heart"></i></a>
+                <i class="fa-solid fa-heart"></i>
               </li>
             </div>
           </div>
@@ -510,53 +512,56 @@ async function commonShowItems(
     </div>`;
     });
   } else if (type === "cart" || type === "wishlist") {
-    Array.from(page.pageProduct).forEach((item) => {
+    page.pageProduct.forEach((item) => {
       let product = products.find((product) => product.id == item);
+      console.log(product);
       itemsItems += `
     <div class="item">
       <div class="image">
-        <img src=${product.img} />
+        <img src=${product?.img} />
       </div>
       <div class="details">
         <div class="name">
-          <span>${product.name}</span>
+          <span>${product?.name}</span>
         </div>
         <div class="price">
           <div class="current">
-            <span>$ ${product.price || product.actualPrice}</span>
+            <span>$ ${product?.price || product?.actualPrice}</span>
           </div>
         </div>
         <div class="bottom flex-between-center">
           ${
-            type === "cart" ? `<div class="bottom-left">
+            type === "cart" ? `
+            <div class="bottom-left">
             <div class="add-to-cart" id="${
-              product.id
+              product?.id
             }" onclick="handleRemoveFromCart(this.id)">
               Remove from cart
             </div>
           </div>
           <div class="bottom-right" title="Add to favourite">
             <div id="${
-              item.id
+              item?.id
             }" class="wishlist" onclick="handleWishlistPagination(this.id)">
               <li class="list-item">
-                <a href=""><i class="fa-regular fa-heart"></i></a>
+                <i class="fa-regular fa-heart"></i>
               </li>
             </div>
           </div>`
-            : `<div class="bottom-left">
+            : `
+            <div class="bottom-left">
             <div class="remove-from-wishlist add-to-cart" id="${
-              product.id
+              product?.id
             }" onclick="handleRemoveFromWishlist(this.id)">
               Remove from wishlist
             </div>
           </div>
-          <div class="bottom-right" title="Add to Cart">
+          <div class="bottom-right" title="Add to cart">
             <div id="${
-              item.id
-            }" class="add-to-cart" onclick="handleAddToCartPagination(this.id)">
+              item?.id
+            }" class="cart wishlist" onclick="handleCartPagination(this.id)">
               <li class="list-item">
-                <a href=""><i class="fa-solid fa-cart-plus"></i></a>
+                <i class="fa-solid fa-shopping-cart"></i>
               </li>
             </div>
           </div>`
@@ -574,6 +579,7 @@ async function commonShowItems(
   activePgae.classList.add("active");
 
   let mainContainer = document.getElementById("main-container");
+  console.log(mainContainer);
   mainContainer.style.display = "none";
   showActivePage();
 }
@@ -598,23 +604,23 @@ async function commonPagination(
   let pages;
   switch (type) {
     case "all-products":
-      pages = Math.ceil(allProductsData.length / 6);
+      pages = Math.ceil(allProductsData.length / 8);
       break;
 
     case "cart":
       let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-      pages = Math.ceil(cartItems.length / 6);
+      pages = Math.ceil(cartItems.length / 8);
       break;
 
     case "wishlist":
       let wishlistItems =
         JSON.parse(localStorage.getItem("wishlistItems")) || [];
-      pages = Math.ceil(wishlistItems.length / 6);
+      pages = Math.ceil(wishlistItems.length / 8);
       break;
 
     case "search":
       let searchItems = JSON.parse(localStorage.getItem("searchItems")) || [];
-      pages = Math.ceil(searchItems.length / 6);
+      pages = Math.ceil(searchItems.length / 8);
       break;
   }
 
@@ -626,7 +632,7 @@ async function commonPagination(
       case "all-products":
         paginationProducts = {
           page: i,
-          pageProduct: allProductsData.slice(i * 6 - 6, i * 6),
+          pageProduct: allProductsData.slice(i * 8 - 8, i * 8),
         };
         break;
 
@@ -634,7 +640,7 @@ async function commonPagination(
         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         paginationProducts = {
           page: i,
-          pageProduct: cartItems.slice(i * 6 - 6, i * 6),
+          pageProduct: cartItems.slice(i * 8 - 8, i * 8),
         };
         break;
 
@@ -643,7 +649,7 @@ async function commonPagination(
           JSON.parse(localStorage.getItem("wishlistItems")) || [];
         paginationProducts = {
           page: i,
-          pageProduct: wishlistItems.slice(i * 6 - 6, i * 6),
+          pageProduct: wishlistItems.slice(i * 8 - 8, i * 8),
         };
         break;
 
@@ -651,7 +657,7 @@ async function commonPagination(
         let searchItems = JSON.parse(localStorage.getItem("searchItems")) || [];
         paginationProducts = {
           page: i,
-          pageProduct: searchItems.slice(i * 6 - 6, i * 6),
+          pageProduct: searchItems.slice(i * 8 - 8, i * 8),
         };
         break;
     }
